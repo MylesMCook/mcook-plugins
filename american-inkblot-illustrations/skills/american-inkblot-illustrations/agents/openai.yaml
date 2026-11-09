@@ -1,0 +1,4 @@
+interface:
+  display_name: "American Inkblot Illustrations"
+  short_description: "Create sparse Inkblot art and system portraits"
+  default_prompt: "Use $american-inkblot-illustrations to make one sparse Inkblot-first illustration with no labels unless needed."

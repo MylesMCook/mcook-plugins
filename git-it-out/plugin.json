@@ -1,0 +1,41 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "git-it-out",
+  "version": "0.1.1",
+  "description": "Complete verified repository closeout through the real final landing surface.",
+  "author": {
+    "name": "Myles Cook",
+    "url": "https://github.com/MylesMCook"
+  },
+  "homepage": "https://github.com/MylesMCook/mcook-plugins/tree/main/git-it-out",
+  "repository": "https://github.com/MylesMCook/mcook-plugins",
+  "license": "MIT",
+  "keywords": [
+    "git",
+    "closeout",
+    "release",
+    "deployment",
+    "mainline"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Git It Out",
+        "shortDescription": "Finish verified repository closeout end to end.",
+        "longDescription": "Owns the last mile after implementation is substantially complete: inspect the repository's real finish line, run its required gates, create proper commits, land and push mainline, complete configured release, deployment, tracker, checkpoint, and cleanup steps, and report any hard blocker honestly.",
+        "developerName": "Myles Cook",
+        "category": "Developer Tools",
+        "capabilities": [
+          "Read",
+          "Write"
+        ],
+        "websiteURL": "https://github.com/MylesMCook/mcook-plugins/tree/main/git-it-out",
+        "defaultPrompt": [
+          "Git it out: verify this work, land it on main, push it, and complete the repo's normal closeout.",
+          "Finish this session end to end and stop only for a real approval, credential, or production gate.",
+          "Take this off my plate and leave the repository landed, pushed, clean, and clearly handed off."
+        ]
+      }
+    }
+  }
+}

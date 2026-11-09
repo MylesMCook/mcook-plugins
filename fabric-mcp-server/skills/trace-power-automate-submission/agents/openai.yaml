@@ -1,0 +1,11 @@
+interface:
+  display_name: "Trace Power Automate Submission"
+  short_description: "Trace one workflow submission safely"
+  default_prompt: "Use $trace-power-automate-submission to trace this exact key without changing or retrying anything."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "microsoft_fabric"
+      description: "Bundled Microsoft Fabric, Power BI, and Power Automate MCP server"
+      transport: "stdio"

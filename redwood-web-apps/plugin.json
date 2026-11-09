@@ -1,0 +1,42 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "redwood-web-apps",
+  "version": "0.1.0",
+  "description": "Build and verify RedwoodSDK React applications on Cloudflare using current official documentation.",
+  "author": {
+    "name": "Myles Cook",
+    "url": "https://github.com/MylesMCook"
+  },
+  "homepage": "https://github.com/MylesMCook/mcook-plugins/tree/main/redwood-web-apps",
+  "repository": "https://github.com/MylesMCook/mcook-plugins",
+  "license": "MIT",
+  "keywords": [
+    "redwoodsdk",
+    "rwsdk",
+    "react",
+    "cloudflare",
+    "server-components",
+    "developer-tools"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "RedwoodSDK Web Apps",
+        "shortDescription": "Build RedwoodSDK apps from current docs.",
+        "longDescription": "A docs-first workflow for evaluating, building, debugging, and verifying RedwoodSDK applications, with explicit server/client boundaries, Cloudflare runtime checks, and version-aware API research.",
+        "developerName": "Myles Cook",
+        "category": "Developer Tools",
+        "capabilities": [
+          "Read",
+          "Write"
+        ],
+        "websiteURL": "https://github.com/MylesMCook/mcook-plugins/tree/main/redwood-web-apps",
+        "defaultPrompt": [
+          "Evaluate whether RedwoodSDK fits this application and hosting target.",
+          "Build this RedwoodSDK feature using the current official docs and verify the user path.",
+          "Debug this RedwoodSDK server action against the installed version."
+        ]
+      }
+    }
+  }
+}

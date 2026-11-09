@@ -1,0 +1,4 @@
+interface:
+  display_name: "Web App Testing"
+  short_description: "Verify web apps with Playwright CLI."
+  default_prompt: "Use $webapp-testing to inspect this local web app with Playwright CLI and add a repository-native regression when needed."

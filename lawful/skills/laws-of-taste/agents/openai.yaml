@@ -1,0 +1,4 @@
+interface:
+  display_name: "Laws of Taste"
+  short_description: "Improve visual work with practical design laws."
+  default_prompt: "Use $laws-of-taste to critique this visual surface and recommend the strongest few changes."

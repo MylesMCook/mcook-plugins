@@ -1,0 +1,175 @@
+{
+  "status": "verified-release-candidate",
+  "updatedAt": "2026-10-10T23:55:06.948Z",
+  "target": {
+    "layout": "app React 19 / Vite 8 / StyleX 0.19.1 / pnpm; app/native Wails v3 beta28",
+    "macOSBaseline": "5b1cf27c8b96fa5c4791a6583caf697648161448",
+    "windowsBaseline": "Same 5b1cf27c archive; isolated Git snapshot 7c60ca9414aab28d892f72809d667c7e8e3a6930"
+  },
+  "macOS": {
+    "node": {
+      "tests": 36,
+      "passed": 31,
+      "skipped": 5,
+      "failed": 0
+    },
+    "native": {
+      "platform": "macOS",
+      "burfBaseline": "5b1cf27c8b96fa5c4791a6583caf697648161448",
+      "scope": "isolated Burf; native API-driven checks; no human pointer/keyboard acceptance",
+      "nativeMainAndOverlay": true,
+      "frontendReadyWaitMilliseconds": 27,
+      "inspectorRequiresToken": true,
+      "nativeAnnotationCreated": true,
+      "agentReceivesExactAnnotation": true,
+      "hotReloadMilliseconds": 215,
+      "annotationSurvivesHotReload": true,
+      "agentResolutionPersists": true,
+      "rawNativePaneIsolation": true
+    },
+    "release": {
+      "platform": "darwin",
+      "mode": "feedback",
+      "command": "build",
+      "inheritedWAILS_FEEDBACK": "1",
+      "assetFiles": 546,
+      "forbiddenMarkers": [
+        "agentation-toolbar",
+        "wails-native-feedback",
+        "nativefeedback.Service.Configuration",
+        "AgentationOverlay",
+        "requestNativeCSSUpdate"
+      ],
+      "markerHits": 0,
+      "nativeBuildTags": "dev,wailsfeedback,production",
+      "forbiddenNativeSymbols": 0,
+      "typecheckAndBuildPassed": true
+    },
+    "go": "Enabled bridge/transport and production-disabled tests pass; linker warns about SDK minimum OS target"
+  },
+  "windows": {
+    "node": {
+      "tests": 36,
+      "passed": 35,
+      "skipped": 1,
+      "failed": 0
+    },
+    "desktop": "mc-pc Windows 11 Pro, ordinary Interactive Limited desktop, WebView2 154.0.4258.62",
+    "native": {
+      "platform": "Windows",
+      "burfBaseline": "7c60ca9414aab28d892f72809d667c7e8e3a6930",
+      "scope": "isolated Burf; native API-driven checks; no human pointer/keyboard acceptance",
+      "nativeMainAndOverlay": true,
+      "frontendReadyWaitMilliseconds": 24,
+      "inspectorRequiresToken": true,
+      "nativeAnnotationCreated": true,
+      "agentReceivesExactAnnotation": true,
+      "hotReloadMilliseconds": 1207,
+      "annotationSurvivesHotReload": true,
+      "agentResolutionPersists": true,
+      "rawNativePaneIsolation": true
+    },
+    "human": {
+      "platform": "Windows",
+      "humanSubmittedThroughNativeToolbar": true,
+      "receivedThroughAgentationMCP": true,
+      "annotationId": "mv2ytjop-f4y9iz",
+      "commentRetained": false,
+      "observedAt": "2026-10-10T22:33:05.835Z"
+    },
+    "release": {
+      "platform": "win32",
+      "mode": "feedback",
+      "command": "build",
+      "inheritedWAILS_FEEDBACK": "1",
+      "assetFiles": 546,
+      "forbiddenMarkers": [
+        "agentation-toolbar",
+        "wails-native-feedback",
+        "nativefeedback.Service.Configuration",
+        "AgentationOverlay",
+        "requestNativeCSSUpdate"
+      ],
+      "markerHits": 0,
+      "nativeBuildTags": "dev,wailsfeedback,production",
+      "forbiddenNativeSymbols": 0,
+      "typecheckAndBuildPassed": true
+    },
+    "go": "Actual enabled bridge/transport, production-disabled checks and native build passed",
+    "processes": "Actual private owner/SYSTEM ACL, bounded cmd launch, child/parent-death Job cleanup tests pass",
+    "icons": {
+      "iconNames": 2121,
+      "uncommonAndNormalizedIconsMatchPinnedSource": true
+    }
+  },
+  "setup": {
+    "ownedIntegrationFiles": 27,
+    "actualInstall": true,
+    "actualRerunNoChanges": true,
+    "actualUndo": true,
+    "privateStateUndoProtection": "Synthetic Git check-ignore regression on both platforms; private bytes retained, active lock blocks setup/undo",
+    "failureRecovery": "Failed rename cleans only owned temp; pre-existing temp preserved; resolver/conflict changes nothing",
+    "nonReact": "Vue/Svelte/vanilla detected and refused before edits",
+    "startupRegression": "35-case suite includes cold readiness, preparation failure, inactive release toggle, original HTML preservation, active-lock/privacy-safe undo and malformed receipt layout checks"
+  },
+  "parity": {
+    "canonicalKitFiles": 33,
+    "allCanonicalBytesMatch": true,
+    "generatedReceiptParity": true,
+    "macOSOwnedIntegrationFiles": 27,
+    "windowsOwnedIntegrationFiles": 27,
+    "scope": "Canonical kit and recorded generated integration; no private run state or remote diagnostic/cache files",
+    "installerFollowup": "Only installer/wiring/tests changed after native proof; regenerated LF application source remains byte-identical. Release candidate kit compared separately."
+  },
+  "conformance": {
+    "agentPlugins": "1.0.0 portable package and OpenAI overlay: zero warnings",
+    "nativeOnlyException": false,
+    "skillValidation": true,
+    "disposableCodexIngestion": "Both portable-only and OpenAI-overlay installs discover one skill, no hooks/server, with installed-file byte parity; no model activation",
+    "installerFollowup": "0.2.1 adds LF/CRLF-preserving insertion/private ignore regression; Windows CI ACL fixture resolves TEMP spelling without changing the production symlink/ACL guard"
+  },
+  "cleanup": {
+    "macOS": "Owned test app and runtime closed; private session and run lock removed",
+    "windows": "Owned app/runner processes stopped, session/run lock removed, temporary Scheduled Task unregistered; installed Burf untouched"
+  },
+  "commands": [
+    "WAILS_FEEDBACK_TEST_APP=<app> node --test <kit>/tests/*.test.mjs",
+    "go test -tags dev,wailsfeedback ./internal/nativefeedback ./internal/nativefeedback/transport",
+    "go test -tags dev,wailsfeedback,production ./internal/nativefeedback",
+    "WAILS_FEEDBACK=1 pnpm build --mode feedback",
+    "go build -tags dev,wailsfeedback,production -o <isolated-output> .",
+    "Native authenticated Wails js_eval and Agentation MCP assertions; synthetic exact annotation plus separately verified human comment",
+    "Portable validator + quick_validate + two disposable supported Codex installations"
+  ],
+  "limits": [
+    "Publication authorized by explicit Git It Out; online CI and marketplace receipts recorded separately",
+    "Vue/Svelte/vanilla adapters deferred; no frontend migration",
+    "Old macOS/Windows versions not tested; macOS linker minimum-target warnings remain upstream/platform compatibility gap",
+    "Human toolbar/comment proof is Windows only; macOS feedback flow verified through actual native APIs",
+    "StyleX adapter accepts reviewed full runtime shape; unrecognized runtime shapes fail explicitly",
+    "Cold dependency preparation is visible before native launch; measured full command time remains 24-26s on mc-pc",
+    "Windows human toolbar proof belongs to the earlier prototype profile; current baseline is verified through native APIs without retaining its comment"
+  ],
+  "startup": {
+    "originalWindowsFrontendWaitMs": 54553,
+    "windowsColdDependencies": {
+      "newNativeProfile": true,
+      "frontendReadyMs": 14474,
+      "commandToReadyMs": 26358
+    },
+    "windowsRetainedDependencies": {
+      "newNativeProfile": true,
+      "frontendReadyMs": 4733,
+      "commandToReadyMs": 24180
+    },
+    "macOSFrontendReadyMs": 55261,
+    "changes": [
+      "Reuse Vite lock/config-versioned cache; remove unconditional --force",
+      "Burf development icon grouping preserves all names/dynamic SVG data",
+      "Transform startup modules before native launch; keep HTML processing normal",
+      "Status-only development readiness; Go build overlaps frontend preparation",
+      "Consume readiness responses and allow 5s per frontend request to avoid abort churn"
+    ],
+    "scope": "Actual development apps on both platforms; first cold compilation remains part of total command time"
+  }
+}

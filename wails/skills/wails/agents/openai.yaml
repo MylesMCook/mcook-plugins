@@ -1,0 +1,4 @@
+interface:
+  display_name: "Wails"
+  short_description: "Build Wails apps and watch native feedback."
+  default_prompt: "Use $wails to implement this change, set up native feedback, or watch and fix my native feedback as comments arrive."

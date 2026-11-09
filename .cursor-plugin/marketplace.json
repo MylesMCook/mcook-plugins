@@ -1,0 +1,115 @@
+{
+  "name": "mcook-plugins-local",
+  "owner": {
+    "name": "Myles Cook"
+  },
+  "metadata": {
+    "description": "Portable developer-tool plugins for Myles Cook's team"
+  },
+  "plugins": [
+    {
+      "name": "thermos",
+      "source": "./thermos"
+    },
+    {
+      "name": "cli-for-agent",
+      "source": "./cli-for-agent"
+    },
+    {
+      "name": "goalie",
+      "source": "./goalie"
+    },
+    {
+      "name": "trmnl-plugin-builder",
+      "source": "./trmnl-plugin-builder"
+    },
+    {
+      "name": "mcook-plugin-builder",
+      "source": "./mcook-plugin-builder"
+    },
+    {
+      "name": "grist-data-logs",
+      "source": "./grist-data-logs"
+    },
+    {
+      "name": "orchestrate",
+      "source": "./orchestrate"
+    },
+    {
+      "name": "task-naming",
+      "source": "./task-naming"
+    },
+    {
+      "name": "american-inkblot-illustrations",
+      "source": "./american-inkblot-illustrations"
+    },
+    {
+      "name": "writer",
+      "source": "./writer"
+    },
+    {
+      "name": "fabric-mcp-server",
+      "source": "./fabric-mcp-server"
+    },
+    {
+      "name": "hono-web-apps",
+      "source": "./hono-web-apps"
+    },
+    {
+      "name": "bug-reporter",
+      "source": "./bug-reporter"
+    },
+    {
+      "name": "frontend-react",
+      "source": "./frontend-react"
+    },
+    {
+      "name": "git-it-out",
+      "source": "./git-it-out"
+    },
+    {
+      "name": "lawful",
+      "source": "./lawful"
+    },
+    {
+      "name": "personal-firecrawl",
+      "source": "./personal-firecrawl"
+    },
+    {
+      "name": "mcp-server-dev",
+      "source": "./mcp-server-dev"
+    },
+    {
+      "name": "buzz-xyz",
+      "source": "./buzz-xyz"
+    },
+    {
+      "name": "product-wrangler",
+      "source": "./product-wrangler"
+    },
+    {
+      "name": "redwood-web-apps",
+      "source": "./redwood-web-apps"
+    },
+    {
+      "name": "code-comments",
+      "source": "./code-comments"
+    },
+    {
+      "name": "assistant-ui",
+      "source": "./assistant-ui"
+    },
+    {
+      "name": "tailscale",
+      "source": "./tailscale"
+    },
+    {
+      "name": "wails",
+      "source": "./wails"
+    },
+    {
+      "name": "act",
+      "source": "./act"
+    }
+  ]
+}

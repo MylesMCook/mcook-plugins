@@ -1,0 +1,37 @@
+{
+  "name": "tailscale",
+  "version": "0.1.0",
+  "description": "Explain, configure, and troubleshoot Tailscale using its upstream skill, focused references, and current official documentation.",
+  "author": {
+    "name": "Myles Cook",
+    "url": "https://github.com/MylesMCook"
+  },
+  "homepage": "https://github.com/MylesMCook/mcook-plugins/tree/main/tailscale",
+  "repository": "https://github.com/MylesMCook/mcook-plugins",
+  "license": "BSD-3-Clause",
+  "keywords": [
+    "tailscale",
+    "tailnet",
+    "vpn",
+    "networking",
+    "tsnet",
+    "agent-skills"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Tailscale",
+    "shortDescription": "Configure and troubleshoot Tailscale.",
+    "longDescription": "One adapted Tailscale upstream skill with 17 focused references covering tailnet networking, access controls, containers, device management, Aperture, and tsnet. Uses current documentation and local CLI help before applying authorized changes.",
+    "developerName": "Myles Cook",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/MylesMCook/mcook-plugins/tree/main/tailscale",
+    "defaultPrompt": [
+      "Use $tailscale to diagnose my tailnet connectivity.",
+      "Use $tailscale to plan a subnet router with a rollback path."
+    ]
+  }
+}

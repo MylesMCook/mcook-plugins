@@ -1,0 +1,4 @@
+interface:
+  display_name: "Build MCP Server"
+  short_description: "Build and release portable Go-first MCP servers"
+  default_prompt: "Use $build-mcp-server to inspect this repository, choose the smallest portable MCP architecture, implement it, and validate every compatibility claim."

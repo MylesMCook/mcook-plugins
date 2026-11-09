@@ -1,0 +1,7 @@
+interface:
+  display_name: "Laws of Software"
+  short_description: "Architectural review for software work"
+  default_prompt: "Use $laws-of-software-los to review an architecture decision with explicit tradeoffs, the smallest reversible choice, and validation."
+
+policy:
+  allow_implicit_invocation: true

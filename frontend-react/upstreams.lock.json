@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "upstreams": [
+    {
+      "name": "vercel-labs-agent-skills",
+      "repository": "https://github.com/vercel-labs/agent-skills",
+      "ref": "main",
+      "commit": "20e89cc4bb256eb7b1fcbdc68f7175284709a847",
+      "skills": [
+        {
+          "source": "skills/react-best-practices",
+          "destination": "skills/vercel-react-best-practices"
+        },
+        {
+          "source": "skills/composition-patterns",
+          "destination": "skills/vercel-composition-patterns"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-ui",
+      "repository": "https://github.com/shadcn-ui/ui",
+      "ref": "main",
+      "commit": "683a5a9b370acdb7785a0529434e6a3b8c7e0441",
+      "skills": [
+        {
+          "source": "skills/shadcn",
+          "destination": "skills/shadcn"
+        }
+      ]
+    },
+    {
+      "name": "anthropic-skills",
+      "repository": "https://github.com/anthropics/skills",
+      "ref": "main",
+      "commit": "3b3fad96af16a10759d930941b4520ba0c40edae",
+      "skills": [
+        {
+          "source": "skills/webapp-testing",
+          "destination": "skills/webapp-testing"
+        }
+      ]
+    },
+    {
+      "name": "wshobson-agents",
+      "repository": "https://github.com/wshobson/agents",
+      "ref": "main",
+      "commit": "38e19c20d2b154510b0e624a2e3e186b19b5c527",
+      "skills": [
+        {
+          "source": "plugins/javascript-typescript/skills/typescript-advanced-types",
+          "destination": "skills/typescript-advanced-types"
+        }
+      ]
+    },
+    {
+      "name": "ui-skills",
+      "repository": "https://github.com/ibelick/ui-skills",
+      "ref": "main",
+      "commit": "fd0889bdf72aee45c32028b4643b09735d5b5a34",
+      "skills": [
+        {
+          "source": "skills/fixing-accessibility",
+          "destination": "skills/fixing-accessibility"
+        },
+        {
+          "source": "skills/fixing-motion-performance",
+          "destination": "skills/fixing-motion-performance"
+        },
+        {
+          "source": "skills/fixing-metadata",
+          "destination": "skills/fixing-metadata"
+        }
+      ]
+    }
+  ]
+}

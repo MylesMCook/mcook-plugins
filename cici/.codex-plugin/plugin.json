@@ -1,0 +1,42 @@
+{
+  "name": "cici",
+  "version": "0.1.1",
+  "description": "Use local Claude Code CLI from Codex.",
+  "author": {
+    "name": "Myles Cook",
+    "url": "https://github.com/MylesMCook"
+  },
+  "homepage": "https://github.com/MylesMCook/mcook-plugins/tree/main/cici",
+  "repository": "https://github.com/MylesMCook/mcook-plugins",
+  "license": "Apache-2.0",
+  "keywords": [
+    "claude",
+    "claude-code",
+    "codex",
+    "cli",
+    "review"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Cici",
+    "shortDescription": "Use Claude Code CLI from Codex",
+    "longDescription": "Run local Claude Code CLI setup checks, asks, read-only reviews, and fix planning while Codex keeps control.",
+    "developerName": "Myles Cook",
+    "category": "Coding",
+    "capabilities": [
+      "Interactive"
+    ],
+    "websiteURL": "https://github.com/MylesMCook/mcook-plugins/tree/main/cici",
+    "privacyPolicyURL": "https://github.com/MylesMCook/mcook-plugins",
+    "termsOfServiceURL": "https://github.com/MylesMCook/mcook-plugins",
+    "defaultPrompt": [
+      "Review this diff with Claude Code.",
+      "Ask Claude Code for a second opinion.",
+      "Get a Claude Code fix plan."
+    ],
+    "brandColor": "#6D5BD0",
+    "composerIcon": "./assets/icon.svg",
+    "logo": "./assets/icon.svg",
+    "screenshots": []
+  }
+}

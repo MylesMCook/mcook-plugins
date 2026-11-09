@@ -1,0 +1,7 @@
+interface:
+  display_name: "Laws of UX"
+  short_description: "Law-grounded UI/UX critique"
+  default_prompt: "Use $laws-of-ux-lou for Laws of UX critique: select the 2-4 most relevant laws, apply them to the artifact, and return concrete law-grounded recommendations."
+
+policy:
+  allow_implicit_invocation: true

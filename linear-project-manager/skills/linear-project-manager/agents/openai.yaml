@@ -1,0 +1,11 @@
+interface:
+  display_name: "Linear Project Manager"
+  short_description: "Track development outcomes and evidence in Linear"
+  default_prompt: "Use $linear-project-manager to reconcile this task with Linear."
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "linear"
+      description: "Official Linear remote MCP"
+      transport: "streamable_http"
+      url: "https://mcp.linear.app/mcp"

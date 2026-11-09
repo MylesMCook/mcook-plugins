@@ -1,0 +1,29 @@
+{
+  "name": "frontend-react-dialog-eval",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc --noEmit && vite build",
+    "test": "playwright test",
+    "preview": "vite preview --host 127.0.0.1 --port 4183 --strictPort",
+    "lint": "eslint src"
+  },
+  "dependencies": {
+    "@base-ui/react": "1.8.0",
+    "@stylexjs/stylex": "0.19.0",
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.63.0",
+    "@stylexjs/eslint-plugin": "0.19.0",
+    "@stylexjs/unplugin": "0.19.0",
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.7",
+    "@typescript-eslint/parser": "8.70.0",
+    "@vitejs/plugin-react": "6.1.1",
+    "eslint": "9.39.5",
+    "typescript": "6.0.3",
+    "vite": "8.2.2"
+  }
+}

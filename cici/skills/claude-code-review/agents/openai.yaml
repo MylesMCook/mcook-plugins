@@ -1,0 +1,4 @@
+interface:
+  display_name: "Cici: Review"
+  short_description: "Read-only reviews through Claude Code"
+  default_prompt: "Use $cici:claude-code-review to get a read-only second opinion on this task."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "TRMNL Operations Companion"
+  short_description: "Safely plan and operate Myles's TRMNL stack."
+  default_prompt: "Use $trmnl-plugin-builder with TRMNL's official skill to plan this TRMNL data path or rollout safely."

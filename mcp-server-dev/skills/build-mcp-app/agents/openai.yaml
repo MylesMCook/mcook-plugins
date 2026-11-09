@@ -1,0 +1,4 @@
+interface:
+  display_name: Build MCP App
+  short_description: Add portable TypeScript UI to an MCP server
+  default_prompt: Use $build-mcp-app to add a standards-first MCP App UI to this server while preserving a useful tool-only path and keeping ChatGPT-specific behavior optional.

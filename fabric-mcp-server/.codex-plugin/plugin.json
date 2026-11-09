@@ -1,0 +1,38 @@
+{
+  "name": "fabric-mcp-server",
+  "version": "1.10.1",
+  "description": "Operate Microsoft Fabric, Power BI, and Power Automate through a native portable MCP server.",
+  "author": {
+    "name": "Myles Cook",
+    "url": "https://github.com/MylesMCook"
+  },
+  "homepage": "https://github.com/MylesMCook/fabric-mcp",
+  "repository": "https://github.com/MylesMCook/fabric-mcp",
+  "license": "ISC",
+  "keywords": [
+    "agent-plugins",
+    "microsoft-fabric",
+    "mcp",
+    "power-automate",
+    "power-bi"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Microsoft Fabric MCP",
+    "shortDescription": "Operate Fabric, Power BI, and Power Automate.",
+    "longDescription": "Inspect and operate Microsoft Fabric, Power BI, and Power Automate with a native MCP 2026-07-28 server and a guarded operator workflow.",
+    "developerName": "Myles Cook",
+    "category": "Data & Analytics",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/MylesMCook/fabric-mcp",
+    "defaultPrompt": [
+      "Check my Fabric setup and summarize what is available.",
+      "Inspect this Fabric workspace and flag failures.",
+      "Diagnose this Power Automate flow without changing it."
+    ],
+    "brandColor": "#742774"
+  }
+}

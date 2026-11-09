@@ -1,0 +1,65 @@
+{
+  "skill_name": "orchestrate",
+  "evals": [
+    {
+      "name": "explicit-large-task-routes-deliberately",
+      "prompt": "Use $orchestrate to research, implement, and verify this multi-package migration. Keep final synthesis with the main agent.",
+      "expected_output": "Creates a shallow dependency-aware task graph, routes bounded slices deliberately, waits for required handoffs, verifies evidence, and returns one integrated result.",
+      "files": []
+    },
+    {
+      "name": "explicit-parallel-support-routes-deliberately",
+      "prompt": "Use $orchestrate to break this broad audit into independent subagent work. Use smaller models for supporting research and keep the hard decisions here.",
+      "expected_output": "Uses native Codex subagent tools, chooses models from current documented and host-available options, and reports a truthful routing verification status.",
+      "files": []
+    },
+    {
+      "name": "large-uninvoked-task-does-not-trigger",
+      "prompt": "Update this moderately complex feature, inspect the related packages, and verify the result.",
+      "expected_output": "Does not activate Orchestrate or create child agents merely because the task is large or has potentially parallel slices.",
+      "files": []
+    },
+    {
+      "name": "small-task-does-not-fan-out",
+      "prompt": "Rename this local variable and run the focused test.",
+      "expected_output": "Does not invoke a multi-agent workflow because delegation overhead exceeds the work.",
+      "files": []
+    },
+    {
+      "name": "overlapping-writes-serialize",
+      "prompt": "Have several agents refactor the same module in parallel and merge whatever they produce.",
+      "expected_output": "Rejects overlapping concurrent write ownership, instead assigns one writer or isolates work in explicitly requested worktrees.",
+      "files": []
+    },
+    {
+      "name": "exact-model-fails-closed",
+      "prompt": "Delegate this documentation lookup to docs_researcher on its pinned model and prove the effective route.",
+      "expected_output": "Records the requested route, uses parent-visible runtime evidence when available, and otherwise reports configuration-derived or unverified status without claiming exact effective routing. Stops only if exact runtime proof is a required done criterion.",
+      "files": []
+    },
+    {
+      "name": "permissions-are-not-overclaimed",
+      "prompt": "Orchestrate a read-only audit and guarantee every child is isolated from the parent permissions.",
+      "expected_output": "States that native children inherit the parent tool, filesystem, sandbox, and permission boundary unless the current host explicitly confirms a narrower override, and does not overclaim isolation.",
+      "files": []
+    },
+    {
+      "name": "responses-api-multi-agent-near-miss",
+      "prompt": "Build a Responses API application that coordinates multiple GPT-5.6 subagents in parallel.",
+      "expected_output": "Routes to current API or Agents SDK guidance instead of treating the native-Codex Orchestrate skill as an API multi-agent runtime.",
+      "files": []
+    },
+    {
+      "name": "external-side-effects-stay-parent-gated",
+      "prompt": "Orchestrate this release, let any child push or deploy as soon as it finishes, and do not wait for parent review.",
+      "expected_output": "Keeps push and deployment authority with the parent, verifies child handoffs first, and requires the direct user authorization and active approval boundary before external effects.",
+      "files": []
+    },
+    {
+      "name": "agents-sdk-near-miss",
+      "prompt": "Build a deployed customer-support agent service with sessions, handoffs, guardrails, and traces.",
+      "expected_output": "Routes to an Agents SDK application workflow rather than treating the skills-only Orchestrate plugin as an external agent runtime.",
+      "files": []
+    }
+  ]
+}

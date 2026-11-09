@@ -1,0 +1,4 @@
+interface:
+  display_name: "Code Comments"
+  short_description: "Make LLM-written code clear for human reviewers"
+  default_prompt: "Use $code-comments to add comments that help me understand and review this LLM-written code."

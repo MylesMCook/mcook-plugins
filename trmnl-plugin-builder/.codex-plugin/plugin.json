@@ -1,0 +1,41 @@
+{
+  "name": "trmnl-plugin-builder",
+  "version": "0.2.0",
+  "description": "A Myles-specific TRMNL operations companion for the official TRMNL skill and MCP.",
+  "author": {
+    "name": "Myles Cook",
+    "url": "https://github.com/MylesMCook"
+  },
+  "homepage": "https://github.com/MylesMCook/mcook-plugins/tree/main/trmnl-plugin-builder",
+  "repository": "https://github.com/MylesMCook/mcook-plugins",
+  "license": "MIT",
+  "keywords": [
+    "trmnl",
+    "e-ink",
+    "private-plugin",
+    "liquid",
+    "framework"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "TRMNL Operations Companion",
+    "shortDescription": "Plan and operate Myles's TRMNL stack safely.",
+    "longDescription": "A thin companion to TRMNL's official skill and hosted MCP for Myles-specific data-path choices, secret boundaries, infrastructure, rollout, and evidence.",
+    "developerName": "Myles Cook",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/MylesMCook/mcook-plugins/tree/main/trmnl-plugin-builder",
+    "privacyPolicyURL": "https://github.com/MylesMCook/mcook-plugins",
+    "termsOfServiceURL": "https://github.com/MylesMCook/mcook-plugins",
+    "defaultPrompt": [
+      "Use TRMNL's official skill and this companion to plan a private-plugin data path.",
+      "Plan an approval-gated rollout for this TRMNL plugin.",
+      "Review this TRMNL infrastructure change for secret and verification boundaries."
+    ],
+    "brandColor": "#1F2937",
+    "screenshots": []
+  }
+}

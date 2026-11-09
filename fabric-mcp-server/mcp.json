@@ -1,0 +1,21 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/mcp.schema.json",
+  "mcpServers": {
+    "microsoft_fabric": {
+      "type": "stdio",
+      "command": "./bin/fabric-mcp-server.exe",
+      "args": [],
+      "env": {
+        "CODEX_MCP_PROTOCOL_VERSION": "2026-07-28",
+        "FABRIC_MCP_READ_ONLY": "false",
+        "FABRIC_MCP_ENABLE_ALIASES": "false",
+        "FABRIC_MCP_ENABLE_RAW_TMDL": "false",
+        "FABRIC_MCP_ENABLE_POWER_PLATFORM_API": "false",
+        "FABRIC_MCP_TOOL_DOMAINS": "all",
+        "FABRIC_MCP_DATAVERSE_WEB_API_URL": "",
+        "FABRIC_MCP_HTTP_TIMEOUT_MS": "20000"
+      },
+      "cwd": "${PLUGIN_ROOT}"
+    }
+  }
+}

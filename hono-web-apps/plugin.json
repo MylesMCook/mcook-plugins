@@ -1,0 +1,41 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "hono-web-apps",
+  "version": "0.1.0",
+  "description": "Evaluate, build, modify, test, and verify Hono web applications without forcing framework adoption.",
+  "author": {
+    "name": "Myles Cook",
+    "url": "https://github.com/MylesMCook"
+  },
+  "homepage": "https://github.com/MylesMCook/mcook-plugins/tree/main/hono-web-apps",
+  "repository": "https://github.com/MylesMCook/mcook-plugins",
+  "license": "MIT",
+  "keywords": [
+    "hono",
+    "typescript",
+    "web-apps",
+    "testing",
+    "developer-tools"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Hono Web Apps",
+        "shortDescription": "Build and verify Hono apps safely.",
+        "longDescription": "A repository-first workflow for evaluating, creating, changing, testing, and verifying Hono applications while preserving existing frameworks and runtime conventions.",
+        "developerName": "Myles Cook",
+        "category": "Developer Tools",
+        "capabilities": [
+          "Read",
+          "Write"
+        ],
+        "websiteURL": "https://github.com/MylesMCook/mcook-plugins/tree/main/hono-web-apps",
+        "defaultPrompt": [
+          "Evaluate whether Hono fits this TypeScript web application.",
+          "Implement and verify this change in the existing Hono app.",
+          "Test these Hono routes without changing the project architecture."
+        ]
+      }
+    }
+  }
+}

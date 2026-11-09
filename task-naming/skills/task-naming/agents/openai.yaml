@@ -1,0 +1,6 @@
+interface:
+  display_name: "Task Naming"
+  short_description: "Rename tasks with action-first titles"
+  default_prompt: "Use $task-naming to rename this task, project folder, or machine with concise action-first titles."
+policy:
+  allow_implicit_invocation: false

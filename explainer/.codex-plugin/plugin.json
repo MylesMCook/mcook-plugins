@@ -1,0 +1,39 @@
+{
+  "name": "explainer",
+  "version": "1.5.2",
+  "description": "Turn \"how does X work?\" into an interactive, step-by-step explainer page with an animated diagram, lessons and a message inspector.",
+  "author": {
+    "name": "Myles Cook",
+    "url": "https://github.com/MylesMCook"
+  },
+  "homepage": "https://github.com/MylesMCook/mcook-plugins/tree/main/explainer",
+  "repository": "https://github.com/MylesMCook/mcook-plugins",
+  "license": "MIT AND OFL-1.1",
+  "keywords": [
+    "agent-plugins",
+    "explainer",
+    "diagrams",
+    "documentation",
+    "mcp"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Explainer",
+    "shortDescription": "Interactive, step-by-step explainers of how things work.",
+    "longDescription": "Ask how a system, protocol, process or incident works and get one self-contained HTML page: the parts drawn as isometric icons, the messages between them played step by step, and every message open to inspect. A checker enforces plain writing, accurate labels and a consistent template; topics are saved so pages can be revised later.",
+    "developerName": "Myles Cook",
+    "category": "Productivity",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/MylesMCook/mcook-plugins/tree/main/explainer",
+    "defaultPrompt": [
+      "Explain how OAuth sign-in works, as an explainer.",
+      "Turn this incident write-up into an explainer I can step through.",
+      "Make an explainer of how our deploy pipeline works from these files."
+    ],
+    "brandColor": "#191615",
+    "screenshots": []
+  }
+}

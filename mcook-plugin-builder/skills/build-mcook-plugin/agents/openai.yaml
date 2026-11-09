@@ -1,0 +1,4 @@
+interface:
+  display_name: "Myles Plugin Builder"
+  short_description: "Build portable and OpenAI-compatible plugins"
+  default_prompt: "Use $mcook-plugin-builder:build-mcook-plugin to build or review a portable, OpenAI-compatible plugin."

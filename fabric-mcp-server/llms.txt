@@ -1,0 +1,176 @@
+# Fabric MCP Server 1.10 candidate
+
+## Pipeline and Copy Job lifecycle
+
+- fabric_get_pipeline / fabric_get_copy_job return metadata and metadata_sha256.
+- fabric_create_pipeline / fabric_create_copy_job accept complete definitions.
+  Preview returns create_request_sha256; apply requires expected_create_request_sha256.
+- Rename with fabric_update_pipeline_metadata / fabric_update_copy_job_metadata,
+  expected_metadata_sha256, display_name and/or description. Omission preserves;
+  empty description clears it.
+- Read fabric_get_copy_job_definition_full before fabric_apply_copy_job_patch.
+  Patch 1-64 ordered add/remove/replace operations below /properties/ or /activities/.
+- fabric_list_connections / fabric_get_connection discover existing metadata without
+  credential values. Visibility does not prove binding permission or runtime health.
+- fabric_delete_pipeline / fabric_delete_copy_job export recovery and check scoped
+  runs/schedules/references. Save recovery locally; apply requires the reviewed
+  expected_deletion_preview_sha256. Any blockers or incomplete checks prevent deletion.
+- Only directly authorized apply uses dry_run=false and confirm=true. These lifecycle
+  tools never execute, schedule, cancel, edit credentials or permanently delete.
+- Never automatically resend uncertain mutations. Other clients can race the guards.
+
+## Runtime
+
+- Native Rust executable: `bin/fabric-mcp-server.exe`
+- SDK: official Rust MCP SDK (`rmcp` 3.1.2)
+- MCP: `2026-07-28`; stdio also accepts legacy `initialize` (2025-11-25, 2025-06-18)
+- Default transport: stdio
+- Optional transport: authenticated stateless Streamable HTTP on loopback
+- Auth: explicit local Azure CLI
+- Startup restoration: none
+
+## Start order
+
+1. `check_local_setup`
+2. `describe_capabilities`
+
+## Default tool surface
+
+Setup:
+
+- `check_local_setup`
+- `describe_capabilities`
+
+Fabric:
+
+- `fabric_list_workspaces`
+- `fabric_get_workspace`
+- `fabric_summarize_workspace_items`
+- `fabric_list_items`
+- `fabric_get_item`
+- `fabric_get_notebook_definition`
+- `fabric_update_notebook_cells`
+- `fabric_apply_notebook_patch`
+- `fabric_list_pipelines`
+- `fabric_summarize_pipeline_definition`
+- `fabric_get_pipeline_definition`
+- `fabric_get_pipeline_definition_full`
+- `fabric_apply_pipeline_patch`
+- `fabric_run_pipeline`
+- `fabric_list_job_instances`
+- `fabric_get_job_instance`
+- `fabric_query_pipeline_activity_runs`
+- `fabric_list_lakehouses`
+- `fabric_list_onelake_files`
+- `fabric_read_onelake_file`
+- `fabric_list_lakehouse_tables`
+- `fabric_list_semantic_models`
+- `fabric_summarize_semantic_model_definition`
+
+Power BI:
+
+- `powerbi_list_datasets`
+- `powerbi_get_dataset`
+- `powerbi_get_refresh_history`
+- `powerbi_get_refresh_schedule`
+- `powerbi_get_data_sources`
+- `powerbi_list_reports`
+- `powerbi_list_gateways`
+- `powerbi_list_gateway_data_sources`
+- `powerbi_check_gateway_status`
+- `powerbi_execute_dax`
+
+Power Automate:
+
+- `power_automate_list_environments`
+- `power_automate_list_flows`
+- `power_automate_get_flow`
+- `power_automate_get_flow_definition_only`
+- `power_automate_summarize_flow_definition`
+- `power_automate_list_flow_runs`
+- `power_automate_get_flow_run_actions`
+- `power_automate_get_flow_run_actions_bulk`
+- `power_automate_get_flow_run_action_error`
+- `power_automate_describe_flow_run_support`
+- `power_automate_describe_flow_invocation`
+- `power_automate_list_connectors`
+- `power_automate_search_connector_operations`
+- `power_automate_get_connector_operation`
+- `power_automate_resolve_sharepoint_site`
+- `power_automate_list_document_libraries`
+- `power_automate_list_drive_items`
+- `power_automate_resolve_drive_item`
+- `power_automate_resolve_excel_script_action`
+- `power_automate_create_flow`
+- `power_automate_update_flow`
+- `power_automate_apply_guarded_patch`
+- `power_automate_apply_guarded_update`
+- `power_automate_turn_off_flow`
+- `power_automate_turn_on_flow`
+- `power_automate_resubmit_flow_run`
+
+## Optional tools
+
+Raw TMDL (`FABRIC_MCP_ENABLE_RAW_TMDL=true`):
+
+- `fabric_explore_model`
+- `fabric_get_model_tables`
+- `fabric_get_model_relationships`
+- `fabric_get_model_table_detail`
+
+Power Platform inventory (`FABRIC_MCP_ENABLE_POWER_PLATFORM_API=true`):
+
+- `power_platform_list_cloud_flows`
+- `power_platform_list_flow_runs`
+- `power_platform_list_flow_actions`
+
+Dataverse metadata (`FABRIC_MCP_DATAVERSE_WEB_API_URL=...`):
+
+- `dataverse_list_cloud_flow_records`
+- `dataverse_get_cloud_flow_record`
+
+Sixteen compatibility aliases are available only when
+`FABRIC_MCP_ENABLE_ALIASES=true`; canonical domain-prefixed tools are preferred.
+
+## Behavioral invariants
+
+- Stable `{ok, summary, data, error, paging, diagnostics}` structured envelope.
+- Text content is a concise summary; complete data appears once in
+  `structuredContent`.
+- Bounded list and diagnostic requests.
+- Standard lists default to 100/max 1000; histories to 20/max 100; connector
+  list/search policies are 100/250 and 20/100.
+- Connector catalog limits and filters are enforced locally; operation detail
+  uses Microsoft's exact workflow `operationType`.
+- HTTPS allowlists, no redirects, safe-method retries only, and no automatic
+  write retry.
+- Power Automate mutations serialize by environment/flow and require drift
+  checks, one write, exact readback, and conditional state restoration.
+- Flow creation defaults to dry-run, requires explicit mutation approval for a
+  live call, always creates `Stopped`, performs one non-retried POST, and never
+  enables, invokes, resubmits, deletes, or falls back to Dataverse.
+- Ambiguous writes must be reconciled before retry.
+- SharePoint, OneDrive, workbook, folder, and Office Script connector IDs are
+  resolved read-only through Microsoft Graph. Excel Run script resolution
+  verifies both source/drive relationships and both current drive items before
+  returning an action parameter block.
+- Raw definitions, connection references, signed content links, credentials,
+  and unrelated upstream payloads are not exposed by summary/error paths.
+
+## Development proof
+
+```powershell
+npm run check:offline
+npm run eval:agent-scenarios
+npm run smoke:native
+npm run inspect:native:smoke
+```
+
+`check:offline` runs the Rust formatter, Clippy with warnings denied, all Rust
+tests, package contract, tool registry audit, all 11 agent scenarios, script
+syntax checks, and the persistent native smoke. Inspector is one separate
+compatibility gate; it is not the primary smoke harness.
+
+Pipeline editing: retrieve the full definition and hash, then preview ordered add/remove/replace patches below /properties. Actual writes require authorization, confirm=true and dry_run=false. Structural validation only; preserves other parts and metadata, never executes pipelines, and cannot guarantee atomic concurrency. See README.md.
+
+OneLake file inspection: fabric_list_onelake_files and fabric_read_onelake_file give bounded, read-only access to Files/ or Tables/ paths in one lakehouse. Reads cap bytes and report truncation; raw Tables files are not a consistent Delta snapshot. Never executes queries or writes files.

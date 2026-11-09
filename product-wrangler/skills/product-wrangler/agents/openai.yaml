@@ -1,0 +1,6 @@
+interface:
+  display_name: "Product Wrangler"
+  short_description: "Turn rough web apps into evidence-backed products"
+  default_prompt: "Use $product-wrangler to infer, repair, and verify this existing runnable web app without expanding authority."
+policy:
+  allow_implicit_invocation: true

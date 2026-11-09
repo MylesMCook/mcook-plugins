@@ -1,0 +1,53 @@
+{
+  "skill_name": "webapp-testing",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "The checkout flow has a regression and this React repository already has Playwright tests in TypeScript. Reproduce it, fix it, and leave regression coverage in CI.",
+      "expected_output": "Uses the repository's existing TypeScript Playwright setup for the durable regression, with Playwright CLI only if live exploration helps.",
+      "files": [],
+      "expectations": [
+        "Inspects and uses the committed browser-test runner and configuration",
+        "Adds or updates a repository-native regression test",
+        "Does not introduce a parallel Python harness",
+        "Verifies assertions in the project's test runner"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Smoke-test this running local React app and tell me what works, what is broken, and what you could not reach.",
+      "expected_output": "Uses the installed official Playwright skill and Playwright CLI in an isolated named session for a live pass.",
+      "files": [],
+      "expectations": [
+        "Uses Playwright CLI for live exploration without switching to agent-browser",
+        "Takes fresh snapshots after navigation or meaningful UI changes",
+        "Reports observed outcomes and gaps with proportional evidence",
+        "Closes the session it owns"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Find why this local React page keeps re-rendering, measure its Web Vitals, and check the page for accessibility violations.",
+      "expected_output": "Reproduces the flow with Playwright CLI and uses available project diagnostics for measurements.",
+      "files": [],
+      "expectations": [
+        "Uses Playwright CLI for browser interaction",
+        "Uses actual profiling or diagnostic evidence for render counts and Web Vitals",
+        "Does not claim a screenshot measures performance or accessibility",
+        "Uses another browser tool only for an explicit request or a required missing capability"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Dogfood the settings app and give the frontend team reproducible issues, screenshots, and traces.",
+      "expected_output": "Uses Playwright CLI to verify issues and collect a concise handoff report.",
+      "files": [],
+      "expectations": [
+        "Uses Playwright CLI snapshots, screenshots, or traces as needed",
+        "Verifies each reported issue in the running app",
+        "Keeps issue evidence proportionate",
+        "Does not load the agent-browser dogfood workflow"
+      ]
+    }
+  ]
+}

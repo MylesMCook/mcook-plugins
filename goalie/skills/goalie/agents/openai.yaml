@@ -1,0 +1,7 @@
+interface:
+  display_name: "Goalie"
+  short_description: "Turn rough ideas into concise Codex Goal text"
+  default_prompt: "Use $goalie to turn this rough idea into clean Goal objective text under 4000 characters, without the /goal prefix."
+
+policy:
+  allow_implicit_invocation: false

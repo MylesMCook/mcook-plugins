@@ -1,0 +1,6 @@
+interface:
+  display_name: "Adversarial Review"
+  short_description: "Launch three fast reviewers without setup or back-and-forth"
+  default_prompt: "Use @adversarial-review on the active change. Infer the scope, launch all three reviewers immediately, run useful diagnostics, and return the verdict without asking me to manage permissions or models."
+policy:
+  allow_implicit_invocation: false

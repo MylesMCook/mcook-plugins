@@ -1,0 +1,43 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "task-naming",
+  "version": "0.5.2",
+  "description": "Manually rename Codex tasks at chat, project, or machine scope.",
+  "author": {
+    "name": "Myles Cook",
+    "url": "https://github.com/MylesMCook"
+  },
+  "homepage": "https://github.com/MylesMCook/mcook-plugins/tree/main/task-naming",
+  "repository": "https://github.com/MylesMCook/mcook-plugins",
+  "license": "MIT",
+  "keywords": [
+    "codex",
+    "tasks",
+    "threads",
+    "naming",
+    "organization"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Task Naming",
+        "shortDescription": "Rename one task, a project, or a machine.",
+        "longDescription": "Explicitly rename or standardize Codex task titles at current-task, project-folder, or machine-wide scope using concise action-first titles with optional context.",
+        "developerName": "Myles Cook",
+        "category": "Productivity",
+        "capabilities": [
+          "Interactive"
+        ],
+        "websiteURL": "https://github.com/MylesMCook/mcook-plugins/tree/main/task-naming",
+        "privacyPolicyURL": "https://github.com/MylesMCook/mcook-plugins",
+        "termsOfServiceURL": "https://github.com/MylesMCook/mcook-plugins",
+        "defaultPrompt": [
+          "Rename this task with a concise action-first title.",
+          "Standardize task titles for this project folder.",
+          "Standardize task titles across this machine."
+        ],
+        "brandColor": "#334155"
+      }
+    }
+  }
+}

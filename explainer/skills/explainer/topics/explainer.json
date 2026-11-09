@@ -1,0 +1,777 @@
+{
+  "id": "explainer",
+  "home": true,
+  "title": "Explainer Kit",
+  "byline": "your agent",
+  "pageTitle": "Explainer · interactive, step-by-step explanations of how things work",
+  "description": "Ask an AI agent how something works and get an interactive explainer: the parts, the messages between them, played back step by step.",
+  "subject": "How Explainer works",
+  "intro": {
+    "lesson": "overview",
+    "kicker": "Interactive explainers",
+    "heading": "What is this?",
+    "lead": "Show how anything works. Your agent maps the parts and the messages between them, and the kit plays it back step by step.",
+    "facts": [
+      [
+        "Topic",
+        "one file listing the parts, lessons and steps to show"
+      ],
+      [
+        "Actor",
+        "a part of the system, drawn as a small isometric picture"
+      ],
+      [
+        "Step",
+        "one idea, told in a sentence or two, then played"
+      ],
+      [
+        "Message",
+        "something concrete that one part sends another, like a request or a reply"
+      ],
+      [
+        "Not just a picture",
+        "play, step through and open every message to see what was sent"
+      ]
+    ],
+    "start": "write",
+    "startLabel": "Start the lessons",
+    "jump": [
+      [
+        "Writing",
+        "#write"
+      ],
+      [
+        "the checker",
+        "#check"
+      ],
+      [
+        "Sharing",
+        "#share"
+      ]
+    ]
+  },
+  "groups": [
+    {
+      "id": "how",
+      "title": "Making an explainer"
+    }
+  ],
+  "kinds": {
+    "req": "Request",
+    "res": "Response",
+    "err": "Problem",
+    "note": "Notice",
+    "http": "File",
+    "host": "In the chat"
+  },
+  "labels": {
+    "flow": "Message flow",
+    "message": "Message",
+    "method": "Action",
+    "info": "Info"
+  },
+  "actors": {
+    "user": {
+      "label": "You",
+      "sub": "the person asking",
+      "icon": "person"
+    },
+    "agent": {
+      "label": "AI agent",
+      "sub": "your assistant",
+      "icon": "laptop"
+    },
+    "llm": {
+      "label": "Model",
+      "sub": "the LLM",
+      "icon": "chip"
+    },
+    "kit": {
+      "label": "Explainer kit",
+      "sub": "check + build",
+      "icon": "server"
+    },
+    "file": {
+      "label": "Topic file",
+      "sub": "oauth.json",
+      "icon": "database"
+    },
+    "browser": {
+      "label": "Browser",
+      "sub": "oauth.html",
+      "icon": "browser"
+    }
+  },
+  "whatsNextTitle": "Examples",
+  "whatsNext": [
+    [
+      "MCP Explained",
+      "How AI apps talk to tools · 12 lessons",
+      "mcp/"
+    ],
+    [
+      "DNS Explained",
+      "How names become addresses · 4 lessons",
+      "dns/"
+    ]
+  ],
+  "footer": "Each explainer is a single topic file and a single page. The format is described in TOPIC-GUIDE.md.",
+  "lessons": [
+    {
+      "id": "overview",
+      "code": "What is this?",
+      "name": "From a question to a page",
+      "summary": ["You ask how something works.", "Your agent writes a topic file and runs the kit.", "The kit checks it and builds one page you can play and share."],
+      "facts": [
+        [
+          "In one line",
+          "a question in, an interactive explainer out"
+        ],
+        [
+          "You",
+          "ask how something works, in plain words"
+        ],
+        [
+          "AI agent",
+          "decides the parts, lessons and steps"
+        ],
+        [
+          "Explainer kit",
+          "checks the topic file and builds the page"
+        ],
+        [
+          "Output",
+          "one self-contained HTML file; no server needed"
+        ]
+      ],
+      "actors": [
+        {
+          "id": "user",
+          "x": 175,
+          "y": 420,
+          "sub": "you"
+        },
+        {
+          "id": "llm",
+          "x": 500,
+          "y": 125
+        },
+        {
+          "id": "agent",
+          "x": 500,
+          "y": 420,
+          "sub": "the writer"
+        },
+        {
+          "id": "kit",
+          "x": 830,
+          "y": 420,
+          "sub": "e.g. a skill"
+        }
+      ],
+      "zones": [
+        {
+          "label": "Your machine",
+          "sub": "your computer",
+          "ids": [
+            "user",
+            "agent"
+          ]
+        },
+        {
+          "label": "Model provider",
+          "sub": "cloud API",
+          "ids": [
+            "llm"
+          ],
+          "style": "dashed"
+        },
+        {
+          "label": "Local or shared",
+          "sub": "folder or URL",
+          "ids": [
+            "kit"
+          ],
+          "style": "dashed"
+        }
+      ],
+      "wires": {
+        "agent|kit": "JSON"
+      },
+      "steps": [
+        {
+          "title": "Connect",
+          "desc": "You ask how something works. The agent hands the question to its model to plan.",
+          "msgs": [
+            {
+              "from": "user",
+              "to": "agent",
+              "kind": "host",
+              "info": "\"How does OAuth sign-in work?\"",
+              "method": "question",
+              "json": {
+                "text": "How does OAuth sign-in work? Show me."
+              }
+            },
+            {
+              "from": "agent",
+              "to": "llm",
+              "kind": "host",
+              "info": "plan an explainer",
+              "method": "plan",
+              "json": {
+                "task": "Explain OAuth sign-in in the Explainer format",
+                "read": "TOPIC-GUIDE.md"
+              }
+            }
+          ]
+        },
+        {
+          "title": "Plan",
+          "desc": "The model picks the parts that talk, the lessons a newcomer needs, and the messages in each step.",
+          "msgs": [
+            {
+              "from": "llm",
+              "to": "agent",
+              "kind": "host",
+              "info": "4 actors · 5 lessons",
+              "method": "outline",
+              "json": {
+                "actors": [
+                  "user",
+                  "app",
+                  "browser",
+                  "auth server"
+                ],
+                "lessons": [
+                  "overview",
+                  "redirect",
+                  "consent",
+                  "token",
+                  "refresh"
+                ]
+              },
+              "notes": [
+                [
+                  "actors",
+                  "The parts of the system that send each other something."
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Write",
+          "desc": "The agent writes the topic file and asks the kit to check it. It fixes what the checker names.",
+          "msgs": [
+            {
+              "from": "agent",
+              "to": "kit",
+              "kind": "req",
+              "info": "check oauth.json",
+              "method": "check",
+              "json": {
+                "run": "node build.mjs --check oauth.json"
+              }
+            },
+            {
+              "from": "kit",
+              "to": "agent",
+              "kind": "err",
+              "info": "1 problem",
+              "method": "problem",
+              "json": {
+                "problems": [
+                  "lessons.token.steps[1].msgs[0]: to \"idp\" is not an actor in this lesson"
+                ]
+              },
+              "notes": [
+                [
+                  "problems",
+                  "Each one points to the exact place in the file, so the agent can fix it."
+                ]
+              ]
+            },
+            {
+              "from": "agent",
+              "to": "llm",
+              "kind": "host",
+              "info": "fix the flagged spot",
+              "method": "fix",
+              "json": {
+                "fix": "lessons.token.steps[1].msgs[0].to",
+                "to": "auth"
+              }
+            },
+            {
+              "from": "agent",
+              "to": "kit",
+              "kind": "req",
+              "info": "check again",
+              "method": "check",
+              "json": {
+                "run": "node build.mjs --check oauth.json"
+              }
+            }
+          ]
+        },
+        {
+          "title": "Build",
+          "desc": "Once the check passes, the kit turns the file into one page with everything inside it.",
+          "msgs": [
+            {
+              "from": "kit",
+              "to": "agent",
+              "kind": "res",
+              "info": "ok · 5 lessons",
+              "method": "ok",
+              "json": {
+                "ok": "oauth.json",
+                "lessons": 5,
+                "messages": 31
+              }
+            },
+            {
+              "from": "agent",
+              "to": "kit",
+              "kind": "req",
+              "info": "build",
+              "method": "build",
+              "json": {
+                "run": "node build.mjs oauth.json"
+              }
+            },
+            {
+              "from": "kit",
+              "to": "agent",
+              "kind": "res",
+              "info": "oauth.html",
+              "method": "page",
+              "json": {
+                "built": "oauth.html",
+                "size": "160 KB",
+                "needs": "nothing: fonts, styles and player are inside"
+              }
+            }
+          ]
+        },
+        {
+          "title": "Show",
+          "desc": "The agent gives you the page. You play it, step through it, and ask for more.",
+          "msgs": [
+            {
+              "from": "agent",
+              "to": "user",
+              "kind": "host",
+              "info": "\"Here is your explainer\"",
+              "method": "answer",
+              "json": {
+                "text": "Here is an interactive explainer of OAuth sign-in.",
+                "file": "oauth.html"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "write",
+      "code": "Writing a topic",
+      "name": "Actors, lessons, steps, messages",
+      "group": "how",
+      "summary": ["A topic is one JSON file.", "Plan outside in: parts first, then lessons, then steps.", "Each step is the concrete messages that travel."],
+      "facts": [
+        [
+          "Actors",
+          "3 to 6 parts, each with an illustration"
+        ],
+        [
+          "Zones",
+          "boxes showing where actors run"
+        ],
+        [
+          "Lessons",
+          "6 to 14, first one is the overview"
+        ],
+        [
+          "Steps",
+          "one idea each, 1 to 4 messages"
+        ],
+        [
+          "Messages",
+          "from, to, kind, a short info line and an example body"
+        ]
+      ],
+      "actors": [
+        {
+          "id": "llm",
+          "x": 500,
+          "y": 110
+        },
+        {
+          "id": "agent",
+          "x": 230,
+          "y": 400
+        },
+        {
+          "id": "file",
+          "x": 770,
+          "y": 400
+        }
+      ],
+      "zones": [
+        {
+          "label": "Model provider",
+          "ids": [
+            "llm"
+          ],
+          "style": "dashed"
+        },
+        {
+          "label": "Your chat",
+          "ids": [
+            "agent"
+          ]
+        },
+        {
+          "label": "Workspace",
+          "sub": "your files",
+          "ids": [
+            "file"
+          ],
+          "style": "dashed"
+        }
+      ],
+      "steps": [
+        {
+          "title": "Parts",
+          "desc": "Who is involved, and where does each part run?",
+          "msgs": [
+            {
+              "from": "agent",
+              "to": "llm",
+              "kind": "host",
+              "info": "who talks to whom?",
+              "method": "ask",
+              "json": {
+                "question": "Which parts exchange messages during OAuth sign-in?"
+              }
+            },
+            {
+              "from": "llm",
+              "to": "agent",
+              "kind": "host",
+              "info": "4 actors, 2 zones",
+              "method": "actors",
+              "json": {
+                "app": {
+                  "icon": "laptop"
+                },
+                "browser": {
+                  "icon": "browser"
+                },
+                "auth": {
+                  "icon": "vault"
+                },
+                "api": {
+                  "icon": "server"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "title": "Lessons",
+          "desc": "What does a newcomer need first? Each lesson answers one question.",
+          "msgs": [
+            {
+              "from": "agent",
+              "to": "llm",
+              "kind": "host",
+              "info": "what order?",
+              "method": "ask",
+              "json": {
+                "question": "Which lessons, in what order?"
+              }
+            },
+            {
+              "from": "llm",
+              "to": "agent",
+              "kind": "host",
+              "info": "5 lessons",
+              "method": "lessons",
+              "json": {
+                "lessons": [
+                  "What is OAuth?",
+                  "Redirect",
+                  "Consent",
+                  "Token",
+                  "Refresh"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "title": "Save",
+          "desc": "The agent writes it all into one topic file.",
+          "msgs": [
+            {
+              "from": "agent",
+              "to": "file",
+              "kind": "http",
+              "info": "write oauth.json",
+              "method": "write",
+              "json": {
+                "id": "oauth",
+                "title": "OAuth Explained",
+                "lessons": [
+                  "…5 lessons"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "check",
+      "code": "Checking",
+      "name": "Catch mistakes before anyone sees them",
+      "group": "how",
+      "summary": ["Every message must go between real actors.", "Links must point to real lessons; nothing sits off the diagram.", "Each problem comes back with its exact location."],
+      "facts": [
+        [
+          "Command",
+          "node build.mjs --check topic.json"
+        ],
+        [
+          "Finds",
+          "unknown actors, empty lessons, broken links, off-canvas positions"
+        ],
+        [
+          "Needs",
+          "Node 18 or newer, nothing to install"
+        ]
+      ],
+      "actors": [
+        {
+          "id": "agent",
+          "x": 180,
+          "y": 300
+        },
+        {
+          "id": "kit",
+          "x": 520,
+          "y": 300
+        },
+        {
+          "id": "file",
+          "x": 830,
+          "y": 300
+        }
+      ],
+      "zones": [
+        {
+          "label": "Your chat",
+          "ids": [
+            "agent"
+          ]
+        },
+        {
+          "label": "Your computer",
+          "ids": [
+            "kit",
+            "file"
+          ],
+          "style": "dashed"
+        }
+      ],
+      "steps": [
+        {
+          "title": "Check",
+          "desc": "The kit reads the file and reports a problem.",
+          "msgs": [
+            {
+              "from": "agent",
+              "to": "kit",
+              "kind": "req",
+              "info": "check",
+              "method": "check",
+              "json": {
+                "run": "node build.mjs --check oauth.json"
+              }
+            },
+            {
+              "from": "kit",
+              "to": "file",
+              "kind": "http",
+              "info": "read",
+              "method": "read",
+              "json": {
+                "read": "oauth.json"
+              }
+            },
+            {
+              "from": "kit",
+              "to": "agent",
+              "kind": "err",
+              "info": "x 990 is off the edge",
+              "method": "problem",
+              "json": {
+                "problems": [
+                  "lessons.redirect.actors.browser: x 990, y 300 is too close to the edge (keep x 60–940, y 60–520)"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "title": "Fix",
+          "desc": "The agent fixes the spot it was pointed to and checks again.",
+          "msgs": [
+            {
+              "from": "agent",
+              "to": "file",
+              "kind": "http",
+              "info": "x 990 → 830",
+              "method": "edit",
+              "json": {
+                "lessons.redirect.actors.browser.x": 830
+              }
+            },
+            {
+              "from": "agent",
+              "to": "kit",
+              "kind": "req",
+              "info": "check",
+              "method": "check",
+              "json": {
+                "run": "node build.mjs --check oauth.json"
+              }
+            },
+            {
+              "from": "kit",
+              "to": "agent",
+              "kind": "res",
+              "info": "ok",
+              "method": "ok",
+              "json": {
+                "ok": "oauth.json"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "share",
+      "code": "Sharing",
+      "name": "One file, opens anywhere",
+      "group": "how",
+      "summary": "The built page carries its fonts, styles, player and topic inside it. Open it from disk, attach it to a message, or put a folder of them on any static host.",
+      "facts": [
+        [
+          "One topic",
+          "node build.mjs topic.json → topic.html"
+        ],
+        [
+          "A whole site",
+          "put files in topics/ and run node build.mjs → dist/"
+        ],
+        [
+          "Controls",
+          "Play, Step, Reset, arrow keys, light and dark"
+        ]
+      ],
+      "actors": [
+        {
+          "id": "agent",
+          "x": 175,
+          "y": 400
+        },
+        {
+          "id": "browser",
+          "x": 500,
+          "y": 400
+        },
+        {
+          "id": "user",
+          "x": 830,
+          "y": 400
+        }
+      ],
+      "zones": [
+        {
+          "label": "Your computer",
+          "ids": [
+            "agent",
+            "browser",
+            "user"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "title": "Open",
+          "desc": "The agent opens the page, or hands you the file.",
+          "msgs": [
+            {
+              "from": "agent",
+              "to": "browser",
+              "kind": "http",
+              "info": "open oauth.html",
+              "method": "open",
+              "json": {
+                "open": "oauth.html"
+              }
+            }
+          ]
+        },
+        {
+          "title": "Play",
+          "desc": "You press Play, step through, and click any message to read it.",
+          "msgs": [
+            {
+              "from": "user",
+              "to": "browser",
+              "kind": "host",
+              "info": "Play",
+              "method": "play",
+              "json": {
+                "control": "Play"
+              }
+            },
+            {
+              "from": "browser",
+              "to": "user",
+              "kind": "host",
+              "info": "step 1 of 4",
+              "method": "show",
+              "json": {
+                "step": "Redirect",
+                "message": "GET /authorize"
+              }
+            }
+          ]
+        },
+        {
+          "title": "More",
+          "desc": "Want another angle? Ask, and the agent adds a lesson to the same file.",
+          "msgs": [
+            {
+              "from": "user",
+              "to": "agent",
+              "kind": "host",
+              "info": "\"Add refresh tokens\"",
+              "method": "question",
+              "json": {
+                "text": "Add a lesson on refresh tokens."
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

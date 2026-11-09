@@ -1,0 +1,44 @@
+{
+  "name": "frontend-react",
+  "version": "0.3.1",
+  "description": "Build, style, optimize, and test React apps with Base UI + StyleX and focused UI quality skills.",
+  "author": {
+    "name": "Myles Cook",
+    "url": "https://github.com/MylesMCook"
+  },
+  "homepage": "https://github.com/MylesMCook/mcook-plugins/tree/main/frontend-react",
+  "repository": "https://github.com/MylesMCook/mcook-plugins",
+  "license": "MIT AND Apache-2.0",
+  "keywords": [
+    "react",
+    "nextjs",
+    "typescript",
+    "stylex",
+    "shadcn",
+    "playwright",
+    "agent-browser",
+    "frontend",
+    "base-ui",
+    "accessibility",
+    "animation",
+    "metadata"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Frontend / React",
+    "shortDescription": "Build React apps with Base UI + StyleX",
+    "longDescription": "Build React components with Base UI behavior and StyleX styling, supported by React performance, composition, TypeScript, browser testing, and focused accessibility, motion performance, and page metadata guidance. Preserve existing project styling and component choices. Base UI + StyleX and StyleX are maintained directly in this plugin; eight third-party skills are commit-pinned and refreshed through reviewable pull requests.",
+    "developerName": "Myles Cook",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/MylesMCook/mcook-plugins/tree/main/frontend-react",
+    "defaultPrompt": [
+      "Build this React component with Base UI behavior and StyleX styling, preserving existing project choices.",
+      "Create or migrate this design system with StyleX tokens, themes, and typed component style APIs.",
+      "Test this local React app in a real browser and fix the behavior you observe."
+    ]
+  }
+}

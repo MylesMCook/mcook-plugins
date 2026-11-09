@@ -1,0 +1,171 @@
+{
+  "skill_name": "american-inkblot-illustrations",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Use evals/files/homelab-service-brief.md to plan the smallest useful Inkblot system portrait set. Do not generate images.",
+      "expected_output": "A 2-4 plate configuration-grounded plan plus a truth ledger that separates verified configuration from unknown backup health.",
+      "files": ["evals/files/homelab-service-brief.md"],
+      "expectations": [
+        "Uses the System portrait plan columns",
+        "Labels the portrait configuration-grounded rather than runtime-grounded or purely conceptual",
+        "Separates context, plumbing, and failure or recovery instead of mixing abstraction levels",
+        "Marks the backup job as configured but current backup success as unknown",
+        "Keeps private hostname, paths, and port out of proposed in-image labels",
+        "Uses physical cutaway or repair metaphors rather than architecture boxes"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Use evals/files/agent-system-brief.md to show me how this agent research system works. Generate images if the tool is available.",
+      "expected_output": "An evidence-grounded overview and focused handoff plate, generated one at a time or supplied as separate final prompts.",
+      "files": ["evals/files/agent-system-brief.md"],
+      "expectations": [
+        "Keeps the lead agent responsible for synthesis and approval-gated effects",
+        "Does not invent a queue, database, or transport protocol",
+        "Uses a relay bench, task cards, or another physical handoff metaphor",
+        "Keeps control and returned evidence visually distinguishable when useful",
+        "Includes a companion truth ledger"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Inspect this repository and make one friendly Inkblot overview of how it works. Keep all inspection read-only.",
+      "expected_output": "Read-only inspection followed by a scoped context or plumbing portrait grounded in discovered files, plus sources and unknowns.",
+      "files": [],
+      "expectations": [
+        "Inspects applicable instructions and source-of-truth files before planning",
+        "Does not restart services or mutate the repository",
+        "States the audience question and abstraction level",
+        "Does not claim unverified runtime health",
+        "Limits one plate to 3-6 named elements"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Draw the exact production network and compliance boundary as the only architecture record, with every subnet and firewall rule editable later.",
+      "expected_output": "A concise refusal to use Inkblot as the sole exact artifact, with a recommendation for an appropriate editable diagram and an optional companion explainer.",
+      "files": [],
+      "expectations": [
+        "Recognizes the strict editable compliance/network requirement as out of scope",
+        "Does not generate a misleading artistic substitute",
+        "Offers Inkblot only as a companion explanation"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "Plan one plate explaining a reverse proxy handing a request to a local app, while the app keeps durable state in a database.",
+      "expected_output": "A single plumbing cutaway with a directional request path, a distinct durable store, and Inkblot operating the route.",
+      "files": [],
+      "expectations": [
+        "Preserves request direction",
+        "Represents the database as durable state rather than another process hop",
+        "Makes Inkblot causal",
+        "Uses no more than five short labels",
+        "Keeps exact protocol details outside the canvas unless supplied"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "The config shows a nightly backup job, but I have no recent logs. Make the system portrait honest about that.",
+      "expected_output": "A plan or prompt that shows configured backup plumbing without depicting a successful backup and records current health as unknown.",
+      "files": [],
+      "expectations": [
+        "Distinguishes configuration from observed runtime success",
+        "Uses verified and unknown confidence classes",
+        "Does not add a green success mark or completed backup",
+        "Keeps the uncertainty note outside the image or as one unresolved blue edge"
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "Create an Inkblot failure-and-recovery plate for a worker crash that triggers a supervisor restart while queued work remains durable.",
+      "expected_output": "A repair scene that shows the crash, detection/restart, and preserved queue without redrawing the full happy path.",
+      "files": [],
+      "expectations": [
+        "Chooses failure/recovery zoom",
+        "Shows durable queued work surviving the crash",
+        "Uses red for the failure and orange for the restored primary path",
+        "Makes Inkblot perform the recovery action",
+        "Does not invent a backup or failover system"
+      ]
+    },
+    {
+      "id": 8,
+      "prompt": "Illustrate an API token crossing a trust boundary, but do not reveal the token or turn it into a generic lock icon diagram.",
+      "expected_output": "A sparse trust-checkpoint scene with a sealed pass or guarded hatch and no secret value.",
+      "files": [],
+      "expectations": [
+        "Never includes the token value",
+        "Shows allowed action and boundary semantics",
+        "Avoids cloud padlock wallpaper",
+        "Keeps exact authorization details in companion notes"
+      ]
+    },
+    {
+      "id": 9,
+      "prompt": "Plan three US English body illustrations for an article about messy notes becoming a useful AI-assisted draft. Do not generate yet.",
+      "expected_output": "A compact editorial shot list with three cognitive anchors and fresh metaphors.",
+      "files": [],
+      "expectations": [
+        "Uses the article shot-list columns",
+        "Makes Inkblot perform each core action",
+        "Defaults each image to no labels and uses no more than three when words materially help",
+        "Avoids realistic app UI and PPT framing",
+        "Does not call an image tool"
+      ]
+    },
+    {
+      "id": 10,
+      "prompt": "This generated system image has a top-left title, eight boxes, tiny arrows, and two invented services. Diagnose it and write one regeneration prompt.",
+      "expected_output": "A factual-first diagnosis and a focused regeneration prompt that removes invented services, title, and diagram density.",
+      "files": [],
+      "expectations": [
+        "Treats invented services as the first failure",
+        "Restores one abstraction level and 3-6 elements",
+        "Moves title and exact relationships outside the image",
+        "Turns the topology into one physical scene",
+        "Keeps only verified components"
+      ]
+    },
+    {
+      "id": 11,
+      "prompt": "Give me label ideas for an Inkblot cutaway showing supervision, health checking, retry, and durable state.",
+      "expected_output": "A short set of relevant 1-3 word label candidates rather than a full image prompt.",
+      "files": [],
+      "expectations": [
+        "Keeps labels to 1-3 words",
+        "Suggests supervision, retry, and state terms",
+        "Does not overload one image with every candidate",
+        "Does not generate an image unless asked"
+      ]
+    },
+    {
+      "id": 12,
+      "prompt": "Make one conceptual Inkblot illustration for 'a queue absorbs bursts so the worker can keep a steady pace.' No real system source is available.",
+      "expected_output": "A clearly labeled conceptual portrait with a physical waiting shelf or hopper and no claim about live topology.",
+      "files": [],
+      "expectations": [
+        "Labels the result conceptual",
+        "Uses a queue metaphor that preserves waiting and decoupled pace",
+        "Makes Inkblot operate the steady worker side",
+        "Does not invent technologies or operational facts"
+      ]
+    },
+    {
+      "id": 13,
+      "prompt": "Make one Inkblot illustration about waiting. Keep it simple.",
+      "expected_output": "One Inkblot-first 16:9 illustration or final prompt with Inkblot as the main or only subject, no background plumbing, and no labels unless needed.",
+      "files": [],
+      "expectations": [
+        "Chooses Inkblot-first because no real system was requested",
+        "Uses one Inkblot and no more than two essential props",
+        "Keeps every prop smaller and visually subordinate to Inkblot",
+        "Does not describe any prop as oversized",
+        "Leaves at least half the canvas empty",
+        "Defaults to no labels",
+        "Does not add a system diagram, plumbing scene, or truth ledger"
+      ]
+    }
+  ]
+}

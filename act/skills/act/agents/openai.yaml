@@ -1,0 +1,6 @@
+interface:
+  display_name: "Act"
+  short_description: "Discover this machine and run suitable local CI jobs."
+  default_prompt: "Use $act to discover this machine and run the appropriate GitHub Actions test job locally."
+policy:
+  allow_implicit_invocation: true

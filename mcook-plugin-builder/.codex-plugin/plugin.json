@@ -1,0 +1,40 @@
+{
+  "name": "mcook-plugin-builder",
+  "version": "0.2.3",
+  "description": "Build portable Agent Plugins and OpenAI-compatible plugins for Myles Codex Plugins.",
+  "author": {
+    "name": "Myles Cook",
+    "url": "https://github.com/MylesMCook"
+  },
+  "homepage": "https://github.com/MylesMCook/mcook-plugins/tree/main/mcook-plugin-builder",
+  "repository": "https://github.com/MylesMCook/mcook-plugins",
+  "license": "MIT",
+  "keywords": [
+    "agent-plugins",
+    "codex",
+    "mcp",
+    "plugins",
+    "skills",
+    "marketplace",
+    "developer-tools"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Myles Plugin Builder",
+    "shortDescription": "Build portable and OpenAI-compatible plugins.",
+    "longDescription": "A repo-native workflow for designing, validating, and releasing portable Agent Plugins with explicit OpenAI and MCP compatibility boundaries.",
+    "developerName": "Myles Cook",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/MylesMCook/mcook-plugins/tree/main/mcook-plugin-builder",
+    "defaultPrompt": [
+      "Create a portable Agent Plugin for this workflow.",
+      "Port this plugin to Agent Plugins 1.0.0 without losing Codex compatibility.",
+      "Review this MCP plugin for 2026-07-28 readiness."
+    ],
+    "brandColor": "#1F2937"
+  }
+}

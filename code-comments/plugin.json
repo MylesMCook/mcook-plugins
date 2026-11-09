@@ -1,0 +1,41 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "code-comments",
+  "version": "0.1.0",
+  "description": "Help humans understand and review LLM-written code through accurate, useful source comments.",
+  "author": {
+    "name": "Myles Cook",
+    "url": "https://github.com/MylesMCook"
+  },
+  "homepage": "https://github.com/MylesMCook/mcook-plugins/tree/main/code-comments",
+  "repository": "https://github.com/MylesMCook/mcook-plugins",
+  "license": "MIT",
+  "keywords": [
+    "comments",
+    "documentation",
+    "code-quality",
+    "research",
+    "agent-skills"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Code Comments",
+        "shortDescription": "Make LLM-written code clear for human reviewers.",
+        "longDescription": "Add, improve, or audit comments that give human reviewers a mental model of generated code: its approach, contracts, assumptions, domain concepts, and important constraints, grounded in implementation and empirical research.",
+        "developerName": "Myles Cook",
+        "category": "Developer Tools",
+        "capabilities": [
+          "Read",
+          "Write"
+        ],
+        "websiteURL": "https://github.com/MylesMCook/mcook-plugins/tree/main/code-comments",
+        "defaultPrompt": [
+          "Add comments so I can understand and review this LLM-written code.",
+          "Audit this module for inaccurate, redundant, or missing comments.",
+          "Add useful API documentation and explain non-obvious constraints."
+        ]
+      }
+    }
+  }
+}

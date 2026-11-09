@@ -1,0 +1,4 @@
+interface:
+  display_name: "Cici: Rescue"
+  short_description: "Investigate failures with Claude Code"
+  default_prompt: "Use $cici:claude-code-rescue to get a read-only second opinion on this task."

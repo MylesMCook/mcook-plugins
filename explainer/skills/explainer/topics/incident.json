@@ -1,0 +1,117 @@
+{
+  "id": "incident",
+  "preset": "incident",
+  "title": "Empty Report Explained",
+  "pageTitle": "Empty Report Explained · a sample incident walkthrough",
+  "description": "A made-up incident, explained step by step: why a nightly report came out empty and how the fix was proven.",
+  "subject": "Nightly sales report, Mar 9",
+  "intro": {
+    "lesson": "overview",
+    "kicker": "Sample incident",
+    "heading": "Why was the nightly report empty?",
+    "lead": "The clocks moved forward an hour, so the report ran before the export finished. The fix makes the report wait for the export.",
+    "facts": [
+      ["Export", "copies the day's sales into the warehouse"],
+      ["Report", "reads the warehouse and emails a summary"],
+      ["UTC", "a clock that never changes for daylight saving"],
+      ["Done flag", "a row the export writes when it finishes"]
+    ],
+    "start": "normal",
+    "startLabel": "Walk through it",
+    "jump": [["Why that night", "#why"], ["Before and after", "#fix"]]
+  },
+  "risks": {
+    "guess": { "title": "Best explanation, not observed", "text": "The logs show the timing. Nobody saw the scheduler skip a check; that part is inferred.", "lesson": "why" }
+  },
+  "actors": {
+    "sched": { "label": "Scheduler", "sub": "starts jobs", "icon": "gateway" },
+    "export": { "label": "Export job", "sub": "local time", "icon": "code" },
+    "report": { "label": "Report job", "sub": "UTC", "icon": "server" },
+    "wh": { "label": "Warehouse", "sub": "sales table", "icon": "database" },
+    "you": { "label": "Sales team", "sub": "reads the email", "icon": "person" }
+  },
+  "footer": "Made-up example for the incident preset. Names, times and numbers are illustrative.",
+  "lessons": [
+    {
+      "id": "overview", "code": "What broke?", "name": "An empty email",
+      "summary": "The report ran, found no rows for the day, and emailed a summary of zero sales.",
+      "facts": [["Date", "Mar 9"], ["Rows found", "0"], ["Data lost", "none"]],
+      "actors": [{ "id": "sched", "x": 170, "y": 140 }, { "id": "report", "x": 500, "y": 420 }, { "id": "wh", "x": 830, "y": 140 }, { "id": "you", "x": 170, "y": 420 }],
+      "steps": [
+        { "title": "Start", "desc": "At 02:00 UTC the scheduler starts the report.", "msgs": [
+          { "from": "sched", "to": "report", "kind": "req", "info": "run report", "method": "start", "json": { "job": "report", "at": "02:00 UTC" } }
+        ] },
+        { "title": "Query", "desc": "The report asks for yesterday's sales and gets nothing back.", "msgs": [
+          { "from": "report", "to": "wh", "kind": "req", "info": "sales for Mar 8", "method": "SELECT", "json": { "date": "2025-03-08" } },
+          { "from": "wh", "to": "report", "kind": "res", "info": "0 rows", "method": "result", "json": { "rows": 0 } }
+        ] },
+        { "title": "Send", "desc": "It emails a summary anyway: zero sales.", "msgs": [
+          { "from": "report", "to": "you", "kind": "err", "info": "Sales: $0", "method": "email", "json": { "total": 0 } }
+        ] }
+      ]
+    },
+    {
+      "id": "normal", "code": "A normal night", "name": "Export first, then report", "group": "cause",
+      "summary": "The export finishes around 01:40 UTC. The report starts at 02:00 UTC, so the data is always there.",
+      "facts": [["Export ends", "about 01:40 UTC"], ["Report starts", "02:00 UTC"], ["Margin", "20 minutes"]],
+      "actors": [{ "id": "export", "x": 170, "y": 300 }, { "id": "wh", "x": 500, "y": 300 }, { "id": "report", "x": 830, "y": 300 }],
+      "steps": [
+        { "title": "Load", "desc": "The export writes the day's sales.", "msgs": [
+          { "from": "export", "to": "wh", "kind": "http", "info": "4,812 rows", "method": "write", "json": { "rows": 4812, "ends": "01:40 UTC" } }
+        ] },
+        { "title": "Read", "desc": "Twenty minutes later the report reads them.", "msgs": [
+          { "from": "report", "to": "wh", "kind": "req", "info": "sales for the day", "method": "SELECT", "json": { "at": "02:00 UTC" } },
+          { "from": "wh", "to": "report", "kind": "res", "info": "4,812 rows", "method": "result", "json": { "rows": 4812 } }
+        ] }
+      ]
+    },
+    {
+      "id": "why", "code": "Why that night", "name": "The clocks moved", "group": "cause",
+      "summary": "Daylight saving started. The export follows local time, so it ran an hour later in UTC. The report follows UTC, so it didn't move.",
+      "facts": [["Export ended", "02:40 UTC"], ["Report started", "02:00 UTC"], ["Gap", "40 minutes too early"]],
+      "actors": [{ "id": "export", "x": 170, "y": 300 }, { "id": "wh", "x": 500, "y": 300 }, { "id": "report", "x": 830, "y": 300 }],
+      "steps": [
+        { "title": "Early", "desc": "The report reads first and finds nothing.", "msgs": [
+          { "from": "report", "to": "wh", "kind": "req", "info": "sales for the day", "method": "SELECT", "json": { "at": "02:00 UTC" } },
+          { "from": "wh", "to": "report", "kind": "res", "info": "0 rows", "method": "result", "risk": "guess", "json": { "rows": 0 } }
+        ] },
+        { "title": "Late", "desc": "The export lands 40 minutes later, too late for the email.", "msgs": [
+          { "from": "export", "to": "wh", "kind": "http", "info": "4,790 rows at 02:40", "method": "write", "json": { "rows": 4790, "ends": "02:40 UTC" } }
+        ] }
+      ]
+    },
+    {
+      "id": "fix", "code": "Before and after", "name": "Wait for the done flag", "group": "fix",
+      "summary": "Use the Before and After buttons. After the fix, the report waits for the export's done flag instead of a fixed time.",
+      "facts": [["Change", "start on done flag, not on the clock"], ["Rerun", "Mar 9 report: 4,790 rows"]],
+      "actors": [{ "id": "export", "x": 170, "y": 300 }, { "id": "wh", "x": 500, "y": 300 }, { "id": "report", "x": 830, "y": 300 }],
+      "variants": [
+        { "id": "before", "label": "Before", "hint": "fixed time",
+          "steps": [{ "title": "Guess", "desc": "The report starts at 02:00 UTC whether or not the data is there.", "msgs": [
+            { "from": "report", "to": "wh", "kind": "req", "info": "read at 02:00 UTC", "method": "SELECT", "json": { "waits_for": "clock" } }
+          ] }] },
+        { "id": "after", "label": "After", "hint": "done flag",
+          "steps": [
+            { "title": "Flag", "desc": "The export writes a done row when it finishes.", "msgs": [
+              { "from": "export", "to": "wh", "kind": "note", "info": "done: Mar 9", "method": "write", "json": { "done": "2025-03-09" } }
+            ] },
+            { "title": "Read", "desc": "The report checks for the flag, then reads.", "msgs": [
+              { "from": "report", "to": "wh", "kind": "req", "info": "done flag?", "method": "SELECT", "json": { "waits_for": "done flag" } },
+              { "from": "wh", "to": "report", "kind": "res", "info": "yes · 4,790 rows", "method": "result", "json": { "done": true, "rows": 4790 } }
+            ] }
+          ] }
+      ]
+    },
+    {
+      "id": "open", "code": "What's still open", "name": "Watch the autumn change", "group": "after",
+      "summary": "The fix should hold when the clocks move back too, but that hasn't happened yet.",
+      "aside": { "tag": "Not yet verified", "text": "The first autumn run after the fix is the real test." },
+      "actors": [{ "id": "sched", "x": 220, "y": 300 }, { "id": "report", "x": 780, "y": 300 }],
+      "steps": [
+        { "title": "Next", "desc": "Check the first report after the clocks move back.", "msgs": [
+          { "from": "sched", "to": "report", "kind": "req", "info": "first run after change", "method": "start", "json": { "verified": false } }
+        ] }
+      ]
+    }
+  ]
+}

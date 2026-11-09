@@ -1,0 +1,17 @@
+{
+  "scope": "Frontend / React skill selection; evaluate from the changed component and request, not repository-wide dependency presence",
+  "cases": [
+    {"id":"dialog", "prompt":"Build a Base UI dialog styled with StyleX.", "lead":"base-ui-stylex", "support":"stylex for general styling and webapp-testing for interaction", "must_not":"Import Tailwind or shadcn conventions"},
+    {"id":"extraction", "prompt":"Our StyleX classes appear but production CSS is missing. Fix the compiler/extraction setup.", "lead":"stylex", "must_not":"Load Base UI workflow solely because Base UI is installed"},
+    {"id":"existing-shadcn", "prompt":"Edit the existing shadcn settings dialog, keeping its Tailwind styles.", "lead":"shadcn", "must_not":"Migrate to StyleX"},
+    {"id":"mixed", "prompt":"This repo has components.json. Fix the StyleX theme on its custom @base-ui/react dialog.", "lead":"base-ui-stylex", "must_not":"Route by components.json alone or use cn()"},
+    {"id":"performance", "prompt":"Reduce rerenders in this plain React results list.", "lead":"vercel-react-best-practices", "must_not":"Add Base UI or StyleX workflow without an implicated component"},
+    {"id":"shadcn-base", "prompt":"Fix our existing shadcn base-nova dialog built on Base UI; retain its generated Tailwind contract.", "lead":"shadcn", "must_not":"Treat Base UI imports alone as a StyleX migration"},
+    {"id":"incomplete", "prompt":"The dialog looks wrong. This repo has Base UI, StyleX, and shadcn.", "lead":"inspect component first", "must_not":"Guess the stack before reading the target component"},
+    {"id":"offline", "prompt":"Fix this Base UI + StyleX overlay, but live docs are unavailable.", "lead":"base-ui-stylex", "must_not":"Claim successful online verification; try an official fallback, then report local evidence and uncertainty"},
+    {"id":"old-version", "prompt":"Latest docs show an API missing from our installed StyleX version. Repair the current app.", "lead":"stylex", "must_not":"Upgrade dependencies merely to match newer docs"},
+    {"id":"accessibility", "prompt":"Fix the unlabeled icon buttons and broken keyboard focus in our settings dialog.", "lead":"fixing-accessibility", "must_not":"Migrate the dialog's component or styling system"},
+    {"id":"motion", "prompt":"This React drawer stutters during its opening transition; find the rendering bottleneck.", "lead":"fixing-motion-performance", "must_not":"Replace the existing animation library without cause"},
+    {"id":"metadata", "prompt":"The new product page has the wrong social preview and duplicate canonical tags.", "lead":"fixing-metadata", "must_not":"Use a general visual polish skill for a head metadata problem"}
+  ]
+}

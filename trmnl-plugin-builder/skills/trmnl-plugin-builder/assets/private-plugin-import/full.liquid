@@ -1,0 +1,11 @@
+{% comment %}
+This is editor-oriented Private Plugin markup. Before adding Framework classes
+or uploading it, query Context7's current TRMNL Framework docs and verify the
+current private-editor requirements.
+{% endcomment %}
+
+<main>
+  <h1>{{ display_label | default: "Example Metrics" }}</h1>
+  <p>{{ metric_value | default: "--" }}</p>
+  <small>{{ updated_at | default: "Awaiting data" }}</small>
+</main>

@@ -1,0 +1,4 @@
+interface:
+  display_name: "TypeScript Advanced Types"
+  short_description: "Build safe advanced TypeScript types."
+  default_prompt: "Use $typescript-advanced-types to design a precise type-safe solution for this API."

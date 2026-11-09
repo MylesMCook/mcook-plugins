@@ -1,0 +1,40 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "writer",
+  "version": "0.2.1",
+  "description": "Draft, edit, and clean up prose through one focused writing workflow.",
+  "author": {
+    "name": "Myles Cook",
+    "url": "https://github.com/MylesMCook"
+  },
+  "homepage": "https://github.com/MylesMCook/mcook-plugins/tree/main/writer",
+  "repository": "https://github.com/MylesMCook/mcook-plugins",
+  "keywords": [
+    "writing",
+    "editing",
+    "prose",
+    "human-writing",
+    "productivity"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Writer",
+        "shortDescription": "Write clearly and remove generic AI prose.",
+        "longDescription": "One Writer skill for drafting, rewriting, and human-writing cleanup, with conditional references and factual fidelity.",
+        "developerName": "Myles Cook",
+        "category": "Productivity",
+        "capabilities": [
+          "Read",
+          "Write"
+        ],
+        "websiteURL": "https://github.com/MylesMCook/mcook-plugins/tree/main/writer",
+        "defaultPrompt": [
+          "Rewrite this so it is clear, concise, and easy to act on.",
+          "Remove the AI-writing patterns without changing the meaning.",
+          "Polish this draft for its actual reader and channel."
+        ]
+      }
+    }
+  }
+}

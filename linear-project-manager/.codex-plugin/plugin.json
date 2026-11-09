@@ -1,0 +1,37 @@
+{
+  "name": "linear-project-manager",
+  "version": "0.1.2",
+  "description": "Track meaningful development outcomes in Linear with one skill and the official MCP connection.",
+  "author": {
+    "name": "Myles Cook",
+    "url": "https://github.com/MylesMCook"
+  },
+  "homepage": "https://github.com/MylesMCook/mcook-plugins/tree/main/linear-project-manager",
+  "repository": "https://github.com/MylesMCook/mcook-plugins",
+  "license": "MIT",
+  "keywords": [
+    "linear",
+    "project-management",
+    "codex"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Linear Project Manager",
+    "shortDescription": "Keep Linear aligned with meaningful development work.",
+    "longDescription": "Reuse outcome-focused issues across machines, record verification, and preserve unfinished work. Issue maintenance requires an approved repository mapping.",
+    "developerName": "Myles Cook",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive"
+    ],
+    "websiteURL": "https://github.com/MylesMCook/mcook-plugins/tree/main/linear-project-manager",
+    "privacyPolicyURL": "https://github.com/MylesMCook/mcook-plugins",
+    "termsOfServiceURL": "https://github.com/MylesMCook/mcook-plugins",
+    "defaultPrompt": [
+      "Use $linear-project-manager to connect this repository to its Linear project.",
+      "Use $linear-project-manager to reconcile this task with Linear."
+    ],
+    "brandColor": "#334155"
+  },
+  "mcpServers": "./.mcp.json"
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "RedwoodSDK Web Apps"
+  short_description: "Build RedwoodSDK apps using current docs"
+  default_prompt: "Use $redwood-web-apps to implement this feature against the current RedwoodSDK docs and verify the user path."

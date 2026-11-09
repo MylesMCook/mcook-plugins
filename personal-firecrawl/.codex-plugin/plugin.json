@@ -1,0 +1,40 @@
+{
+  "name": "personal-firecrawl",
+  "version": "2.0.0",
+  "description": "Research the web with your self-hosted Firecrawl search and fetch tools, plus on-host CLI bulk work.",
+  "author": {
+    "name": "Myles Cook",
+    "url": "https://github.com/MylesMCook"
+  },
+  "homepage": "https://github.com/MylesMCook/mcook-plugins/tree/main/personal-firecrawl",
+  "repository": "https://github.com/MylesMCook/mcook-plugins",
+  "license": "ISC",
+  "keywords": [
+    "agent-plugins",
+    "firecrawl",
+    "mcp",
+    "self-hosted",
+    "web-research"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Personal Firecrawl",
+    "shortDescription": "Research the web with your Firecrawl.",
+    "longDescription": "Look up, verify and research questions through your authenticated self-hosted Firecrawl MCP search and fetch tools, with your agent doing the reasoning and optional subagent fan-out. On the Firecrawl host, map, crawl and download sites to local files through the CLI.",
+    "developerName": "Myles Cook",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/MylesMCook/mcook-plugins/tree/main/personal-firecrawl",
+    "defaultPrompt": [
+      "Look this up with my Firecrawl and cite the pages you read.",
+      "Research this multi-clue question with my Firecrawl and give your best answer with confidence.",
+      "Verify this claim against primary sources with my Firecrawl.",
+      "Map this site with the Firecrawl CLI and save the URL list."
+    ],
+    "brandColor": "#F97316",
+    "screenshots": []
+  }
+}

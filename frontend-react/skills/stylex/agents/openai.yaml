@@ -1,0 +1,4 @@
+interface:
+  display_name: "StyleX"
+  short_description: "Build maintainable StyleX interfaces."
+  default_prompt: "Use $stylex to set up or refine this interface with the existing StyleX architecture."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Writer"
+  short_description: "Draft, edit, and clean up human-facing prose"
+  default_prompt: "Use $writer to make this draft clear and natural while preserving its facts and voice."

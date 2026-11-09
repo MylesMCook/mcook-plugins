@@ -1,0 +1,6 @@
+interface:
+  display_name: "Thermo Code Quality Review"
+  short_description: "Audit changed code for structural quality"
+  default_prompt: "Use $thermo-nuclear-code-quality-review on this change scope."
+policy:
+  allow_implicit_invocation: false

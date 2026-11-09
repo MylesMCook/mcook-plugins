@@ -1,0 +1,112 @@
+{
+  "id": "dns",
+  "home": false,
+  "title": "DNS Explained",
+  "byline": "Explainer",
+  "pageTitle": "DNS Explained · how names become addresses",
+  "description": "A step-by-step look at how a domain name turns into an IP address.",
+  "subject": "Domain Name System",
+  "intro": {
+    "lesson": "overview",
+    "kicker": "Domain Name System",
+    "heading": "What is DNS?",
+    "lead": "The internet's phone book. Your device asks a resolver for a name and gets back an address.",
+    "facts": [
+      ["Resolver", "the server that does the looking up for you"],
+      ["Root", "knows where every top-level domain lives"],
+      ["Authoritative", "the server that owns the final answer"],
+      ["Cache", "answers are kept for a while so lookups stay fast"]
+    ],
+    "start": "lookup",
+    "jump": [["Caching", "#caching"], ["Break it", "#spoofing"]]
+  },
+  "groups": [
+    { "id": "basics", "title": "Basics" },
+    { "id": "attacks", "title": "Break it: attacks and defenses", "separate": true }
+  ],
+  "kinds": { "req": "Query", "res": "Answer" },
+  "riskLabel": "Attack surface",
+  "risks": {
+    "spoof": { "title": "Cache poisoning", "text": "If an attacker's fake answer arrives first, the resolver may cache it and send everyone to the wrong address.", "lesson": "spoofing" }
+  },
+  "actors": {
+    "you": { "label": "Your device", "sub": "browser", "icon": "laptop" },
+    "resolver": { "label": "Resolver", "sub": "your ISP or 1.1.1.1", "icon": "server" },
+    "root": { "label": "Root server", "sub": "\".\"", "icon": "tile", "mono": "." },
+    "tld": { "label": "TLD server", "sub": ".com", "icon": "tile", "mono": "COM" },
+    "auth": { "label": "Authoritative", "sub": "example.com", "icon": "database" },
+    "attacker": { "label": "Attacker", "sub": "forges answers", "icon": "code" }
+  },
+  "whatsNext": [["All explainers", "How these are made, and more examples", "../"]],
+  "footer": "Sample topic built from one JSON file. Addresses are illustrative.",
+  "lessons": [
+    {
+      "id": "overview", "code": "What is DNS?", "name": "One lookup, start to finish",
+      "summary": "Names are for people, addresses are for machines. DNS turns one into the other by asking a short chain of servers.",
+      "facts": [["Port", "53"], ["Transport", "UDP, TCP for large answers"]],
+      "actors": [{ "id": "you", "x": 170, "y": 400 }, { "id": "resolver", "x": 500, "y": 400 }, { "id": "auth", "x": 830, "y": 400 }],
+      "zones": [{ "label": "Your network", "ids": ["you", "resolver"] }, { "label": "Internet", "sub": "anywhere", "ids": ["auth"], "style": "dashed" }],
+      "wires": { "you|resolver": "UDP 53" },
+      "steps": [
+        { "title": "Ask", "desc": "You type a name. Your device asks the resolver for its address.", "msgs": [
+          { "from": "you", "to": "resolver", "kind": "req", "info": "example.com?", "method": "A query", "json": { "question": { "name": "example.com", "type": "A" } } }
+        ] },
+        { "title": "Find", "desc": "The resolver asks the server that owns the name.", "msgs": [
+          { "from": "resolver", "to": "auth", "kind": "req", "info": "example.com?", "method": "A query", "json": { "question": { "name": "example.com", "type": "A" } } },
+          { "from": "auth", "to": "resolver", "kind": "res", "info": "93.184.215.14", "method": "answer", "json": { "answer": { "name": "example.com", "type": "A", "ttl": 3600, "data": "93.184.215.14" } }, "notes": [["ttl", "How many seconds the answer may be cached."]] }
+        ] },
+        { "title": "Answer", "desc": "The resolver passes the address back. The browser can now connect.", "msgs": [
+          { "from": "resolver", "to": "you", "kind": "res", "info": "93.184.215.14", "method": "answer", "json": { "answer": "93.184.215.14" } }
+        ] }
+      ]
+    },
+    {
+      "id": "lookup", "code": "Full lookup", "name": "Root, TLD, authoritative", "group": "basics",
+      "summary": "With an empty cache, the resolver starts at the root and follows referrals down the name.",
+      "facts": [["Referral", "\"I don't know, ask them\""], ["Steps", "root → .com → example.com"]],
+      "actors": [{ "id": "you", "x": 150, "y": 420 }, { "id": "resolver", "x": 420, "y": 420 }, { "id": "root", "x": 820, "y": 110 }, { "id": "tld", "x": 820, "y": 290 }, { "id": "auth", "x": 820, "y": 470 }],
+      "zones": [{ "label": "Your network", "ids": ["you", "resolver"] }],
+      "steps": [
+        { "title": "Root", "desc": "The root doesn't know example.com, but knows who runs .com.", "msgs": [
+          { "from": "resolver", "to": "root", "kind": "req", "info": "example.com?", "method": "A query", "json": { "question": "example.com A" } },
+          { "from": "root", "to": "resolver", "kind": "res", "info": "ask .com servers", "method": "referral", "json": { "authority": "com. NS a.gtld-servers.net" } }
+        ] },
+        { "title": "TLD", "desc": "The .com server points to the name's own servers.", "msgs": [
+          { "from": "resolver", "to": "tld", "kind": "req", "info": "example.com?", "method": "A query", "json": { "question": "example.com A" } },
+          { "from": "tld", "to": "resolver", "kind": "res", "info": "ask ns1.example.com", "method": "referral", "json": { "authority": "example.com. NS ns1.example.com" } }
+        ] },
+        { "title": "Owner", "desc": "The authoritative server gives the real answer.", "msgs": [
+          { "from": "resolver", "to": "auth", "kind": "req", "info": "example.com?", "method": "A query", "json": { "question": "example.com A" } },
+          { "from": "auth", "to": "resolver", "kind": "res", "info": "93.184.215.14", "method": "answer", "json": { "answer": "example.com. 3600 A 93.184.215.14" } },
+          { "from": "resolver", "to": "you", "kind": "res", "info": "93.184.215.14", "method": "answer", "json": { "answer": "93.184.215.14" } }
+        ] }
+      ]
+    },
+    {
+      "id": "caching", "code": "Caching", "name": "Why the second lookup is instant", "group": "basics",
+      "summary": "Resolvers remember answers until their TTL runs out, so most lookups never leave your network.",
+      "facts": [["TTL", "set by the name's owner"]],
+      "actors": [{ "id": "you", "x": 230, "y": 300 }, { "id": "resolver", "x": 770, "y": 300 }],
+      "zones": [{ "label": "Your network", "ids": ["you", "resolver"] }],
+      "steps": [
+        { "title": "Hit", "desc": "The resolver already has the answer and replies at once.", "msgs": [
+          { "from": "you", "to": "resolver", "kind": "req", "info": "example.com?", "method": "A query", "json": { "question": "example.com A" } },
+          { "from": "resolver", "to": "you", "kind": "res", "info": "cached · 2 ms", "method": "answer", "json": { "answer": "93.184.215.14", "ttl_left": 3412 } }
+        ] }
+      ]
+    },
+    {
+      "id": "spoofing", "code": "Cache poisoning", "name": "A fake answer wins the race", "group": "attacks",
+      "summary": ["Plain DNS answers are unsigned.", "An attacker who guesses a query's id can answer first, and the lie gets cached.", "DNSSEC signatures and random ports make this much harder."],
+      "facts": [["Defense", "DNSSEC, random ports and ids"]],
+      "actors": [{ "id": "resolver", "x": 230, "y": 300 }, { "id": "auth", "x": 770, "y": 160 }, { "id": "attacker", "x": 770, "y": 430 }],
+      "zones": [{ "label": "Attacker", "ids": ["attacker"], "style": "accent" }],
+      "steps": [
+        { "title": "Race", "desc": "The resolver asks; the attacker floods it with forged answers.", "msgs": [
+          { "from": "resolver", "to": "auth", "kind": "req", "info": "bank.com?", "method": "A query", "json": { "id": 4711, "question": "bank.com A" } },
+          { "from": "attacker", "to": "resolver", "kind": "err", "info": "forged: 6.6.6.6", "method": "fake answer", "risk": "spoof", "json": { "id": 4711, "answer": "bank.com A 6.6.6.6" } }
+        ] }
+      ]
+    }
+  ]
+}

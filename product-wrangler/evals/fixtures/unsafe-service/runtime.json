@@ -1,0 +1,6 @@
+{
+  "frontend": "http://127.0.0.1:4173",
+  "api": "https://api.example.invalid",
+  "account": "normal-user",
+  "sandboxProven": false
+}

@@ -1,0 +1,44 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "product-wrangler",
+  "version": "0.2.0",
+  "description": "Turn an existing runnable web app into an evidence-backed, complete product without expanding authority.",
+  "author": {
+    "name": "Myles Cook",
+    "url": "https://github.com/MylesMCook"
+  },
+  "homepage": "https://github.com/MylesMCook/mcook-plugins/tree/main/product-wrangler",
+  "repository": "https://github.com/MylesMCook/mcook-plugins",
+  "license": "MIT",
+  "keywords": [
+    "web-apps",
+    "product",
+    "ux",
+    "frontend",
+    "browser-testing",
+    "agent-workflow"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Product Wrangler",
+        "shortDescription": "Turn rough web apps into evidence-backed products.",
+        "longDescription": "Autonomously infer, bound, repair, and verify an existing runnable web application through ranked product evidence, safe execution, before-and-after journey replay, browser critique, and honest completion gates.",
+        "developerName": "Myles Cook",
+        "category": "Developer Tools",
+        "capabilities": [
+          "Interactive"
+        ],
+        "websiteURL": "https://github.com/MylesMCook/mcook-plugins/tree/main/product-wrangler",
+        "privacyPolicyURL": "https://github.com/MylesMCook/mcook-plugins",
+        "termsOfServiceURL": "https://github.com/MylesMCook/mcook-plugins",
+        "defaultPrompt": [
+          "Wrangle this existing app into the product it should actually be.",
+          "Make this half-baked web app feel complete without expanding authority.",
+          "Use evidence and browser verification to finish this existing product."
+        ],
+        "brandColor": "#334155"
+      }
+    }
+  }
+}

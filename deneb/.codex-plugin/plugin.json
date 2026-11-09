@@ -1,0 +1,40 @@
+{
+  "name": "deneb",
+  "version": "0.1.0",
+  "description": "Author and debug Deneb visuals for Power BI with correct dataset binding, PBIR persistence, interactivity, and theme integration.",
+  "author": {
+    "name": "Myles Cook",
+    "url": "https://github.com/MylesMCook"
+  },
+  "homepage": "https://github.com/MylesMCook/mcook-plugins/tree/main/deneb",
+  "repository": "https://github.com/MylesMCook/mcook-plugins",
+  "keywords": [
+    "deneb",
+    "power-bi",
+    "pbir",
+    "vega",
+    "vega-lite",
+    "data-visualization"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Deneb",
+    "shortDescription": "Author Deneb visuals with Vega or Vega-Lite for Power BI",
+    "longDescription": "Author and debug Deneb visuals for Power BI by locking host constraints and dataset bindings first, then producing Deneb-ready Vega-Lite or Vega specs with PBIR, interactivity, template, performance, and report-theme guidance.",
+    "developerName": "Myles Cook",
+    "category": "Data Analysis",
+    "capabilities": [
+      "Write"
+    ],
+    "websiteURL": "https://github.com/MylesMCook/mcook-plugins/tree/main/deneb",
+    "privacyPolicyURL": "https://github.com/MylesMCook/mcook-plugins",
+    "termsOfServiceURL": "https://github.com/MylesMCook/mcook-plugins",
+    "defaultPrompt": [
+      "Build a Deneb visual for my Power BI dataset.",
+      "Debug this Deneb Vega-Lite spec and preserve interactivity.",
+      "Create PBIR properties for this Deneb visual."
+    ],
+    "brandColor": "#0F766E",
+    "screenshots": []
+  }
+}

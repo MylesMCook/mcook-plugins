@@ -1,0 +1,45 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "american-inkblot-illustrations",
+  "version": "0.2.2",
+  "description": "Create sparse Inkblot-first illustrations and evidence-grounded system portraits.",
+  "author": {
+    "name": "Myles Cook",
+    "url": "https://github.com/MylesMCook"
+  },
+  "homepage": "https://github.com/MylesMCook/mcook-plugins/tree/main/american-inkblot-illustrations",
+  "repository": "https://github.com/MylesMCook/mcook-plugins",
+  "license": "MIT",
+  "keywords": [
+    "systems",
+    "architecture",
+    "illustration",
+    "image-generation",
+    "inkblot"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "American Inkblot Illustrations",
+        "shortDescription": "Create sparse Inkblot art and system portraits.",
+        "longDescription": "Defaults ordinary illustration work to sparse Inkblot-first scenes, while preserving an evidence-grounded system-portrait mode with verified plumbing and a companion truth ledger.",
+        "developerName": "Myles Cook",
+        "category": "Developer Tools",
+        "capabilities": [
+          "Read",
+          "Write"
+        ],
+        "websiteURL": "https://github.com/MylesMCook/mcook-plugins/tree/main/american-inkblot-illustrations",
+        "privacyPolicyURL": "https://github.com/MylesMCook/mcook-plugins",
+        "termsOfServiceURL": "https://github.com/MylesMCook/mcook-plugins",
+        "defaultPrompt": [
+          "Illustrate this idea with Inkblot as the main or only visible subject.",
+          "Show me how this system works as an Inkblot plumbing portrait.",
+          "Plan sparse Inkblot-first body illustrations for this article."
+        ],
+        "brandColor": "#161616",
+        "screenshots": []
+      }
+    }
+  }
+}

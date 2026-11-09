@@ -1,0 +1,4 @@
+interface:
+  display_name: "Tailscale"
+  short_description: "Configure and troubleshoot Tailscale networks."
+  default_prompt: "Use $tailscale to diagnose my tailnet connectivity using current documentation and local CLI help."

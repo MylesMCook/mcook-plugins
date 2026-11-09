@@ -1,0 +1,4 @@
+interface:
+  display_name: "CLI for Agents"
+  short_description: "Design CLIs that agents can drive reliably"
+  default_prompt: "Use $cli-for-agents to review this command-line interface."

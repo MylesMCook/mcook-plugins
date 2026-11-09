@@ -1,0 +1,667 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/MylesMCook/explainer-kit/topic.schema.json",
+  "title": "Explainer topic",
+  "description": "One explainer. Shape only: run `node build.mjs --check` for references, lengths, spacing and wording. Field meanings: TOPIC-GUIDE.md.",
+  "type": "object",
+  "required": [
+    "id",
+    "title",
+    "intro",
+    "actors",
+    "lessons"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$",
+      "description": "Lowercase id, used in the page address."
+    },
+    "home": {
+      "type": "boolean",
+      "description": "Sites only: exactly one topic in topics/ is the home page."
+    },
+    "preset": {
+      "enum": [
+        "protocol",
+        "incident",
+        "process"
+      ],
+      "description": "Fixes kinds, labels, riskLabel and groups for this kind of explainer. Topic values override it."
+    },
+    "title": {
+      "type": "string",
+      "description": "Header title."
+    },
+    "byline": {
+      "type": "string"
+    },
+    "pageTitle": {
+      "type": "string",
+      "description": "Browser tab title."
+    },
+    "description": {
+      "type": "string",
+      "description": "One line for search engines and link previews."
+    },
+    "subject": {
+      "type": "string",
+      "description": "Heading above the lesson list."
+    },
+    "intro": {
+      "type": "object",
+      "required": [
+        "start"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "lesson": {
+          "type": "string",
+          "description": "Lesson played on the intro page; not listed on the left."
+        },
+        "kicker": {
+          "type": "string"
+        },
+        "heading": {
+          "type": "string",
+          "description": "The big question."
+        },
+        "lead": {
+          "type": "string",
+          "description": "One or two short sentences, 180 characters max.",
+          "maxLength": 180
+        },
+        "facts": {
+          "$ref": "#/$defs/pairs",
+          "maxItems": 5
+        },
+        "start": {
+          "type": "string",
+          "description": "Lesson id the big button opens."
+        },
+        "startLabel": {
+          "type": "string"
+        },
+        "jump": {
+          "$ref": "#/$defs/pairs",
+          "description": "[label, \"#lesson-id\"] links."
+        }
+      }
+    },
+    "groups": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "title"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "separate": {
+            "type": "boolean",
+            "description": "Divider line above the group."
+          }
+        }
+      }
+    },
+    "actors": {
+      "type": "object",
+      "description": "The actor catalogue; lessons place them.",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "label"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "label": {
+            "type": "string"
+          },
+          "sub": {
+            "type": "string"
+          },
+          "icon": {
+            "$ref": "#/$defs/icon"
+          },
+          "mono": {
+            "type": "string",
+            "description": "Short label on top of a tile icon."
+          }
+        }
+      }
+    },
+    "kinds": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Rename message kinds in the inspector.",
+      "properties": {
+        "req": {
+          "type": "string"
+        },
+        "res": {
+          "type": "string"
+        },
+        "err": {
+          "type": "string"
+        },
+        "note": {
+          "type": "string"
+        },
+        "http": {
+          "type": "string"
+        },
+        "host": {
+          "type": "string"
+        }
+      }
+    },
+    "labels": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Rename the log and inspector headings.",
+      "properties": {
+        "flow": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "method": {
+          "type": "string"
+        },
+        "info": {
+          "type": "string"
+        }
+      }
+    },
+    "risks": {
+      "type": "object",
+      "description": "Warning callouts that messages point to with \"risk\".",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "title",
+          "text"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string",
+            "maxLength": 140
+          },
+          "lesson": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "riskLabel": {
+      "type": "string"
+    },
+    "versions": {
+      "type": "object",
+      "required": [
+        "current",
+        "list"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "label": {
+          "type": "string"
+        },
+        "prefix": {
+          "type": "string"
+        },
+        "current": {
+          "type": "string"
+        },
+        "list": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "short": {
+                "type": "string"
+              },
+              "label": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "whatsNextTitle": {
+      "type": "string"
+    },
+    "whatsNext": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "prefixItems": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "string"
+          },
+          {
+            "type": "string"
+          }
+        ],
+        "minItems": 3,
+        "maxItems": 3
+      },
+      "description": "[title, one line, link]"
+    },
+    "footer": {
+      "type": "string"
+    },
+    "footerLinks": {
+      "$ref": "#/$defs/pairs"
+    },
+    "lessons": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/lesson"
+      }
+    }
+  },
+  "$defs": {
+    "icon": {
+      "enum": [
+        "server",
+        "tile",
+        "laptop",
+        "chip",
+        "person",
+        "browser",
+        "vault",
+        "database",
+        "gateway",
+        "code",
+        "phone"
+      ]
+    },
+    "kind": {
+      "enum": [
+        "req",
+        "res",
+        "err",
+        "note",
+        "http",
+        "host"
+      ]
+    },
+    "pairs": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "prefixItems": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "string"
+          }
+        ],
+        "minItems": 2,
+        "maxItems": 2
+      }
+    },
+    "placed": {
+      "type": "object",
+      "required": [
+        "id",
+        "x",
+        "y"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "x": {
+          "type": "number",
+          "minimum": 60,
+          "maximum": 940
+        },
+        "y": {
+          "type": "number",
+          "minimum": 60,
+          "maximum": 520
+        },
+        "label": {
+          "type": "string"
+        },
+        "sub": {
+          "type": "string"
+        },
+        "icon": {
+          "$ref": "#/$defs/icon"
+        },
+        "mono": {
+          "type": "string"
+        }
+      }
+    },
+    "zone": {
+      "type": "object",
+      "required": [
+        "label",
+        "ids"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "label": {
+          "type": "string"
+        },
+        "sub": {
+          "type": "string"
+        },
+        "ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "style": {
+          "enum": [
+            "solid",
+            "dashed",
+            "accent"
+          ]
+        }
+      }
+    },
+    "message": {
+      "type": "object",
+      "required": [
+        "from",
+        "to",
+        "kind",
+        "info"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "from": {
+          "type": "string"
+        },
+        "to": {
+          "type": "string"
+        },
+        "kind": {
+          "$ref": "#/$defs/kind"
+        },
+        "info": {
+          "type": "string",
+          "maxLength": 40
+        },
+        "method": {
+          "type": "string"
+        },
+        "json": {
+          "description": "A small, realistic example body."
+        },
+        "notes": {
+          "$ref": "#/$defs/pairs"
+        },
+        "risk": {
+          "type": "string"
+        }
+      }
+    },
+    "step": {
+      "type": "object",
+      "required": [
+        "title",
+        "desc"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "desc": {
+          "type": "string",
+          "maxLength": 120
+        },
+        "msgs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/message"
+          }
+        }
+      }
+    },
+    "flow": {
+      "description": "Fields a variant or version override may replace.",
+      "properties": {
+        "actors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/placed"
+          }
+        },
+        "zones": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/zone"
+          }
+        },
+        "wires": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "\"a|b\": pill label on that connection."
+        },
+        "steps": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/step"
+          }
+        }
+      }
+    },
+    "lesson": {
+      "type": "object",
+      "required": [
+        "id",
+        "code",
+        "name"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "code": {
+          "type": "string",
+          "description": "Short title."
+        },
+        "name": {
+          "type": "string",
+          "description": "One-line subtitle."
+        },
+        "group": {
+          "type": "string"
+        },
+        "summary": {
+          "description": "One or two short sentences (160 characters max), or 2 to 4 bullet points (90 each).",
+          "anyOf": [
+            {
+              "type": "string",
+              "maxLength": 160
+            },
+            {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 4,
+              "items": {
+                "type": "string",
+                "maxLength": 90
+              }
+            }
+          ]
+        },
+        "facts": {
+          "$ref": "#/$defs/pairs"
+        },
+        "links": {
+          "$ref": "#/$defs/pairs"
+        },
+        "linksLabel": {
+          "type": "string"
+        },
+        "aside": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "tag": {
+              "type": "string"
+            },
+            "text": {
+              "type": "string",
+              "maxLength": 140
+            }
+          }
+        },
+        "boxes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "title": {
+                "type": "string"
+              },
+              "items": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "link": {
+                "type": "array",
+                "prefixItems": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "string"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "actors": {
+          "$ref": "#/$defs/flow/properties/actors"
+        },
+        "zones": {
+          "$ref": "#/$defs/flow/properties/zones"
+        },
+        "wires": {
+          "$ref": "#/$defs/flow/properties/wires"
+        },
+        "steps": {
+          "$ref": "#/$defs/flow/properties/steps"
+        },
+        "variants": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "steps"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "label": {
+                "type": "string"
+              },
+              "hint": {
+                "type": "string"
+              },
+              "actors": {
+                "$ref": "#/$defs/flow/properties/actors"
+              },
+              "zones": {
+                "$ref": "#/$defs/flow/properties/zones"
+              },
+              "wires": {
+                "$ref": "#/$defs/flow/properties/wires"
+              },
+              "steps": {
+                "$ref": "#/$defs/flow/properties/steps"
+              }
+            }
+          }
+        },
+        "since": {
+          "type": "string",
+          "description": "Version this lesson arrived in."
+        },
+        "atVersion": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "diff": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "actors": {
+                "$ref": "#/$defs/flow/properties/actors"
+              },
+              "zones": {
+                "$ref": "#/$defs/flow/properties/zones"
+              },
+              "wires": {
+                "$ref": "#/$defs/flow/properties/wires"
+              },
+              "steps": {
+                "$ref": "#/$defs/flow/properties/steps"
+              },
+              "summary": {
+                "$ref": "#/$defs/lesson/properties/summary"
+              },
+              "facts": {
+                "$ref": "#/$defs/pairs"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

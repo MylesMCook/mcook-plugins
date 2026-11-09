@@ -1,0 +1,42 @@
+{
+  "name": "wails",
+  "version": "0.2.4",
+  "description": "Build Wails apps, set up native feedback, and watch and fix comments as they arrive.",
+  "author": {
+    "name": "Myles Cook",
+    "url": "https://github.com/MylesMCook"
+  },
+  "homepage": "https://github.com/MylesMCook/mcook-plugins/tree/main/wails",
+  "repository": "https://github.com/MylesMCook/mcook-plugins",
+  "license": "MIT",
+  "keywords": [
+    "wails",
+    "go",
+    "desktop",
+    "documentation",
+    "llms-txt",
+    "developer-tools",
+    "agentation",
+    "native-feedback"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Wails",
+    "shortDescription": "Build Wails apps and watch native feedback.",
+    "longDescription": "Version-aware Wails guidance, reversible native feedback setup, and an active watch-and-fix workflow with verification and restart recovery.",
+    "developerName": "Myles Cook",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/MylesMCook/mcook-plugins/tree/main/wails",
+    "defaultPrompt": [
+      "Use current official docs to implement this change in my Wails app.",
+      "Debug the Go-to-frontend bindings in this Wails project.",
+      "Evaluate a Wails v2 to v3 migration against the current documentation.",
+      "Add development-only native Agentation feedback to my Wails v3 app.",
+      "Watch and fix my Burf native feedback in this task until I tell you to stop."
+    ]
+  }
+}

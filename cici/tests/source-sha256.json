@@ -1,0 +1,9 @@
+{
+  "assets/icon.svg": "b496a81cdba7bcd122df22caacc7c5ce98144f9a2c86ff6e080e0cfaa9d635d2",
+  "references/claude-cli-contract.md": "eaac811288662838cc2e7e4c366e86a52a99d8e3053512945c86ba853cc2bb4c",
+  "scripts/claude-code.mjs": "b377e5e8103c74a20c615b9235188b162df86eb0a99eea9592da2f562124cea0",
+  "skills/claude-code/SKILL.md": "c70b928c01dff4b90c774bf3f39851fc31c221acc30c8f5e1baf74b41ba3ebc6",
+  "skills/claude-code-rescue/SKILL.md": "959e7f1c11cc220eebe03dc61bac892c16ea50bad9749e2ab9c26ba3fc4d1c6f",
+  "skills/claude-code-review/SKILL.md": "21e26207f51b34d6f9c2dbe8fe8b04896017fc2c63df020fb693f8001eab13eb",
+  "tests/claude-code.test.mjs": "677da58486647bb2ad7c754c9a6749332969041ce02ea97085b85231b903b35c"
+}

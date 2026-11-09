@@ -1,0 +1,11 @@
+interface:
+  display_name: "Research with Personal Firecrawl"
+  short_description: "Look up and verify facts with search and fetch"
+  default_prompt: "Use $firecrawl-research to look this up with my self-hosted Firecrawl and cite the pages you read."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "firecrawl"
+      description: "User-configured authenticated self-hosted Firecrawl MCP server"
+      transport: "streamable_http"

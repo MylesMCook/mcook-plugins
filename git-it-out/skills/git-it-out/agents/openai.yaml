@@ -1,0 +1,7 @@
+interface:
+  display_name: "Git It Out"
+  short_description: "Final verified mainline closeout"
+  default_prompt: "Use $git-it-out to verify completed work, land and push it through the repository's documented closeout path, and stop at any unclear approval or production gate."
+
+policy:
+  allow_implicit_invocation: true

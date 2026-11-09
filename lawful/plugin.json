@@ -1,0 +1,45 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "lawful",
+  "version": "0.2.1",
+  "description": "Apply software, visual, and UX laws to technical decisions and product critiques.",
+  "author": {
+    "name": "Myles Cook",
+    "url": "https://github.com/MylesMCook"
+  },
+  "homepage": "https://github.com/MylesMCook/mcook-plugins/tree/main/lawful",
+  "repository": "https://github.com/MylesMCook/mcook-plugins",
+  "license": "MIT",
+  "keywords": [
+    "software-architecture",
+    "design",
+    "ux",
+    "critique",
+    "decision-making"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Lawful",
+        "shortDescription": "Apply the right laws to software, visual, and UX work.",
+        "longDescription": "Bundles Laws of Software, Laws of Taste, and Laws of UX as three focused skills for architecture decisions, visual direction, and interaction critique.",
+        "developerName": "Myles Cook",
+        "category": "Developer Tools",
+        "capabilities": [
+          "Read",
+          "Write"
+        ],
+        "websiteURL": "https://github.com/MylesMCook/mcook-plugins/tree/main/lawful",
+        "privacyPolicyURL": "https://github.com/MylesMCook/mcook-plugins",
+        "termsOfServiceURL": "https://github.com/MylesMCook/mcook-plugins",
+        "defaultPrompt": [
+          "Review this technical design with Laws of Software and recommend the smallest reversible path.",
+          "Critique this visual surface with Laws of Taste and give me the strongest few changes.",
+          "Review this product flow with the most relevant Laws of UX."
+        ],
+        "brandColor": "#202124",
+        "screenshots": []
+      }
+    }
+  }
+}

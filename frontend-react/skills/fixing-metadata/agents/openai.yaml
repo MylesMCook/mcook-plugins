@@ -1,0 +1,4 @@
+interface:
+  display_name: "Fixing Metadata"
+  short_description: "Repair page and social metadata."
+  default_prompt: "Use $fixing-metadata to check and fix this page's metadata."

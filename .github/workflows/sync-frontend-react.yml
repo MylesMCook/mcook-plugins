@@ -1,0 +1,64 @@
+name: Sync Frontend / React upstream skills
+
+on:
+  schedule:
+    - cron: "17 9 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: sync-frontend-react
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out marketplace
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d # v10.0.1
+
+      - name: Refresh pinned upstream skills
+        run: python3 scripts/sync_frontend_react.py
+
+      - name: Test sync safety and reproducibility
+        run: python3 -m unittest discover -s scripts/tests
+
+      - name: Validate portable plugin
+        run: >-
+          uv run
+          mcook-plugin-builder/skills/build-mcook-plugin/scripts/validate_agent_plugin.py
+          frontend-react
+          --marketplace .agents/plugins/marketplace.json
+          --marketplace-root .
+          --require-openai-overlay
+
+      - name: Check generated diff
+        run: |
+          python3 -m py_compile scripts/sync_frontend_react.py
+          git diff --check
+
+      - name: Open upstream refresh pull request
+        uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8
+        with:
+          token: ${{ github.token }}
+          branch: automation/frontend-react-upstreams
+          delete-branch: true
+          commit-message: "chore: refresh frontend-react upstream skills"
+          title: "Refresh frontend-react upstream skills"
+          body: |
+            Automated weekly refresh of the five pinned third-party Agent Skills used by `frontend-react`.
+
+            The sync copied source without executing upstream scripts, reapplied the Codex compatibility
+            transform, updated exact commit pins, bumped the plugin patch version, and passed the portable
+            package validator. The plugin-owned Base UI + StyleX and StyleX skills follow live official
+            documentation and are not overwritten by this job. Review the skill diff before merging.
+          add-paths: |
+            frontend-react

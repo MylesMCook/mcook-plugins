@@ -1,0 +1,12 @@
+interface:
+  display_name: "assistant-ui"
+  short_description: "Build with official assistant-ui documentation"
+  default_prompt: "Use $assistant-ui to find version-matched official guidance for my project."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "assistant-ui"
+      description: "Official assistant-ui documentation and templates"
+      transport: "streamable_http"
+      url: "https://www.assistant-ui.com/mcp"

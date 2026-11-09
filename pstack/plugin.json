@@ -1,0 +1,42 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "pstack",
+  "version": "0.1.1",
+  "description": "Rigorous Codex engineering workflow routing with principles, playbooks, and verification discipline.",
+  "author": {
+    "name": "Myles Cook",
+    "url": "https://github.com/MylesMCook"
+  },
+  "homepage": "https://github.com/MylesMCook/mcook-plugins/tree/main/pstack",
+  "repository": "https://github.com/MylesMCook/mcook-plugins",
+  "license": "MIT",
+  "keywords": [
+    "engineering",
+    "quality",
+    "playbooks",
+    "workflow"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Pstack",
+        "shortDescription": "Go deep first, then move fast.",
+        "longDescription": "A Codex-native pstack counterpart focused on small diffs, strong boundaries, root-cause debugging, evidence, and reviewable handoffs.",
+        "developerName": "Myles Cook",
+        "category": "Developer Tools",
+        "capabilities": [
+          "Write"
+        ],
+        "websiteURL": "https://github.com/MylesMCook/mcook-plugins/tree/main/pstack",
+        "privacyPolicyURL": "https://github.com/MylesMCook/mcook-plugins",
+        "termsOfServiceURL": "https://github.com/MylesMCook/mcook-plugins",
+        "defaultPrompt": [
+          "Use pstack for this task.",
+          "Route this work through a rigorous playbook."
+        ],
+        "brandColor": "#111827",
+        "screenshots": []
+      }
+    }
+  }
+}

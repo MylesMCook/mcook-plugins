@@ -1,0 +1,4 @@
+interface:
+  display_name: "Bug Reporter"
+  short_description: "Create evidence-based, fix-ready bug reports"
+  default_prompt: "Use $bug-reporter to turn these failure notes and artifacts into a saved, fix-ready Markdown report and return its file link."

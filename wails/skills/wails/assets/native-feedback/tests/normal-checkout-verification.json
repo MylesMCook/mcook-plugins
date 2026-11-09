@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "verifiedOn": "2026-10-10",
+  "package": "wails@0.2.2",
+  "device": "mc-pc",
+  "desktopSession": 1,
+  "runLevel": "limited",
+  "caller": "PowerShell 7 module environment inherited",
+  "native": {
+    "platform": "Windows",
+    "burfBaseline": "8e3f1385fbfa45abdc23102c1d9d69508556b1b0",
+    "checkout": "D:/Development/burf",
+    "launch": "pnpm --dir app dev:feedback --inspect",
+    "scope": "normal checkout, isolated development profile; native API checks, no pointer or keyboard automation",
+    "nativeMainAndOverlay": true,
+    "frontendReadyWaitMilliseconds": 7191,
+    "inspectorRequiresToken": true,
+    "nativeAnnotationCreated": true,
+    "agentReceivesExactAnnotation": true,
+    "hotReloadMilliseconds": 1787,
+    "annotationSurvivesHotReload": true,
+    "agentResolutionPersists": true,
+    "rawNativePaneIsolation": true
+  },
+  "runnerSha256": "3e69e9deb0f156a05d9b4381513821c36c7c62a953406f88eeb42b815481fc43",
+  "regressions": {
+    "cases": 37,
+    "macos": {
+      "pass": 31,
+      "skip": 6,
+      "fail": 0
+    },
+    "windows": {
+      "pass": 36,
+      "skip": 1,
+      "fail": 0
+    },
+    "limitedDesktopRunner": {
+      "cases": 12,
+      "pass": 11,
+      "skip": 1,
+      "fail": 0
+    }
+  },
+  "burfLocalGate": "scripts/check-local.sh: passed in 29 seconds, including 120 selected browser cases and type/unit checks",
+  "cleanup": {
+    "temporaryTaskRemoved": true,
+    "ownedAppClosed": true,
+    "runLockAndSessionRemoved": true,
+    "installedBurfPIDUnchanged": 50916
+  },
+  "limits": "Synthetic native API calls in real WebView2; no pointer/keyboard automation or live-provider turn"
+}

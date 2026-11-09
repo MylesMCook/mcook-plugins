@@ -1,0 +1,8 @@
+interface:
+  display_name: Deneb Authoring
+  short_description: Author Deneb visuals by locking Power BI host constraints before grammar choice
+  default_prompt: Use $deneb-authoring to establish Power BI and Deneb host
+    constraints first, bind dataset and field names before authoring, default to
+    Vega-Lite unless raw Vega is clearly required, and return assumptions, a
+    minimal working spec, version caveats, host risks, and the next debugging
+    step.

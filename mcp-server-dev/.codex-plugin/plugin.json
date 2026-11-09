@@ -1,0 +1,47 @@
+{
+  "name": "mcp-server-dev",
+  "version": "0.2.1",
+  "description": "Go-first, standards-first skills for designing and releasing portable MCP servers, MCP Apps, and local MCPB bundles.",
+  "author": {
+    "name": "Myles Cook",
+    "url": "https://github.com/MylesMCook"
+  },
+  "homepage": "https://github.com/MylesMCook/mcook-plugins/tree/main/mcp-server-dev",
+  "repository": "https://github.com/MylesMCook/mcook-plugins",
+  "license": "Apache-2.0",
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "mcp-apps",
+    "go",
+    "typescript",
+    "codex",
+    "chatgpt",
+    "mcpb",
+    "developer-tools"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "MCP Server Dev",
+    "shortDescription": "Build portable Go-first MCP servers and MCP Apps",
+    "longDescription": "Use Codex to design and implement standards-first MCP servers, add TypeScript MCP App UI only when it improves the workflow, validate behavior in ChatGPT and other compatible clients, and package true local-machine servers without coupling the released core to one host.",
+    "developerName": "Myles Cook",
+    "category": "Coding",
+    "capabilities": [
+      "Write"
+    ],
+    "websiteURL": "https://github.com/MylesMCook/mcook-plugins/tree/main/mcp-server-dev",
+    "privacyPolicyURL": "https://github.com/MylesMCook/mcook-plugins",
+    "termsOfServiceURL": "https://github.com/MylesMCook/mcook-plugins",
+    "defaultPrompt": [
+      "Design a portable remote MCP server with Go, stateless Streamable HTTP, precise tools, and a real release validation plan.",
+      "Add a standards-first TypeScript MCP App UI to an existing Go MCP server without making the UI or ChatGPT extensions mandatory.",
+      "Review an MCP repository for protocol, host portability, security, packaging, and release readiness.",
+      "Package a true local-machine Go MCP server as a platform-specific MCPB binary."
+    ],
+    "brandColor": "#D97706",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/icon.png",
+    "screenshots": []
+  }
+}

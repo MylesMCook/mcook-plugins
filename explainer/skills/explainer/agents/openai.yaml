@@ -1,0 +1,11 @@
+interface:
+  display_name: "Explainer"
+  short_description: "Interactive step-by-step explainer pages"
+  default_prompt: "Use $explainer to explain how OAuth sign-in works, as an interactive explainer."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "explainer"
+      description: "Bundled explainer checker and page builder"
+      transport: "stdio"

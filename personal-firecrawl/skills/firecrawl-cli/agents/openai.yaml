@@ -1,0 +1,4 @@
+interface:
+  display_name: "Firecrawl CLI"
+  short_description: "Map, crawl and download sites on the Firecrawl host"
+  default_prompt: "Use $firecrawl-cli to map this site and save the URL list under .firecrawl/."

@@ -1,0 +1,40 @@
+{
+  "name": "bug-reporter",
+  "version": "0.2.1",
+  "description": "Create evidence-based, fix-ready bug reports for software and systems.",
+  "author": {
+    "name": "Myles Cook",
+    "url": "https://github.com/MylesMCook"
+  },
+  "homepage": "https://github.com/MylesMCook/mcook-plugins/tree/main/bug-reporter",
+  "repository": "https://github.com/MylesMCook/mcook-plugins",
+  "license": "MIT",
+  "keywords": [
+    "bugs",
+    "diagnostics",
+    "reproduction",
+    "triage",
+    "testing"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Bug Reporter",
+    "shortDescription": "Create evidence-based, fix-ready bug reports.",
+    "longDescription": "Creates, investigates, improves, and saves fix-ready Markdown bug reports with minimal reproduction steps, exact environments, defect-specific evidence, honest diagnosis, safe disclosure, and verifiable acceptance criteria.",
+    "developerName": "Myles Cook",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/MylesMCook/mcook-plugins/tree/main/bug-reporter",
+    "privacyPolicyURL": "https://github.com/MylesMCook/mcook-plugins",
+    "termsOfServiceURL": "https://github.com/MylesMCook/mcook-plugins",
+    "defaultPrompt": [
+      "Turn these logs and reproduction notes into a saved, fix-ready bug report.",
+      "Improve and save this bug report without inventing missing evidence.",
+      "Investigate this intermittent failure and save a report."
+    ],
+    "brandColor": "#7C2D12"
+  }
+}

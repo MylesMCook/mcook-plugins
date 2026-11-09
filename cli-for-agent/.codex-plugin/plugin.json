@@ -1,0 +1,43 @@
+{
+  "name": "cli-for-agent",
+  "version": "1.0.1",
+  "description": "Patterns for designing command-line tools that coding agents can run reliably.",
+  "author": {
+    "name": "Myles Cook",
+    "url": "https://github.com/MylesMCook"
+  },
+  "homepage": "https://github.com/MylesMCook/mcook-plugins/tree/main/cli-for-agent",
+  "repository": "https://github.com/MylesMCook/mcook-plugins",
+  "license": "MIT",
+  "keywords": [
+    "cli",
+    "command-line",
+    "automation",
+    "agents",
+    "developer-tools",
+    "terminal",
+    "flags",
+    "help"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "CLI for Agents",
+    "shortDescription": "Build CLIs coding agents can drive reliably.",
+    "longDescription": "A practical workflow for non-interactive commands, useful help, pipelines, stable output, actionable failures, idempotency, and safe mutation controls.",
+    "developerName": "Myles Cook",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Write"
+    ],
+    "websiteURL": "https://github.com/MylesMCook/mcook-plugins/tree/main/cli-for-agent",
+    "privacyPolicyURL": "https://github.com/MylesMCook/mcook-plugins",
+    "termsOfServiceURL": "https://github.com/MylesMCook/mcook-plugins",
+    "defaultPrompt": [
+      "Review this CLI for coding-agent usability.",
+      "Design an agent-friendly command interface.",
+      "Make this CLI safe and reliable for CI."
+    ],
+    "brandColor": "#4B5563",
+    "screenshots": []
+  }
+}

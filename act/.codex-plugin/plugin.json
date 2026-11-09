@@ -1,0 +1,37 @@
+{
+  "name": "act",
+  "version": "0.1.0",
+  "description": "Discover and use the current machine's act installation for local GitHub Actions validation and debugging.",
+  "author": {
+    "name": "Myles Cook",
+    "url": "https://github.com/MylesMCook"
+  },
+  "homepage": "https://github.com/MylesMCook/mcook-plugins/tree/main/act",
+  "repository": "https://github.com/MylesMCook/mcook-plugins",
+  "license": "MIT",
+  "keywords": [
+    "act",
+    "github-actions",
+    "local-ci",
+    "docker",
+    "developer-tools"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Act",
+    "shortDescription": "Run suitable GitHub Actions jobs on this machine.",
+    "longDescription": "Discover the installed act command, configuration, and container runtime before selecting and running authorized local CI jobs. Diagnose setup and compatibility gaps without changing shared services.",
+    "developerName": "Myles Cook",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/MylesMCook/mcook-plugins/tree/main/act",
+    "defaultPrompt": [
+      "Use act to run this repository's Linux test job locally.",
+      "Check whether this machine can run our pull-request checks with act.",
+      "Debug this CI failure locally and distinguish workflow errors from act gaps."
+    ]
+  }
+}

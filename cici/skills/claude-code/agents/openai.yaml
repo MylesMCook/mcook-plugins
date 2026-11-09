@@ -1,0 +1,4 @@
+interface:
+  display_name: "Cici: Claude Code"
+  short_description: "Ask Claude Code for a second opinion"
+  default_prompt: "Use $cici:claude-code to get a read-only second opinion on this task."

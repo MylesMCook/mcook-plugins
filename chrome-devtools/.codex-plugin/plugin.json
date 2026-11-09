@@ -1,0 +1,52 @@
+{
+  "name": "chrome-devtools",
+  "version": "1.5.0",
+  "description": "Inspect, automate, debug, and profile Chrome with the official Chrome DevTools MCP server and skills.",
+  "author": {
+    "name": "Myles Cook",
+    "url": "https://github.com/MylesMCook"
+  },
+  "homepage": "https://github.com/MylesMCook/mcook-plugins/tree/main/chrome-devtools",
+  "repository": "https://github.com/MylesMCook/mcook-plugins",
+  "license": "Apache-2.0",
+  "keywords": [
+    "chrome",
+    "devtools",
+    "browser-automation",
+    "performance",
+    "accessibility",
+    "mcp"
+  ],
+  "skills": "./skills/",
+  "mcpServers": {
+    "chrome-devtools": {
+      "command": "node",
+      "args": [
+        "./scripts/launch-chrome-devtools.mjs"
+      ],
+      "cwd": ".",
+      "startup_timeout_sec": 30
+    }
+  },
+  "interface": {
+    "displayName": "Chrome DevTools",
+    "shortDescription": "Inspect, automate, debug, and profile Chrome",
+    "longDescription": "Use the official Chrome DevTools MCP server and expert skills for browser automation, page debugging, network inspection, performance tracing, accessibility auditing, LCP optimization, and memory-leak analysis.",
+    "developerName": "Myles Cook",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Interactive",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/ChromeDevTools/chrome-devtools-mcp",
+    "privacyPolicyURL": "https://github.com/MylesMCook/mcook-plugins",
+    "termsOfServiceURL": "https://github.com/MylesMCook/mcook-plugins",
+    "defaultPrompt": [
+      "Inspect and debug this page in Chrome.",
+      "Profile this page and explain its Core Web Vitals bottlenecks.",
+      "Audit this page for accessibility problems."
+    ],
+    "brandColor": "#1A73E8",
+    "screenshots": []
+  }
+}

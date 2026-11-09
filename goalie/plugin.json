@@ -1,0 +1,43 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "goalie",
+  "version": "0.1.1",
+  "description": "Draft clean Codex Goal text and optionally notify when Goals need attention.",
+  "author": {
+    "name": "Myles Cook",
+    "url": "https://github.com/MylesMCook"
+  },
+  "homepage": "https://github.com/MylesMCook/mcook-plugins/tree/main/goalie",
+  "repository": "https://github.com/MylesMCook/mcook-plugins",
+  "license": "MIT",
+  "keywords": [
+    "codex",
+    "goals",
+    "notifications",
+    "brrr"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Goalie",
+        "shortDescription": "Draft concise Goals; optionally notify when they need attention.",
+        "longDescription": "Goalie turns rough long-running work into paste-ready Codex Goal text. Its quiet optional Stop hook sends a brrr notification only when Goal state needs attention.",
+        "developerName": "Myles Cook",
+        "category": "Productivity",
+        "capabilities": [
+          "Write"
+        ],
+        "websiteURL": "https://github.com/MylesMCook/mcook-plugins/tree/main/goalie",
+        "privacyPolicyURL": "https://github.com/MylesMCook/mcook-plugins",
+        "termsOfServiceURL": "https://github.com/MylesMCook/mcook-plugins",
+        "defaultPrompt": [
+          "Use Goalie to draft a Goal.",
+          "Turn this messy task into a Goal.",
+          "Make this Goal fit under 4000 chars."
+        ],
+        "brandColor": "#2563EB",
+        "screenshots": []
+      }
+    }
+  }
+}

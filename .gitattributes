@@ -1,0 +1,5 @@
+fabric-mcp-server/** text eol=lf
+fabric-mcp-server/**/*.exe binary
+
+# Preserve upstream license and notice bytes exactly.
+fabric-mcp-server/third-party-licenses/** -text

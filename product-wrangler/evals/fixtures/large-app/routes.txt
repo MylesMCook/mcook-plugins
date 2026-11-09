@@ -1,0 +1,7 @@
+/analyst/intake
+/analyst/review/:id
+/analyst/decision/:id
+/admin/users
+/billing/invoices
+/support/tickets
+/marketing/campaigns

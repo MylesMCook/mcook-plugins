@@ -1,0 +1,6 @@
+interface:
+  display_name: "Hono Web Apps"
+  short_description: "Build and verify Hono apps safely."
+  default_prompt: "Use $hono-web-apps to evaluate and improve this Hono application."
+policy:
+  allow_implicit_invocation: true

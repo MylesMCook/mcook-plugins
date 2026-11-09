@@ -1,0 +1,39 @@
+{
+  "name": "thermos",
+  "version": "0.3.0",
+  "description": "Independent paired or adversarial reviews with shared scope and evidence verification.",
+  "author": {
+    "name": "Myles Cook",
+    "url": "https://github.com/MylesMCook"
+  },
+  "homepage": "https://github.com/MylesMCook/mcook-plugins/tree/main/thermos",
+  "repository": "https://github.com/MylesMCook/mcook-plugins",
+  "license": "MIT",
+  "keywords": [
+    "review",
+    "security",
+    "quality",
+    "codex",
+    "subagents"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Thermos",
+    "shortDescription": "Run paired or adversarial reviews with verified findings.",
+    "longDescription": "Thermos owns paired correctness/maintainability review and explicit three-lens adversarial review. Both share scope and finding verification. Repairs require explicit authorization.",
+    "developerName": "Myles Cook",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/MylesMCook/mcook-plugins/tree/main/thermos",
+    "defaultPrompt": [
+      "Run Thermos on this branch.",
+      "Review my uncommitted changes with both Thermos lenses.",
+      "Work until Thermos is happy, fixing validated findings.",
+      "Run a three-lens adversarial review of this plan."
+    ],
+    "brandColor": "#B91C1C"
+  }
+}

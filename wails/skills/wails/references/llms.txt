@@ -1,0 +1,38 @@
+# Wails documentation routes
+
+> A community-authored navigation index for Wails v2 and v3. Fetch the linked
+> upstream content when working; this file does not contain an API snapshot.
+
+Select the major version from the project's Go module, including replacements.
+Live docs and master source may be newer than the installed version. Confirm APIs
+against local source or the matching release tag/commit before implementing.
+This index is not an official Wails publication and is not an exhaustive catalog.
+
+## Wails v3
+
+- [Official live llms.txt](https://v3.wails.io/llms.txt): Fetch this first to discover the current page catalog.
+- [Documentation home](https://v3.wails.io/): Rediscover navigation if individual links move.
+- [Official markdown source directory](https://github.com/wailsapp/wails/tree/master/docs/mpress/content): Discover raw pages when HTML retrieval fails; paths are not a stable API.
+- [Raw documentation navigation](https://raw.githubusercontent.com/wailsapp/wails/master/docs/mpress/content/_nav.yaml): Current source navigation, including topic and route structure.
+- [Raw installation guide](https://raw.githubusercontent.com/wailsapp/wails/master/docs/mpress/content/quick-start/installation.md): Toolchain and platform prerequisites; inspect before running any setup.
+- [Raw application reference](https://raw.githubusercontent.com/wailsapp/wails/master/docs/mpress/content/reference/application.md): Application APIs on upstream master; verify against the resolved module.
+- [Raw frontend runtime reference](https://raw.githubusercontent.com/wailsapp/wails/master/docs/mpress/content/reference/frontend-runtime.md): Frontend integration on upstream master.
+- [Raw v2 to v3 migration guide](https://raw.githubusercontent.com/wailsapp/wails/master/docs/mpress/content/migration/v2-to-v3.md): Read only for a requested or evaluated migration.
+
+## Wails v2
+
+- [Documentation introduction](https://wails.io/docs/introduction/): Official v2 documentation entry point.
+- [Official MDX source directory](https://github.com/wailsapp/wails/tree/master/website/docs): Discover current v2 docs without scraping the site.
+- [Raw introduction](https://raw.githubusercontent.com/wailsapp/wails/master/website/docs/introduction.mdx): Overview and links into the v2 documentation.
+- [Raw installation guide](https://raw.githubusercontent.com/wailsapp/wails/master/website/docs/gettingstarted/installation.mdx): Version-specific platform prerequisites.
+- [Raw CLI reference](https://raw.githubusercontent.com/wailsapp/wails/master/website/docs/reference/cli.mdx): v2 command documentation; compare with installed CLI help.
+- [Raw application options](https://raw.githubusercontent.com/wailsapp/wails/master/website/docs/reference/options.mdx): v2 application configuration.
+- [Raw runtime overview](https://raw.githubusercontent.com/wailsapp/wails/master/website/docs/reference/runtime/intro.mdx): v2 Go and JavaScript runtime navigation.
+
+## Version and path discovery
+
+- [Official repository](https://github.com/wailsapp/wails): Rediscover documentation locations and source ownership.
+- [Repository metadata API](https://api.github.com/repos/wailsapp/wails): Discover the current default branch instead of assuming master forever.
+- [Official releases](https://github.com/wailsapp/wails/releases): Resolve release status and exact tags; do not upgrade the project automatically.
+- [v2 package documentation](https://pkg.go.dev/github.com/wailsapp/wails/v2): Select the project's exact module version before relying on APIs.
+- [v3 application package documentation](https://pkg.go.dev/github.com/wailsapp/wails/v3/pkg/application): Select the project's exact module version before relying on APIs.

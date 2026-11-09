@@ -1,0 +1,4 @@
+interface:
+  display_name: "Grist Data Logs"
+  short_description: "Operate a replay-safe Grist event log."
+  default_prompt: "Set up a replay-safe Grist AppEvents log for this application."

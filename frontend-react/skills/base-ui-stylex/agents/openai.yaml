@@ -1,0 +1,4 @@
+interface:
+  display_name: "Base UI + StyleX"
+  short_description: "Build Base UI and StyleX with current official docs"
+  default_prompt: "Use $base-ui-stylex to build this React component with Base UI behavior and StyleX styling, checking current official documentation."

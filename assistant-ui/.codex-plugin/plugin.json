@@ -1,0 +1,36 @@
+{
+  "name": "assistant-ui",
+  "version": "0.1.0",
+  "description": "Build and troubleshoot assistant-ui using official documentation, version-matched source, and its hosted documentation MCP.",
+  "author": {
+    "name": "Myles Cook",
+    "url": "https://github.com/MylesMCook"
+  },
+  "homepage": "https://github.com/MylesMCook/mcook-plugins/tree/main/assistant-ui",
+  "repository": "https://github.com/MylesMCook/mcook-plugins",
+  "license": "ISC",
+  "keywords": [
+    "assistant-ui",
+    "documentation",
+    "chat-ui",
+    "mcp",
+    "agent-skills"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "assistant-ui",
+    "shortDescription": "Build with official assistant-ui sources.",
+    "longDescription": "Find current assistant-ui documentation, check APIs against installed versions, and build or debug using the project's existing framework, backend, and styling. Includes the official hosted documentation MCP and a direct Markdown fallback.",
+    "developerName": "Myles Cook",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/MylesMCook/mcook-plugins/tree/main/assistant-ui",
+    "defaultPrompt": [
+      "Use $assistant-ui to find the official documentation for my integration.",
+      "Use $assistant-ui to debug my existing chat interface."
+    ]
+  }
+}

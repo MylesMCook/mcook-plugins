@@ -1,0 +1,37 @@
+{
+  "name": "adversarial-review",
+  "version": "0.3.4",
+  "description": "Run a momentum-first three-lens review through native Codex Subagent V2.",
+  "author": {
+    "name": "Myles Cook",
+    "url": "https://github.com/MylesMCook"
+  },
+  "homepage": "https://github.com/MylesMCook/mcook-plugins/tree/main/adversarial-review",
+  "repository": "https://github.com/MylesMCook/mcook-plugins",
+  "keywords": [
+    "review",
+    "code-review",
+    "plan-review",
+    "codex",
+    "subagents",
+    "subagent-v2"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Adversarial Review",
+    "shortDescription": "Run three fast Codex review lenses with no setup.",
+    "longDescription": "Adversarial Review infers the target, immediately runs fresh Skeptic, Architect, and Minimalist reviewers through native Codex Subagent V2, and returns an evidence-backed PASS, CONTESTED, or REJECT verdict without permission-mode setup or a repair loop.",
+    "developerName": "Myles Cook",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Read"
+    ],
+    "websiteURL": "https://github.com/MylesMCook/mcook-plugins/tree/main/adversarial-review",
+    "defaultPrompt": [
+      "Use Adversarial Review on the active change without asking me to configure anything.",
+      "Challenge this implementation plan before I build it.",
+      "Review this branch with the Skeptic, Architect, and Minimalist lenses."
+    ],
+    "brandColor": "#6D28D9"
+  }
+}

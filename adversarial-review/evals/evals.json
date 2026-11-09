@@ -1,0 +1,77 @@
+{
+  "skill_name": "adversarial-review",
+  "evals": [
+    {
+      "name": "codex-v2-trio-runs-exactly-three-children",
+      "prompt": "Use $adversarial-review to review these staged changes before I merge them.",
+      "expected_output": "Uses native Codex Subagent V2 to run exactly three fresh children in one wave with one shared numeric run suffix, such as skeptic_r2 / Skeptic, architect_r2 / Architect, and minimalist_r2 / Minimalist. It keeps the suffix internal and returns a PASS, CONTESTED, or REJECT verdict.",
+      "files": []
+    },
+    {
+      "name": "each-lens-is-represented-once",
+      "prompt": "Use $adversarial-review to challenge this refactor plan before implementation.",
+      "expected_output": "Assigns Skeptic, Architect, and Minimalist once each, keeps the lenses separate, and synthesizes accepted versus rejected findings.",
+      "files": []
+    },
+    {
+      "name": "scope-stays-explicit",
+      "prompt": "Use $adversarial-review to review commit abc123 only; exclude my dirty worktree.",
+      "expected_output": "Reviews the named commit only, records excluded dirty state, and gives all three reviewers the same constrained scope.",
+      "files": []
+    },
+    {
+      "name": "writable-parent-does-not-block-review",
+      "prompt": "Use $adversarial-review to review this plugin. My current task can edit the workspace.",
+      "expected_output": "Immediately launches the V2 trio without asking the user to switch permission modes; reviewers may run targeted diagnostics through inherited approval handling but do not implement fixes.",
+      "files": []
+    },
+    {
+      "name": "scope-is-inferred-without-back-and-forth",
+      "prompt": "Use $adversarial-review on the plugin we are currently discussing.",
+      "expected_output": "Infers the named active plugin as the target, excludes unrelated dirty state, and launches without asking the user to restate the scope.",
+      "files": []
+    },
+    {
+      "name": "incomplete-coverage-fails-closed",
+      "prompt": "Use $adversarial-review when one required Codex subagent cannot complete.",
+      "expected_output": "Does not silently drop the failed reviewer, records the coverage failure with an allowed failure label, and returns CONTESTED unless an accepted high-severity finding already requires REJECT.",
+      "files": []
+    },
+    {
+      "name": "no-legacy-or-outside-reviewer-fallback",
+      "prompt": "Use $adversarial-review when only one reviewer path appears available.",
+      "expected_output": "Does not call legacy agent or task/thread APIs, external model tools, or a single-reviewer fallback; requires the full native V2 trio and reports incomplete coverage when it cannot run.",
+      "files": []
+    },
+    {
+      "name": "no-review-artifact-files-by-default",
+      "prompt": "Use $adversarial-review and save the result in the final answer.",
+      "expected_output": "Collects returned subagent messages and synthesizes in the final answer without creating temporary review files by default.",
+      "files": []
+    },
+    {
+      "name": "standard-review-has-bounded-wait",
+      "prompt": "Use $adversarial-review on this change with the normal review depth.",
+      "expected_output": "Allows three minutes before considering interruption, continues reviewers with meaningful recent progress up to five total minutes, and returns settled findings with reduced coverage for stalled or over-budget reviewers.",
+      "files": []
+    },
+    {
+      "name": "fast-v2-route-needs-no-user-choice",
+      "prompt": "Use $adversarial-review on this change.",
+      "expected_output": "Prefers V2 default with gpt-5.6-terra and high reasoning when exposed, otherwise uses host defaults without asking the user to select agents or models.",
+      "files": []
+    },
+    {
+      "name": "repeated-review-in-one-parent-uses-fresh-task-names",
+      "prompt": "Use $adversarial-review again in this same parent task after an earlier trio already completed.",
+      "expected_output": "Inspects reserved child names, advances the shared numeric run suffix for all three reviewers, and launches fresh skeptic, architect, and minimalist children without colliding, reusing bare names, mixing suffixes, or asking the user to start a new task.",
+      "files": []
+    },
+    {
+      "name": "routine-review-near-miss",
+      "prompt": "Can you do a quick review of this typo fix?",
+      "expected_output": "Does not implicitly invoke this costly three-subagent workflow; performs or routes to an ordinary focused review instead.",
+      "files": []
+    }
+  ]
+}

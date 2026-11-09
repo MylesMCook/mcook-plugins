@@ -1,0 +1,9 @@
+name: Example Metrics
+strategy: polling
+refresh_interval: 60
+polling_url: https://example.com/public-trmnl-data.json
+custom_fields:
+  - keyname: display_label
+    field_type: string
+    name: Display label
+    default: Example Metrics

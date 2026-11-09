@@ -1,0 +1,4 @@
+interface:
+  display_name: Build MCP Bundle
+  short_description: Package a local MCP server as MCPB
+  default_prompt: Use $build-mcpb to package this local stdio MCP server as a platform-specific MCPB while preserving a standalone executable and documenting exact host support.

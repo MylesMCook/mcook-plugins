@@ -1,0 +1,46 @@
+name: Validate marketplace sources
+on:
+  push:
+    paths:
+      - '.agents/plugins/marketplace.json'
+      - 'mcook-plugin-builder/**'
+      - 'linear-project-manager/**'
+      - 'cici/**'
+      - '.github/workflows/validate-marketplace-sources.yml'
+  pull_request:
+    paths:
+      - '.agents/plugins/marketplace.json'
+      - 'mcook-plugin-builder/**'
+      - 'linear-project-manager/**'
+      - 'cici/**'
+      - '.github/workflows/validate-marketplace-sources.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  synthetic-validation:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - uses: astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d # v10.0.1
+        with:
+          python-version: '3.11'
+      - name: Synthetic regression tests (no provider calls)
+        run: uv run --with jsonschema==4.26.0 python -m unittest discover -s mcook-plugin-builder/tests -v
+      - name: Validate builder package
+        run: uv run mcook-plugin-builder/skills/build-mcook-plugin/scripts/validate_agent_plugin.py mcook-plugin-builder --marketplace .agents/plugins/marketplace.json --marketplace-root . --require-openai-overlay
+      - name: Verify Linear portable and native metadata parity (no provider calls)
+        run: uv run python -m unittest discover -s linear-project-manager/tests -p test_package_contract.py -v
+      - name: Validate Linear portable package
+        run: uv run mcook-plugin-builder/skills/build-mcook-plugin/scripts/validate_agent_plugin.py linear-project-manager --marketplace .agents/plugins/marketplace.json --marketplace-root . --require-openai-overlay
+      - name: Validate Cici package
+        run: uv run mcook-plugin-builder/skills/build-mcook-plugin/scripts/validate_agent_plugin.py cici --marketplace .agents/plugins/marketplace.json --marketplace-root . --require-openai-overlay
+      - name: Verify preserved Claude CLI behavior (no provider calls)
+        run: node --test cici/tests/claude-code.test.mjs
+      - name: Check whitespace
+        run: git diff --check

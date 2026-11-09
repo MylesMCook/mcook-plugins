@@ -1,0 +1,31 @@
+{
+  "schema": "agent-skills-trigger-eval-v1",
+  "skill_name": "american-inkblot-illustrations",
+  "threshold": 0.5,
+  "runs_per_case": 3,
+  "split_ratio": "60/40 train/validation",
+  "cases": [
+    {"id":"trn_should_001","split":"train","query":"Use $american-inkblot-illustrations to show me how this homelab service works without another flowchart.","should_trigger":true,"rationale":"Explicit invocation for a system portrait."},
+    {"id":"trn_should_002","split":"train","query":"Turn this agent setup into a friendly hand-drawn plumbing portrait with the hidden handoffs visible.","should_trigger":true,"rationale":"Agent-system explanation in the target visual mode."},
+    {"id":"trn_should_003","split":"train","query":"Inspect this repo and illustrate the request path, state, supervisor, and recovery path with Inkblot.","should_trigger":true,"rationale":"Evidence-grounded software system visualization."},
+    {"id":"trn_should_004","split":"train","query":"Explain this automation as a sparse cutaway workshop instead of Mermaid boxes and arrows.","should_trigger":true,"rationale":"Friendly non-flowchart system explanation."},
+    {"id":"trn_should_005","split":"train","query":"Plan four weird clean body illustrations for this US English technical essay.","should_trigger":true,"rationale":"Editorial shot-list planning remains supported."},
+    {"id":"trn_should_006","split":"train","query":"Fix this Inkblot system image: it invented a database and the arrows go backward.","should_trigger":true,"rationale":"Factual QA and image editing are supported."},
+    {"id":"trn_should_007","split":"train","query":"Illustrate this idea with one lonely Inkblot waiting for an answer.","should_trigger":true,"rationale":"A general Inkblot concept request should trigger the Inkblot-first mode."},
+    {"id":"trn_not_001","split":"train","query":"Create an exact editable network topology with every subnet and firewall rule.","should_trigger":false,"rationale":"Strict network documentation needs an exact diagramming workflow."},
+    {"id":"trn_not_002","split":"train","query":"Make a Mermaid sequence diagram for this API call.","should_trigger":false,"rationale":"The user explicitly requested Mermaid, not an Inkblot companion."},
+    {"id":"trn_not_003","split":"train","query":"Plot monthly revenue and churn with confidence intervals.","should_trigger":false,"rationale":"Quantitative data visualization is out of scope."},
+    {"id":"trn_not_004","split":"train","query":"Design a polished enterprise hero image for our landing page.","should_trigger":false,"rationale":"Polished brand art is excluded."},
+    {"id":"trn_not_005","split":"train","query":"Build a PowerPoint architecture deck with editable diagrams.","should_trigger":false,"rationale":"Deck authoring and editable formal diagrams are excluded."},
+    {"id":"trn_not_006","split":"train","query":"Write a conventional commit message for this diff.","should_trigger":false,"rationale":"No illustration or system explanation request."},
+    {"id":"trn_not_007","split":"train","query":"Paint a detailed watercolor landscape with mountains and a lake.","should_trigger":false,"rationale":"A generic non-Inkblot art request belongs in the normal image-generation workflow."},
+    {"id":"val_should_001","split":"validation","query":"I have too many services to understand. Show me the plumbing in a graceful Inkblot scene.","should_trigger":true,"rationale":"Core complicated-system use case."},
+    {"id":"val_should_002","split":"validation","query":"Draw a friendly failure and recovery explanation for this worker and durable queue.","should_trigger":true,"rationale":"Failure/recovery system portrait."},
+    {"id":"val_should_003","split":"validation","query":"Make the frontstage and backstage of this service visible without swim lanes.","should_trigger":true,"rationale":"Service cutaway composition."},
+    {"id":"val_should_004","split":"validation","query":"Generate one sparse 16:9 white-background Inkblot illustration for this article section.","should_trigger":true,"rationale":"Explicit Inkblot-first article illustration."},
+    {"id":"val_not_001","split":"validation","query":"Create a formal C4 container diagram and include every protocol.","should_trigger":false,"rationale":"Formal exact C4 output is not the target artifact."},
+    {"id":"val_not_002","split":"validation","query":"Make a cute black blob sticker mascot for our app icon.","should_trigger":false,"rationale":"Cute mascot and logo work are excluded."},
+    {"id":"val_not_003","split":"validation","query":"Summarize this system design document in five bullets.","should_trigger":false,"rationale":"No visual explanation was requested."},
+    {"id":"val_not_004","split":"validation","query":"Retouch this portrait photo and remove blemishes.","should_trigger":false,"rationale":"Photo retouching is unrelated."}
+  ]
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Buzz CLI"
+  short_description: "Operate Buzz relays safely from the command line"
+  default_prompt: "Use $buzz-cli to inspect my Buzz channels and summarize recent activity."

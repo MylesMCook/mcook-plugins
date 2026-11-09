@@ -1,0 +1,44 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "buzz-xyz",
+  "version": "0.2.1",
+  "description": "Operate Buzz.xyz relays through the Buzz CLI.",
+  "author": {
+    "name": "Myles Cook",
+    "url": "https://github.com/MylesMCook"
+  },
+  "homepage": "https://github.com/MylesMCook/mcook-plugins/tree/main/buzz-xyz",
+  "repository": "https://github.com/MylesMCook/mcook-plugins",
+  "license": "Apache-2.0",
+  "keywords": [
+    "buzz",
+    "cli",
+    "nostr",
+    "relay",
+    "messaging",
+    "agents",
+    "workflows",
+    "git"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Buzz.xyz",
+        "shortDescription": "Operate Buzz relays with the Buzz CLI.",
+        "longDescription": "A skills-only package for inspecting and operating Buzz messaging, channels, agents, workflows, repositories, social data, uploads, and agent memory through the installed Buzz CLI.",
+        "developerName": "Myles Cook",
+        "category": "Productivity",
+        "capabilities": [
+          "Read",
+          "Write"
+        ],
+        "websiteURL": "https://github.com/MylesMCook/mcook-plugins/tree/main/buzz-xyz",
+        "defaultPrompt": [
+          "Summarize recent activity in my Buzz channels.",
+          "Draft a Buzz agent for me to review.",
+          "Inspect my Buzz repositories and protection rules."
+        ]
+      }
+    }
+  }
+}
