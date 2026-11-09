@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "tufte",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Build and review charts and dashboards to a cited, Tufte-led design standard.",
   "author": {
     "name": "Myles Cook",

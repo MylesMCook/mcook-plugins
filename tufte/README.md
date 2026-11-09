@@ -24,7 +24,15 @@ codex plugin add tufte@mcook-plugins-local
 - **Review:** ask for a review or critique of a screenshot, HTML/React/Vega-Lite code, a Power BI PBIR or Deneb spec, or a live page. You get at most 7 ranked findings with rule IDs, evidence, fixes and sources, plus a Keep list.
 - **Claude Code:** the `tufte-critic` agent gives an independent second opinion on a finished page and edits nothing.
 
-If the skill does not load on its own, name it: "use the tufte skill".
+### Make it load automatically
+
+In headless tests Claude Code did not load the skill for a plain "build a dashboard" request (0 of 3 runs), even with a strong description. With this line in your global instructions (for example `~/.claude/rules/tufte.md` or `~/.claude/CLAUDE.md`) it loaded 2 of 2:
+
+```text
+Before building, changing or reviewing any chart, graph, dashboard, KPI tile or report page, load the tufte skill and follow it.
+```
+
+Otherwise, name it in the request: "use the tufte skill".
 
 ## Evidence
 

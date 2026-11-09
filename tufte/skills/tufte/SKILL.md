@@ -1,6 +1,6 @@
 ---
 name: tufte
-description: Tufte-led design standard for charts, dashboards and analytics pages. Use when building or changing any chart, graph, KPI tile, dashboard, report page, Power BI visual, or Vega-Lite/Deneb spec, and when asked to review, critique or audit one from a screenshot, code, PBIR export or live page. Loads a cited rulebook covering integrity, comparisons, encoding, color, words, type size and layout that default LLM output gets wrong.
+description: Design standard for charts, graphs, dashboards, KPI tiles and report pages. Use this skill whenever you are about to create or change ANY chart or dashboard, in any medium (HTML, React, D3, Chart.js, Vega-Lite, Deneb, matplotlib, Power BI), and read it BEFORE writing the first line of chart code. Also use it to review, critique or audit a dashboard from a screenshot, code, PBIR export or live page. Loads a cited, Tufte-led rulebook that corrects what default LLM charts get wrong.
 ---
 
 # Tufte
