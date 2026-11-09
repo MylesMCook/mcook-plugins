@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.1 - 2026-11-08
+
+- Add an explicit Claude manifest for claude.ai marketplace synchronization.
+
 ## 0.3.0 — 2026-09-09
 
 - Consolidate three-lens adversarial review into Thermos; share scope and evidence verification. Preserve paired and single-lens behavior.

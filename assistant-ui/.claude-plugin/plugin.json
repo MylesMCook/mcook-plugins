@@ -1,0 +1,25 @@
+{
+  "name": "assistant-ui",
+  "version": "0.1.1",
+  "description": "Build and troubleshoot assistant-ui using official documentation, version-matched source, and its hosted documentation MCP.",
+  "author": {
+    "name": "Myles Cook",
+    "url": "https://github.com/MylesMCook"
+  },
+  "homepage": "https://github.com/MylesMCook/mcook-plugins/tree/main/assistant-ui",
+  "repository": "https://github.com/MylesMCook/mcook-plugins",
+  "license": "ISC",
+  "keywords": [
+    "assistant-ui",
+    "documentation",
+    "chat-ui",
+    "mcp",
+    "agent-skills"
+  ],
+  "mcpServers": {
+    "assistant-ui": {
+      "type": "http",
+      "url": "https://www.assistant-ui.com/mcp"
+    }
+  }
+}

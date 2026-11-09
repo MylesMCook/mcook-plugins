@@ -1,0 +1,22 @@
+{
+  "name": "buzz-xyz",
+  "version": "0.2.2",
+  "description": "Operate Buzz.xyz relays through the Buzz CLI.",
+  "author": {
+    "name": "Myles Cook",
+    "url": "https://github.com/MylesMCook"
+  },
+  "homepage": "https://github.com/MylesMCook/mcook-plugins/tree/main/buzz-xyz",
+  "repository": "https://github.com/MylesMCook/mcook-plugins",
+  "license": "Apache-2.0",
+  "keywords": [
+    "buzz",
+    "cli",
+    "nostr",
+    "relay",
+    "messaging",
+    "agents",
+    "workflows",
+    "git"
+  ]
+}

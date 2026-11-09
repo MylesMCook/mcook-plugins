@@ -13,7 +13,7 @@
       "name": "thermos",
       "source": "./thermos",
       "description": "Independent paired or adversarial reviews with shared scope and evidence verification.",
-      "version": "0.3.0",
+      "version": "0.3.1",
       "author": {
         "name": "Myles Cook",
         "url": "https://github.com/MylesMCook"
@@ -34,7 +34,7 @@
       "name": "cli-for-agent",
       "source": "./cli-for-agent",
       "description": "Patterns for designing command-line tools that coding agents can run reliably.",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": {
         "name": "Myles Cook",
         "url": "https://github.com/MylesMCook"
@@ -58,7 +58,7 @@
       "name": "trmnl-plugin-builder",
       "source": "./trmnl-plugin-builder",
       "description": "A Myles-specific TRMNL operations companion for the official TRMNL skill and MCP.",
-      "version": "0.2.0",
+      "version": "0.2.1",
       "author": {
         "name": "Myles Cook",
         "url": "https://github.com/MylesMCook"
@@ -79,7 +79,7 @@
       "name": "mcook-plugin-builder",
       "source": "./mcook-plugin-builder",
       "description": "Build portable Agent Plugins and OpenAI-compatible plugins for Myles Codex Plugins.",
-      "version": "0.2.3",
+      "version": "0.2.4",
       "author": {
         "name": "Myles Cook",
         "url": "https://github.com/MylesMCook"
@@ -100,7 +100,7 @@
       "name": "grist-data-logs",
       "source": "./grist-data-logs",
       "description": "Operate self-hosted Grist as a retry-safe application event log and private analysis store.",
-      "version": "0.1.1",
+      "version": "0.1.2",
       "author": {
         "name": "Myles Cook",
         "url": "https://github.com/MylesMCook"
@@ -121,7 +121,7 @@
       "name": "orchestrate",
       "source": "./orchestrate",
       "description": "Coordinate explicitly requested native Codex subagent work with deliberate routing and verified synthesis.",
-      "version": "0.1.3",
+      "version": "0.1.4",
       "author": {
         "name": "Myles Cook",
         "url": "https://github.com/MylesMCook"
@@ -142,7 +142,7 @@
       "name": "task-naming",
       "source": "./task-naming",
       "description": "Manually rename Codex tasks at chat, project, or machine scope.",
-      "version": "0.5.2",
+      "version": "0.5.3",
       "author": {
         "name": "Myles Cook",
         "url": "https://github.com/MylesMCook"
@@ -163,7 +163,7 @@
       "name": "american-inkblot-illustrations",
       "source": "./american-inkblot-illustrations",
       "description": "Create sparse Inkblot-first illustrations and evidence-grounded system portraits.",
-      "version": "0.2.2",
+      "version": "0.2.3",
       "author": {
         "name": "Myles Cook",
         "url": "https://github.com/MylesMCook"
@@ -184,7 +184,7 @@
       "name": "writer",
       "source": "./writer",
       "description": "Draft, edit, and clean up prose through one focused writing workflow.",
-      "version": "0.2.1",
+      "version": "0.2.2",
       "author": {
         "name": "Myles Cook",
         "url": "https://github.com/MylesMCook"
@@ -201,49 +201,10 @@
       "category": "Productivity"
     },
     {
-      "name": "fabric-mcp-server",
-      "source": "./fabric-mcp-server",
-      "description": "Operate Microsoft Fabric, Power BI, and Power Automate through a native portable MCP server.",
-      "version": "1.10.1",
-      "author": {
-        "name": "Myles Cook",
-        "url": "https://github.com/MylesMCook"
-      },
-      "homepage": "https://github.com/MylesMCook/fabric-mcp",
-      "repository": "https://github.com/MylesMCook/fabric-mcp",
-      "license": "ISC",
-      "keywords": [
-        "agent-plugins",
-        "microsoft-fabric",
-        "mcp",
-        "power-automate",
-        "power-bi"
-      ],
-      "category": "Data & Analytics",
-      "mcpServers": {
-        "microsoft_fabric": {
-          "type": "stdio",
-          "command": "${CLAUDE_PLUGIN_ROOT}/bin/fabric-mcp-server.exe",
-          "args": [],
-          "env": {
-            "CODEX_MCP_PROTOCOL_VERSION": "2026-07-28",
-            "FABRIC_MCP_READ_ONLY": "false",
-            "FABRIC_MCP_ENABLE_ALIASES": "false",
-            "FABRIC_MCP_ENABLE_RAW_TMDL": "false",
-            "FABRIC_MCP_ENABLE_POWER_PLATFORM_API": "false",
-            "FABRIC_MCP_TOOL_DOMAINS": "all",
-            "FABRIC_MCP_DATAVERSE_WEB_API_URL": "",
-            "FABRIC_MCP_HTTP_TIMEOUT_MS": "20000"
-          },
-          "cwd": "${CLAUDE_PLUGIN_ROOT}"
-        }
-      }
-    },
-    {
       "name": "hono-web-apps",
       "source": "./hono-web-apps",
       "description": "Evaluate, build, modify, test, and verify Hono web applications without forcing framework adoption.",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "author": {
         "name": "Myles Cook",
         "url": "https://github.com/MylesMCook"
@@ -264,7 +225,7 @@
       "name": "bug-reporter",
       "source": "./bug-reporter",
       "description": "Create evidence-based, fix-ready bug reports for software and systems.",
-      "version": "0.2.1",
+      "version": "0.2.2",
       "author": {
         "name": "Myles Cook",
         "url": "https://github.com/MylesMCook"
@@ -285,7 +246,7 @@
       "name": "frontend-react",
       "source": "./frontend-react",
       "description": "Build, style, optimize, and test React apps with Base UI + StyleX and focused UI quality skills.",
-      "version": "0.3.1",
+      "version": "0.3.2",
       "author": {
         "name": "Myles Cook",
         "url": "https://github.com/MylesMCook"
@@ -312,7 +273,7 @@
       "name": "git-it-out",
       "source": "./git-it-out",
       "description": "Complete verified repository closeout through the real final landing surface.",
-      "version": "0.1.1",
+      "version": "0.1.2",
       "author": {
         "name": "Myles Cook",
         "url": "https://github.com/MylesMCook"
@@ -333,7 +294,7 @@
       "name": "lawful",
       "source": "./lawful",
       "description": "Apply software, visual, and UX laws to technical decisions and product critiques.",
-      "version": "0.2.1",
+      "version": "0.2.2",
       "author": {
         "name": "Myles Cook",
         "url": "https://github.com/MylesMCook"
@@ -354,7 +315,7 @@
       "name": "personal-firecrawl",
       "source": "./personal-firecrawl",
       "description": "Research the web with your self-hosted Firecrawl search and fetch tools, plus on-host CLI bulk work.",
-      "version": "2.0.0",
+      "version": "2.0.1",
       "author": {
         "name": "Myles Cook",
         "url": "https://github.com/MylesMCook"
@@ -369,16 +330,13 @@
         "self-hosted",
         "web-research"
       ],
-      "category": "Developer Tools",
-      "agents": [
-        "./claude/agents/web-researcher.md"
-      ]
+      "category": "Developer Tools"
     },
     {
       "name": "mcp-server-dev",
       "source": "./mcp-server-dev",
       "description": "Design, build, validate, and release portable MCP servers and MCP Apps with a Go-first backend default and TypeScript UI when needed.",
-      "version": "0.2.1",
+      "version": "0.2.2",
       "author": {
         "name": "Myles Cook",
         "url": "https://github.com/MylesMCook"
@@ -402,7 +360,7 @@
       "name": "buzz-xyz",
       "source": "./buzz-xyz",
       "description": "Operate Buzz.xyz relays through the Buzz CLI.",
-      "version": "0.2.1",
+      "version": "0.2.2",
       "author": {
         "name": "Myles Cook",
         "url": "https://github.com/MylesMCook"
@@ -426,7 +384,7 @@
       "name": "product-wrangler",
       "source": "./product-wrangler",
       "description": "Turn an existing runnable web app into an evidence-backed, complete product without expanding authority.",
-      "version": "0.2.0",
+      "version": "0.2.1",
       "author": {
         "name": "Myles Cook",
         "url": "https://github.com/MylesMCook"
@@ -448,7 +406,7 @@
       "name": "redwood-web-apps",
       "source": "./redwood-web-apps",
       "description": "Build and verify RedwoodSDK React applications on Cloudflare using current official documentation.",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "author": {
         "name": "Myles Cook",
         "url": "https://github.com/MylesMCook"
@@ -468,7 +426,7 @@
     },
     {
       "name": "code-comments",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "description": "Help humans understand and review LLM-written code through accurate, useful source comments.",
       "author": {
         "name": "Myles Cook",
@@ -489,7 +447,7 @@
     },
     {
       "name": "assistant-ui",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "description": "Build and troubleshoot assistant-ui using official documentation, version-matched source, and its hosted documentation MCP.",
       "author": {
         "name": "Myles Cook",
@@ -506,17 +464,11 @@
         "agent-skills"
       ],
       "source": "./assistant-ui",
-      "category": "Developer Tools",
-      "mcpServers": {
-        "assistant-ui": {
-          "type": "http",
-          "url": "https://www.assistant-ui.com/mcp"
-        }
-      }
+      "category": "Developer Tools"
     },
     {
       "name": "tailscale",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "description": "Explain, configure, and troubleshoot Tailscale using its upstream skill, focused references, and current official documentation.",
       "author": {
         "name": "Myles Cook",
@@ -538,7 +490,7 @@
     },
     {
       "name": "wails",
-      "version": "0.2.4",
+      "version": "0.2.5",
       "description": "Build Wails apps, set up native feedback, and watch and fix comments as they arrive.",
       "author": {
         "name": "Myles Cook",
@@ -560,7 +512,7 @@
     },
     {
       "name": "act",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "description": "Discover and use the current machine's act installation for local GitHub Actions validation and debugging.",
       "author": {
         "name": "Myles Cook",
@@ -583,7 +535,7 @@
       "name": "explainer",
       "source": "./explainer",
       "description": "Turn \"how does X work?\" into an interactive, step-by-step explainer page with an animated diagram, lessons and a message inspector.",
-      "version": "1.5.2",
+      "version": "1.5.3",
       "author": {
         "name": "Myles Cook",
         "url": "https://github.com/MylesMCook"
@@ -598,16 +550,7 @@
         "documentation",
         "mcp"
       ],
-      "category": "Productivity",
-      "mcpServers": {
-        "explainer": {
-          "type": "stdio",
-          "command": "node",
-          "args": [
-            "${CLAUDE_PLUGIN_ROOT}/skills/explainer/mcp.mjs"
-          ]
-        }
-      }
+      "category": "Productivity"
     }
   ]
 }

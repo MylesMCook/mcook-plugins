@@ -1,0 +1,19 @@
+{
+  "name": "act",
+  "version": "0.1.1",
+  "description": "Discover and use the current machine's act installation for local GitHub Actions validation and debugging.",
+  "author": {
+    "name": "Myles Cook",
+    "url": "https://github.com/MylesMCook"
+  },
+  "homepage": "https://github.com/MylesMCook/mcook-plugins/tree/main/act",
+  "repository": "https://github.com/MylesMCook/mcook-plugins",
+  "license": "MIT",
+  "keywords": [
+    "act",
+    "github-actions",
+    "local-ci",
+    "docker",
+    "developer-tools"
+  ]
+}

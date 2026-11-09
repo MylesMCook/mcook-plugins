@@ -1,0 +1,18 @@
+{
+  "name": "writer",
+  "version": "0.2.2",
+  "description": "Draft, edit, and clean up prose through one focused writing workflow.",
+  "author": {
+    "name": "Myles Cook",
+    "url": "https://github.com/MylesMCook"
+  },
+  "homepage": "https://github.com/MylesMCook/mcook-plugins/tree/main/writer",
+  "repository": "https://github.com/MylesMCook/mcook-plugins",
+  "keywords": [
+    "writing",
+    "editing",
+    "prose",
+    "human-writing",
+    "productivity"
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "name": "mcp-server-dev",
+  "version": "0.2.2",
+  "description": "Design, build, validate, and release portable MCP servers and MCP Apps with a Go-first backend default and TypeScript UI when needed.",
+  "author": {
+    "name": "Myles Cook",
+    "url": "https://github.com/MylesMCook"
+  },
+  "homepage": "https://github.com/MylesMCook/mcook-plugins/tree/main/mcp-server-dev",
+  "repository": "https://github.com/MylesMCook/mcook-plugins",
+  "license": "Apache-2.0",
+  "keywords": [
+    "agent-plugins",
+    "mcp",
+    "mcp-server",
+    "mcp-apps",
+    "go",
+    "typescript",
+    "codex",
+    "chatgpt",
+    "developer-tools"
+  ]
+}

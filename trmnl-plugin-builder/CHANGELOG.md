@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.1 - 2026-11-08
+
+- Add an explicit Claude manifest for claude.ai marketplace synchronization.
+
 ## 0.2.0 - 2026-08-26
 
 - Reframed the skill as a Myles-specific operations companion to TRMNL's

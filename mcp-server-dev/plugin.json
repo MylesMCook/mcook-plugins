@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "mcp-server-dev",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Design, build, validate, and release portable MCP servers and MCP Apps with a Go-first backend default and TypeScript UI when needed.",
   "author": {
     "name": "Myles Cook",

@@ -1,0 +1,19 @@
+{
+  "name": "hono-web-apps",
+  "version": "0.1.1",
+  "description": "Evaluate, build, modify, test, and verify Hono web applications without forcing framework adoption.",
+  "author": {
+    "name": "Myles Cook",
+    "url": "https://github.com/MylesMCook"
+  },
+  "homepage": "https://github.com/MylesMCook/mcook-plugins/tree/main/hono-web-apps",
+  "repository": "https://github.com/MylesMCook/mcook-plugins",
+  "license": "MIT",
+  "keywords": [
+    "hono",
+    "typescript",
+    "web-apps",
+    "testing",
+    "developer-tools"
+  ]
+}

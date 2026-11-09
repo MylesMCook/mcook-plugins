@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "product-wrangler",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Turn an existing runnable web app into an evidence-backed, complete product without expanding authority.",
   "author": {
     "name": "Myles Cook",

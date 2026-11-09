@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.4 - 2026-11-08
+
+- Add an explicit Claude manifest for claude.ai marketplace synchronization.
+
 ## 0.2.3 - 2026-10-10
 
 - Require Agent Plugins conformance before release, with validation evidence for the exact release candidate.

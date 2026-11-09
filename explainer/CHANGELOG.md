@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.5.3 - 2026-11-08
+
+- Add an explicit Claude manifest for claude.ai marketplace synchronization.
+
 ## 1.5.2 - 2026-11-05
 
 - Stronger viewer checks: sessions reuse only the owner's recorded port, the proof is bound to that port, the signing key never appears in links, and secrets are replaced whenever a viewer stops.

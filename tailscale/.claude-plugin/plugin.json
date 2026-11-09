@@ -1,0 +1,20 @@
+{
+  "name": "tailscale",
+  "version": "0.1.1",
+  "description": "Explain, configure, and troubleshoot Tailscale using its upstream skill, focused references, and current official documentation.",
+  "author": {
+    "name": "Myles Cook",
+    "url": "https://github.com/MylesMCook"
+  },
+  "homepage": "https://github.com/MylesMCook/mcook-plugins/tree/main/tailscale",
+  "repository": "https://github.com/MylesMCook/mcook-plugins",
+  "license": "BSD-3-Clause",
+  "keywords": [
+    "tailscale",
+    "tailnet",
+    "vpn",
+    "networking",
+    "tsnet",
+    "agent-skills"
+  ]
+}

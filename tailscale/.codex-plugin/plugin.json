@@ -1,6 +1,6 @@
 {
   "name": "tailscale",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Explain, configure, and troubleshoot Tailscale using its upstream skill, focused references, and current official documentation.",
   "author": {
     "name": "Myles Cook",

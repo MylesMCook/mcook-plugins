@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.2 - 2026-11-08
+
+- Add an explicit Claude manifest for claude.ai marketplace synchronization.
+
 ## 0.2.1 - 2026-08-11
 
 - Always save finished reports as Markdown files and return a clickable file

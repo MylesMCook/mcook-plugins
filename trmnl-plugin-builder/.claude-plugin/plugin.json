@@ -1,0 +1,19 @@
+{
+  "name": "trmnl-plugin-builder",
+  "version": "0.2.1",
+  "description": "A Myles-specific TRMNL operations companion for the official TRMNL skill and MCP.",
+  "author": {
+    "name": "Myles Cook",
+    "url": "https://github.com/MylesMCook"
+  },
+  "homepage": "https://github.com/MylesMCook/mcook-plugins/tree/main/trmnl-plugin-builder",
+  "repository": "https://github.com/MylesMCook/mcook-plugins",
+  "license": "MIT",
+  "keywords": [
+    "trmnl",
+    "e-ink",
+    "private-plugin",
+    "liquid",
+    "framework"
+  ]
+}

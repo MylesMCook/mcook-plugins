@@ -71,6 +71,23 @@ class SyncTest(unittest.TestCase):
         self.run_sync('--locked')
         self.assertEqual(before, snapshot(self.plugin))
 
+    def test_version_bump_updates_claude_manifest_and_catalog(self):
+        portable = json.loads((self.plugin / 'plugin.json').read_text())
+        claude = self.plugin / '.claude-plugin/plugin.json'
+        claude.parent.mkdir()
+        claude.write_text(json.dumps(portable))
+        catalog = self.repo / '.claude-plugin/marketplace.json'
+        catalog.parent.mkdir()
+        catalog.write_text(json.dumps({'plugins': [
+            {'name': 'frontend-react', 'version': portable['version']},
+            {'name': 'other', 'version': '7.0.0'},
+        ]}))
+        version = sync.bump_plugin_version([])
+        self.assertEqual(json.loads(claude.read_text())['version'], version)
+        entries = json.loads(catalog.read_text())['plugins']
+        self.assertEqual(entries[0]['version'], version)
+        self.assertEqual(entries[1]['version'], '7.0.0')
+
     def test_selective_update_preserves_unselected_dirty_files_and_pin(self):
         other = self.plugin / 'skills/typescript-advanced-types/SKILL.md'
         other.write_text(other.read_text() + '\nLocal change.\n')

@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "assistant-ui",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Build and troubleshoot assistant-ui using official documentation, version-matched source, and its hosted documentation MCP.",
   "author": {
     "name": "Myles Cook",

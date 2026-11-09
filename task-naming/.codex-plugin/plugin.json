@@ -1,6 +1,6 @@
 {
   "name": "task-naming",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "description": "Manually rename Codex tasks at chat, project, or machine scope.",
   "author": {
     "name": "Myles Cook",

@@ -1,0 +1,22 @@
+{
+  "name": "wails",
+  "version": "0.2.5",
+  "description": "Build Wails apps, set up native feedback, and watch and fix comments as they arrive.",
+  "author": {
+    "name": "Myles Cook",
+    "url": "https://github.com/MylesMCook"
+  },
+  "homepage": "https://github.com/MylesMCook/mcook-plugins/tree/main/wails",
+  "repository": "https://github.com/MylesMCook/mcook-plugins",
+  "license": "MIT",
+  "keywords": [
+    "wails",
+    "go",
+    "desktop",
+    "documentation",
+    "llms-txt",
+    "developer-tools",
+    "agentation",
+    "native-feedback"
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "name": "buzz-xyz",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Operate Buzz.xyz relays through the Buzz CLI.",
   "author": {
     "name": "Myles Cook",

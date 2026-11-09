@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.0.1 - 2026-11-08
+
+- Add an explicit Claude manifest for claude.ai marketplace synchronization.
+
 ## 2.0.0 - 2026-11-08
 
 - Remove the bundled personal MCP endpoint. Configure an HTTP server named

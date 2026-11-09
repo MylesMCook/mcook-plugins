@@ -435,6 +435,9 @@ def parse_version(value: str) -> tuple[int, int, int]:
 
 def bump_plugin_version(changed: list[tuple[str, str, str]]) -> str:
     manifest_paths = [PLUGIN_ROOT / "plugin.json", PLUGIN_ROOT / ".codex-plugin" / "plugin.json"]
+    claude_manifest = PLUGIN_ROOT / ".claude-plugin" / "plugin.json"
+    if claude_manifest.exists():
+        manifest_paths.append(claude_manifest)
     documents = [json.loads(path.read_text(encoding="utf-8")) for path in manifest_paths]
     versions = {document["version"] for document in documents}
     if len(versions) != 1:
@@ -444,6 +447,14 @@ def bump_plugin_version(changed: list[tuple[str, str, str]]) -> str:
     for path, document in zip(manifest_paths, documents):
         document["version"] = version
         path.write_text(json.dumps(document, indent=2) + "\n", encoding="utf-8")
+
+    catalog_path = PLUGIN_ROOT.parent / ".claude-plugin" / "marketplace.json"
+    if catalog_path.exists():
+        catalog = json.loads(catalog_path.read_text(encoding="utf-8"))
+        for plugin in catalog["plugins"]:
+            if plugin["name"] == PLUGIN_ROOT.name:
+                plugin["version"] = version
+        catalog_path.write_text(json.dumps(catalog, indent=2) + "\n", encoding="utf-8")
 
     changelog = PLUGIN_ROOT / "CHANGELOG.md"
     old = changelog.read_text(encoding="utf-8")

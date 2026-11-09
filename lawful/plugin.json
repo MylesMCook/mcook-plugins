@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "lawful",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Apply software, visual, and UX laws to technical decisions and product critiques.",
   "author": {
     "name": "Myles Cook",

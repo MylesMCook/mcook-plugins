@@ -1,0 +1,19 @@
+{
+  "name": "orchestrate",
+  "version": "0.1.4",
+  "description": "Coordinate explicitly requested native Codex subagent work with deliberate routing and verified synthesis.",
+  "author": {
+    "name": "Myles Cook",
+    "url": "https://github.com/MylesMCook"
+  },
+  "homepage": "https://github.com/MylesMCook/mcook-plugins/tree/main/orchestrate",
+  "repository": "https://github.com/MylesMCook/mcook-plugins",
+  "license": "MIT",
+  "keywords": [
+    "codex",
+    "subagents",
+    "orchestration",
+    "model-routing",
+    "delegation"
+  ]
+}

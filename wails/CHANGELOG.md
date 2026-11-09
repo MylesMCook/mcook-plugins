@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.5 - 2026-11-08
+
+- Add an explicit Claude manifest for claude.ai marketplace synchronization.
+
 ## 0.2.4 - 2026-10-10
 
 - Add a reusable native feedback watch-and-fix workflow to the existing Wails skill.

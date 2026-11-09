@@ -1,0 +1,25 @@
+{
+  "name": "frontend-react",
+  "version": "0.3.2",
+  "description": "Build, style, optimize, and test React apps with Base UI + StyleX and focused UI quality skills.",
+  "author": {
+    "name": "Myles Cook",
+    "url": "https://github.com/MylesMCook"
+  },
+  "homepage": "https://github.com/MylesMCook/mcook-plugins/tree/main/frontend-react",
+  "repository": "https://github.com/MylesMCook/mcook-plugins",
+  "license": "MIT AND Apache-2.0",
+  "keywords": [
+    "react",
+    "nextjs",
+    "typescript",
+    "stylex",
+    "shadcn",
+    "playwright",
+    "frontend",
+    "base-ui",
+    "accessibility",
+    "animation",
+    "metadata"
+  ]
+}

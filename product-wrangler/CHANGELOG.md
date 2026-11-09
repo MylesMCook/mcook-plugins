@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.1 - 2026-11-08
+
+- Add an explicit Claude manifest for claude.ai marketplace synchronization.
+
 ## 0.2.0 - 2026-09-04
 
 - Bind the product thesis to a ranked evidence hierarchy, contradictions,

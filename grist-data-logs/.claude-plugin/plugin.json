@@ -1,0 +1,19 @@
+{
+  "name": "grist-data-logs",
+  "version": "0.1.2",
+  "description": "Operate self-hosted Grist as a retry-safe application event log and private analysis store.",
+  "author": {
+    "name": "Myles Cook",
+    "url": "https://github.com/MylesMCook"
+  },
+  "homepage": "https://github.com/MylesMCook/mcook-plugins/tree/main/grist-data-logs",
+  "repository": "https://github.com/MylesMCook/mcook-plugins",
+  "license": "MIT",
+  "keywords": [
+    "grist",
+    "self-hosted",
+    "data-logging",
+    "mcp",
+    "sqlite"
+  ]
+}

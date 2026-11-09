@@ -1,0 +1,22 @@
+{
+  "name": "personal-firecrawl",
+  "version": "2.0.1",
+  "description": "Research the web with your self-hosted Firecrawl search and fetch tools, plus on-host CLI bulk work.",
+  "author": {
+    "name": "Myles Cook",
+    "url": "https://github.com/MylesMCook"
+  },
+  "homepage": "https://github.com/MylesMCook/mcook-plugins/tree/main/personal-firecrawl",
+  "repository": "https://github.com/MylesMCook/mcook-plugins",
+  "license": "ISC",
+  "keywords": [
+    "agent-plugins",
+    "firecrawl",
+    "mcp",
+    "self-hosted",
+    "web-research"
+  ],
+  "agents": [
+    "./claude/agents/web-researcher.md"
+  ]
+}

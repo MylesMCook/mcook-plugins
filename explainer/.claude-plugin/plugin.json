@@ -1,0 +1,28 @@
+{
+  "name": "explainer",
+  "version": "1.5.3",
+  "description": "Turn \"how does X work?\" into an interactive, step-by-step explainer page with an animated diagram, lessons and a message inspector.",
+  "author": {
+    "name": "Myles Cook",
+    "url": "https://github.com/MylesMCook"
+  },
+  "homepage": "https://github.com/MylesMCook/mcook-plugins/tree/main/explainer",
+  "repository": "https://github.com/MylesMCook/mcook-plugins",
+  "license": "MIT AND OFL-1.1",
+  "keywords": [
+    "agent-plugins",
+    "explainer",
+    "diagrams",
+    "documentation",
+    "mcp"
+  ],
+  "mcpServers": {
+    "explainer": {
+      "type": "stdio",
+      "command": "node",
+      "args": [
+        "${CLAUDE_PLUGIN_ROOT}/skills/explainer/mcp.mjs"
+      ]
+    }
+  }
+}

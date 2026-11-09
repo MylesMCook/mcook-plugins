@@ -1,6 +1,6 @@
 {
   "name": "cli-for-agent",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Patterns for designing command-line tools that coding agents can run reliably.",
   "author": {
     "name": "Myles Cook",

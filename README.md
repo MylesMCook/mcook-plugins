@@ -1,6 +1,6 @@
 # Myles agent plugins
 
-Plugin marketplace for Codex, Claude Code, and Cursor.
+Plugin marketplace for Codex, Claude, Claude Code, and Cursor.
 
 Licenses and attribution vary by package. See each package's license and
 [publication licensing review](docs/publication-licensing.md); this repository
@@ -33,7 +33,17 @@ codex plugin add thermos@mcook-plugins-local
 
 Repeat `plugin add` for each plugin you want to update, then start a new task.
 
-## Claude Code
+## Claude and Claude Code
+
+On claude.ai, open **Customize → Plugins → Add → Add marketplace**, choose
+**Add from a repository**, and enter `MylesMCook/mcook-plugins`.
+
+The Claude catalog includes explicit Claude manifests. Fabric's Windows
+executable package is available in Codex and Cursor; it is excluded from Claude
+because cloud sync rejects top-level `bin/` directories. Local MCP servers
+(such as Explainer) run in Cowork and Claude Code, not in web chat.
+
+For Claude Code:
 
 ```sh
 claude plugin marketplace add MylesMCook/mcook-plugins

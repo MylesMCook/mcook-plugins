@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.2 - 2026-11-08
+
+- Add an explicit Claude manifest for claude.ai marketplace synchronization.
+
 ## 0.3.1
 
 - Made Playwright CLI the live browser default and retained repository-native browser tests for regressions.

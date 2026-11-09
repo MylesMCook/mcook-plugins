@@ -1,0 +1,19 @@
+{
+  "name": "code-comments",
+  "version": "0.1.1",
+  "description": "Help humans understand and review LLM-written code through accurate, useful source comments.",
+  "author": {
+    "name": "Myles Cook",
+    "url": "https://github.com/MylesMCook"
+  },
+  "homepage": "https://github.com/MylesMCook/mcook-plugins/tree/main/code-comments",
+  "repository": "https://github.com/MylesMCook/mcook-plugins",
+  "license": "MIT",
+  "keywords": [
+    "comments",
+    "documentation",
+    "code-quality",
+    "research",
+    "agent-skills"
+  ]
+}

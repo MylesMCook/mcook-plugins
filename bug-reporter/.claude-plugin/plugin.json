@@ -1,0 +1,19 @@
+{
+  "name": "bug-reporter",
+  "version": "0.2.2",
+  "description": "Create evidence-based, fix-ready bug reports for software and systems.",
+  "author": {
+    "name": "Myles Cook",
+    "url": "https://github.com/MylesMCook"
+  },
+  "homepage": "https://github.com/MylesMCook/mcook-plugins/tree/main/bug-reporter",
+  "repository": "https://github.com/MylesMCook/mcook-plugins",
+  "license": "MIT",
+  "keywords": [
+    "bugs",
+    "diagnostics",
+    "reproduction",
+    "triage",
+    "testing"
+  ]
+}

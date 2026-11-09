@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "frontend-react",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Build, style, optimize, and test React apps with Base UI + StyleX and focused UI quality skills.",
   "author": {
     "name": "Myles Cook",

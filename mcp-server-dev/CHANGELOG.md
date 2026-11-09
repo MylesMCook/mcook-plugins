@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.2 - 2026-11-08
+
+- Add an explicit Claude manifest for claude.ai marketplace synchronization.
+
 ## 0.2.1 - 2026-08-28
 
 - Corrected the safe Git revision example so a validated revision is not

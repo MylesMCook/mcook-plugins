@@ -62,3 +62,4 @@ jobs:
             documentation and are not overwritten by this job. Review the skill diff before merging.
           add-paths: |
             frontend-react
+            .claude-plugin/marketplace.json

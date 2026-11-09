@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.1 - 2026-11-08
+
+- Add an explicit Claude manifest for claude.ai marketplace synchronization.
+
 ## 0.1.0 — 2026-09-09
 
 - Add a docs-first RedwoodSDK application workflow and topic references.

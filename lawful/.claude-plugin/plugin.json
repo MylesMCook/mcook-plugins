@@ -1,0 +1,19 @@
+{
+  "name": "lawful",
+  "version": "0.2.2",
+  "description": "Apply software, visual, and UX laws to technical decisions and product critiques.",
+  "author": {
+    "name": "Myles Cook",
+    "url": "https://github.com/MylesMCook"
+  },
+  "homepage": "https://github.com/MylesMCook/mcook-plugins/tree/main/lawful",
+  "repository": "https://github.com/MylesMCook/mcook-plugins",
+  "license": "MIT",
+  "keywords": [
+    "software-architecture",
+    "design",
+    "ux",
+    "critique",
+    "decision-making"
+  ]
+}

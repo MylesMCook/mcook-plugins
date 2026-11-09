@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "redwood-web-apps",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Build and verify RedwoodSDK React applications on Cloudflare using current official documentation.",
   "author": {
     "name": "Myles Cook",

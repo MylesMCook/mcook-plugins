@@ -1,0 +1,19 @@
+{
+  "name": "thermos",
+  "version": "0.3.1",
+  "description": "Independent paired or adversarial reviews with shared scope and evidence verification.",
+  "author": {
+    "name": "Myles Cook",
+    "url": "https://github.com/MylesMCook"
+  },
+  "homepage": "https://github.com/MylesMCook/mcook-plugins/tree/main/thermos",
+  "repository": "https://github.com/MylesMCook/mcook-plugins",
+  "license": "MIT",
+  "keywords": [
+    "review",
+    "security",
+    "quality",
+    "codex",
+    "subagents"
+  ]
+}

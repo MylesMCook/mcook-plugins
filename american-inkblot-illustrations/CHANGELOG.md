@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.3 - 2026-11-08
+
+- Add an explicit Claude manifest for claude.ai marketplace synchronization.
+
 ## 0.2.2 - 2026-08-24
 
 - Added the portable Agent Plugins 1.0.0 manifest while retaining the Codex

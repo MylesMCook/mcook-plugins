@@ -1,0 +1,19 @@
+{
+  "name": "task-naming",
+  "version": "0.5.3",
+  "description": "Manually rename Codex tasks at chat, project, or machine scope.",
+  "author": {
+    "name": "Myles Cook",
+    "url": "https://github.com/MylesMCook"
+  },
+  "homepage": "https://github.com/MylesMCook/mcook-plugins/tree/main/task-naming",
+  "repository": "https://github.com/MylesMCook/mcook-plugins",
+  "license": "MIT",
+  "keywords": [
+    "codex",
+    "tasks",
+    "threads",
+    "naming",
+    "organization"
+  ]
+}

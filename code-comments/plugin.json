@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "code-comments",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Help humans understand and review LLM-written code through accurate, useful source comments.",
   "author": {
     "name": "Myles Cook",

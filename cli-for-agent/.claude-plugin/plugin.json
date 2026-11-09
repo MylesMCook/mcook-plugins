@@ -1,0 +1,22 @@
+{
+  "name": "cli-for-agent",
+  "version": "1.0.2",
+  "description": "Patterns for designing command-line tools that coding agents can run reliably.",
+  "author": {
+    "name": "Myles Cook",
+    "url": "https://github.com/MylesMCook"
+  },
+  "homepage": "https://github.com/MylesMCook/mcook-plugins/tree/main/cli-for-agent",
+  "repository": "https://github.com/MylesMCook/mcook-plugins",
+  "license": "MIT",
+  "keywords": [
+    "cli",
+    "command-line",
+    "automation",
+    "agents",
+    "developer-tools",
+    "terminal",
+    "flags",
+    "help"
+  ]
+}
