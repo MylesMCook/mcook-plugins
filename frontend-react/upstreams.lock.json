@@ -5,7 +5,7 @@
       "name": "vercel-labs-agent-skills",
       "repository": "https://github.com/vercel-labs/agent-skills",
       "ref": "main",
-      "commit": "20e89cc4bb256eb7b1fcbdc68f7175284709a847",
+      "commit": "1a2c79d4e6c4a2283dc2c614b6538cbe1ed5ca62",
       "skills": [
         {
           "source": "skills/react-best-practices",
@@ -21,7 +21,7 @@
       "name": "shadcn-ui",
       "repository": "https://github.com/shadcn-ui/ui",
       "ref": "main",
-      "commit": "683a5a9b370acdb7785a0529434e6a3b8c7e0441",
+      "commit": "8ab27715521cbd4f87ae6886cd989cbb678f6de7",
       "skills": [
         {
           "source": "skills/shadcn",
@@ -33,7 +33,7 @@
       "name": "anthropic-skills",
       "repository": "https://github.com/anthropics/skills",
       "ref": "main",
-      "commit": "3b3fad96af16a10759d930941b4520ba0c40edae",
+      "commit": "2c5958ecac7cee2b583967a2c4981d0f4a75c579",
       "skills": [
         {
           "source": "skills/webapp-testing",
@@ -45,7 +45,7 @@
       "name": "wshobson-agents",
       "repository": "https://github.com/wshobson/agents",
       "ref": "main",
-      "commit": "38e19c20d2b154510b0e624a2e3e186b19b5c527",
+      "commit": "9c61ab243def98f72da12abd41cfcf5bcd91af9d",
       "skills": [
         {
           "source": "plugins/javascript-typescript/skills/typescript-advanced-types",
@@ -57,7 +57,7 @@
       "name": "ui-skills",
       "repository": "https://github.com/ibelick/ui-skills",
       "ref": "main",
-      "commit": "fd0889bdf72aee45c32028b4643b09735d5b5a34",
+      "commit": "97dea9e747ea94d5671ef1468cbb8f9bd5f32542",
       "skills": [
         {
           "source": "skills/fixing-accessibility",

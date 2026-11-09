@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.3.3
+
+- Refreshed `vercel-labs-agent-skills` from `20e89cc4bb25` to `1a2c79d4e6c4`.
+- Refreshed `shadcn-ui` from `683a5a9b370a` to `8ab27715521c`.
+- Refreshed `anthropic-skills` from `3b3fad96af16` to `2c5958ecac7c`.
+- Refreshed `wshobson-agents` from `38e19c20d2b1` to `9c61ab243def`.
+- Refreshed `ui-skills` from `fd0889bdf72a` to `97dea9e747ea`.
+
 ## 0.3.2 - 2026-11-08
 
 - Add an explicit Claude manifest for claude.ai marketplace synchronization.
