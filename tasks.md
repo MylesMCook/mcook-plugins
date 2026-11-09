@@ -14,4 +14,11 @@ cover all 25 changed packages. Codex/Cursor catalog identities and skill/runtime
 files remain unchanged. The cloud-rule checks are offline; a live Claude sync is
 the final acceptance check.
 
-Next action: push the reviewed change and verify live Claude marketplace sync.
+Live verification: claude.ai Manage marketplaces reports `mcook-plugins` as
+Synced at fix commit `3b9e62f`. The repository picker had cached the old private
+repository identity; reselecting the public URL resolved that stale selection.
+Fresh-home Codex installation and skill discovery passed for Assistant UI and
+Personal Firecrawl after adding the Claude compatibility manifests.
+
+State: implementation pushed and live marketplace synchronization confirmed.
+No remaining task work; installation of individual plugins remains user-owned.
