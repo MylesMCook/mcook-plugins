@@ -1,0 +1,4 @@
+interface:
+  display_name: "Tufte"
+  short_description: "Build and review charts and dashboards to a cited standard"
+  default_prompt: "Use $tufte to build this dashboard from the data, or review this one and rank the fixes."

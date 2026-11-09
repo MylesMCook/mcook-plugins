@@ -1,0 +1,41 @@
+{
+  "name": "tufte",
+  "version": "0.1.0",
+  "description": "Build and review charts and dashboards to a cited, Tufte-led design standard.",
+  "author": {
+    "name": "Myles Cook",
+    "email": "myles.cook@gmail.com",
+    "url": "https://github.com/MylesMCook"
+  },
+  "homepage": "https://github.com/MylesMCook/mcook-plugins/tree/main/tufte",
+  "repository": "https://github.com/MylesMCook/mcook-plugins",
+  "license": "ISC",
+  "keywords": [
+    "dashboards",
+    "charts",
+    "data-visualization",
+    "tufte",
+    "power-bi",
+    "design-review"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Tufte",
+    "shortDescription": "Build and review charts and dashboards to a cited standard.",
+    "longDescription": "One Tufte skill that loads a cited rulebook while building charts and dashboards, and reviews finished ones with ranked, sourced fixes. Covers integrity, comparisons, encoding, color, word budgets, type size and layout.",
+    "developerName": "Myles Cook",
+    "category": "Productivity",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/MylesMCook/mcook-plugins/tree/main/tufte",
+    "defaultPrompt": [
+      "Build a dashboard from this data.",
+      "Review this dashboard and rank the fixes.",
+      "Check this chart against the Tufte rulebook."
+    ],
+    "privacyPolicyURL": "https://github.com/MylesMCook/mcook-plugins",
+    "termsOfServiceURL": "https://github.com/MylesMCook/mcook-plugins"
+  }
+}

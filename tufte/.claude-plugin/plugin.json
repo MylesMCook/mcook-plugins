@@ -1,0 +1,23 @@
+{
+  "name": "tufte",
+  "version": "0.1.0",
+  "description": "Build and review charts and dashboards to a cited, Tufte-led design standard.",
+  "author": {
+    "name": "Myles Cook",
+    "url": "https://github.com/MylesMCook"
+  },
+  "homepage": "https://github.com/MylesMCook/mcook-plugins/tree/main/tufte",
+  "repository": "https://github.com/MylesMCook/mcook-plugins",
+  "license": "ISC",
+  "keywords": [
+    "dashboards",
+    "charts",
+    "data-visualization",
+    "tufte",
+    "power-bi",
+    "design-review"
+  ],
+  "agents": [
+    "./claude/agents/tufte-critic.md"
+  ]
+}
