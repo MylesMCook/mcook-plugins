@@ -49,14 +49,14 @@
       "wires": { "you|resolver": "UDP 53" },
       "steps": [
         { "title": "Ask", "desc": "You type a name. Your device asks the resolver for its address.", "msgs": [
-          { "from": "you", "to": "resolver", "kind": "req", "info": "example.com?", "method": "A query", "json": { "question": { "name": "example.com", "type": "A" } } }
+          { "from": "you", "to": "resolver", "kind": "req", "info": "example.com?", "what": "Asks the resolver for the IPv4 address (A record) of example.com.", "why": "The browser needs an IP address before it can connect. The resolver does the searching so the device does not.", "method": "A query", "json": { "question": { "name": "example.com", "type": "A" } } }
         ] },
         { "title": "Find", "desc": "The resolver asks the server that owns the name.", "msgs": [
-          { "from": "resolver", "to": "auth", "kind": "req", "info": "example.com?", "method": "A query", "json": { "question": { "name": "example.com", "type": "A" } } },
-          { "from": "auth", "to": "resolver", "kind": "res", "info": "93.184.215.14", "method": "answer", "json": { "answer": { "name": "example.com", "type": "A", "ttl": 3600, "data": "93.184.215.14" } }, "notes": [["ttl", "How many seconds the answer may be cached."]] }
+          { "from": "resolver", "to": "auth", "kind": "req", "info": "example.com?", "what": "Asks the server that owns example.com for the name's A record.", "why": "The resolver has no cached answer. Only the authoritative server can give the final one.", "method": "A query", "json": { "question": { "name": "example.com", "type": "A" } } },
+          { "from": "auth", "to": "resolver", "kind": "res", "info": "93.184.215.14", "what": "Returns the A record: 93.184.215.14, valid for 3600 seconds.", "why": "This is the real answer. The lifetime tells the resolver how long it may reuse it.", "method": "answer", "json": { "answer": { "name": "example.com", "type": "A", "ttl": 3600, "data": "93.184.215.14" } }, "notes": [["ttl", "How many seconds the answer may be cached."]] }
         ] },
         { "title": "Answer", "desc": "The resolver passes the address back. The browser can now connect.", "msgs": [
-          { "from": "resolver", "to": "you", "kind": "res", "info": "93.184.215.14", "method": "answer", "json": { "answer": "93.184.215.14" } }
+          { "from": "resolver", "to": "you", "kind": "res", "info": "93.184.215.14", "what": "Hands the device the IP address it asked for.", "why": "The device never talks to the owning server. It trusts the resolver to pass the result back so it can connect.", "method": "answer", "json": { "answer": "93.184.215.14" } }
         ] }
       ]
     },
@@ -68,17 +68,17 @@
       "zones": [{ "label": "Your network", "ids": ["you", "resolver"] }],
       "steps": [
         { "title": "Root", "desc": "The root doesn't know example.com, but knows who runs .com.", "msgs": [
-          { "from": "resolver", "to": "root", "kind": "req", "info": "example.com?", "method": "A query", "json": { "question": "example.com A" } },
-          { "from": "root", "to": "resolver", "kind": "res", "info": "ask .com servers", "method": "referral", "json": { "authority": "com. NS a.gtld-servers.net" } }
+          { "from": "resolver", "to": "root", "kind": "req", "info": "example.com?", "what": "Asks a root server who handles example.com.", "why": "With an empty cache the resolver must start at the top. Root servers know where each top-level domain, such as .com, is run.", "method": "A query", "json": { "question": "example.com A" } },
+          { "from": "root", "to": "resolver", "kind": "res", "info": "ask .com servers", "what": "Replies with a referral: the name servers for .com.", "why": "The root does not hold the answer. It points the resolver one level down the name instead.", "method": "referral", "json": { "authority": "com. NS a.gtld-servers.net" } }
         ] },
         { "title": "TLD", "desc": "The .com server points to the name's own servers.", "msgs": [
-          { "from": "resolver", "to": "tld", "kind": "req", "info": "example.com?", "method": "A query", "json": { "question": "example.com A" } },
-          { "from": "tld", "to": "resolver", "kind": "res", "info": "ask ns1.example.com", "method": "referral", "json": { "authority": "example.com. NS ns1.example.com" } }
+          { "from": "resolver", "to": "tld", "kind": "req", "info": "example.com?", "what": "Asks a .com server for example.com's address.", "why": "The resolver follows the referral. The TLD server knows which servers own each name under .com.", "method": "A query", "json": { "question": "example.com A" } },
+          { "from": "tld", "to": "resolver", "kind": "res", "info": "ask ns1.example.com", "what": "Replies with a referral to ns1.example.com, the name's own server.", "why": "The .com server still lacks the address. It sends the resolver to the server run by the name's owner.", "method": "referral", "json": { "authority": "example.com. NS ns1.example.com" } }
         ] },
         { "title": "Owner", "desc": "The authoritative server gives the real answer.", "msgs": [
-          { "from": "resolver", "to": "auth", "kind": "req", "info": "example.com?", "method": "A query", "json": { "question": "example.com A" } },
-          { "from": "auth", "to": "resolver", "kind": "res", "info": "93.184.215.14", "method": "answer", "json": { "answer": "example.com. 3600 A 93.184.215.14" } },
-          { "from": "resolver", "to": "you", "kind": "res", "info": "93.184.215.14", "method": "answer", "json": { "answer": "93.184.215.14" } }
+          { "from": "resolver", "to": "auth", "kind": "req", "info": "example.com?", "what": "Asks ns1.example.com for the A record of example.com.", "why": "This server is the authority for the name, so it is the last stop in the chain.", "method": "A query", "json": { "question": "example.com A" } },
+          { "from": "auth", "to": "resolver", "kind": "res", "info": "93.184.215.14", "what": "Returns the A record for example.com with a 3600 second lifetime.", "why": "The authority gives the final answer. The resolver can cache it so later lookups skip the chain.", "method": "answer", "json": { "answer": "example.com. 3600 A 93.184.215.14" } },
+          { "from": "resolver", "to": "you", "kind": "res", "info": "93.184.215.14", "what": "Gives the device the address the chain found.", "why": "The device is waiting on this answer. With it, the browser can open a connection.", "method": "answer", "json": { "answer": "93.184.215.14" } }
         ] }
       ]
     },
@@ -90,8 +90,8 @@
       "zones": [{ "label": "Your network", "ids": ["you", "resolver"] }],
       "steps": [
         { "title": "Hit", "desc": "The resolver already has the answer and replies at once.", "msgs": [
-          { "from": "you", "to": "resolver", "kind": "req", "info": "example.com?", "method": "A query", "json": { "question": "example.com A" } },
-          { "from": "resolver", "to": "you", "kind": "res", "info": "cached · 2 ms", "method": "answer", "json": { "answer": "93.184.215.14", "ttl_left": 3412 } }
+          { "from": "you", "to": "resolver", "kind": "req", "info": "example.com?", "what": "Asks the resolver for example.com again.", "why": "A repeat lookup shows the effect of caching. Nothing has changed except that the resolver now remembers.", "method": "A query", "json": { "question": "example.com A" } },
+          { "from": "resolver", "to": "you", "kind": "res", "info": "cached · 2 ms", "what": "Answers from the resolver's cache, with 3412 seconds of lifetime left.", "why": "The stored answer is still valid, so the resolver skips the chain. Lookups stay fast and the servers above see less traffic.", "method": "answer", "json": { "answer": "93.184.215.14", "ttl_left": 3412 } }
         ] }
       ]
     },
@@ -103,8 +103,8 @@
       "zones": [{ "label": "Attacker", "ids": ["attacker"], "style": "accent" }],
       "steps": [
         { "title": "Race", "desc": "The resolver asks; the attacker floods it with forged answers.", "msgs": [
-          { "from": "resolver", "to": "auth", "kind": "req", "info": "bank.com?", "method": "A query", "json": { "id": 4711, "question": "bank.com A" } },
-          { "from": "attacker", "to": "resolver", "kind": "err", "info": "forged: 6.6.6.6", "method": "fake answer", "risk": "spoof", "json": { "id": 4711, "answer": "bank.com A 6.6.6.6" } }
+          { "from": "resolver", "to": "auth", "kind": "req", "info": "bank.com?", "what": "Asks bank.com's authoritative server for its address, using query id 4711.", "why": "The resolver needs the real address. The id lets it match a reply to this query. An attacker would need to guess it.", "method": "A query", "json": { "id": 4711, "question": "bank.com A" } },
+          { "from": "attacker", "to": "resolver", "kind": "err", "info": "forged: 6.6.6.6", "what": "Sends the resolver a fake answer pointing bank.com at 6.6.6.6.", "why": "Likely the attacker races the real reply. If it matches the query id and arrives first, the resolver may cache the lie.", "method": "fake answer", "risk": "spoof", "json": { "id": 4711, "answer": "bank.com A 6.6.6.6" } }
         ] }
       ]
     }

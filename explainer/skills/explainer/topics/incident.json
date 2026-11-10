@@ -39,14 +39,14 @@
       "actors": [{ "id": "sched", "x": 170, "y": 140 }, { "id": "report", "x": 500, "y": 420 }, { "id": "wh", "x": 830, "y": 140 }, { "id": "you", "x": 170, "y": 420 }],
       "steps": [
         { "title": "Start", "desc": "At 02:00 UTC the scheduler starts the report.", "msgs": [
-          { "from": "sched", "to": "report", "kind": "req", "info": "run report", "method": "start", "json": { "job": "report", "at": "02:00 UTC" } }
+          { "from": "sched", "to": "report", "kind": "req", "info": "run report", "what": "Tells the report job to begin its run at 02:00 UTC.", "why": "The scheduler starts the report at a set clock time. It does not check whether the export has finished.", "method": "start", "json": { "job": "report", "at": "02:00 UTC" } }
         ] },
         { "title": "Query", "desc": "The report asks for yesterday's sales and gets nothing back.", "msgs": [
-          { "from": "report", "to": "wh", "kind": "req", "info": "sales for Mar 8", "method": "SELECT", "json": { "date": "2025-03-08" } },
-          { "from": "wh", "to": "report", "kind": "res", "info": "0 rows", "method": "result", "json": { "rows": 0 } }
+          { "from": "report", "to": "wh", "kind": "req", "info": "sales for Mar 8", "what": "Requests the warehouse's sales rows for the previous day.", "why": "The summary is built from these rows. Without them the report has nothing to total.", "method": "SELECT", "json": { "date": "2025-03-08" } },
+          { "from": "wh", "to": "report", "kind": "res", "info": "0 rows", "what": "Returns an empty result: no sales rows for the date.", "why": "The export had not loaded the day's sales yet. The report treated the empty result as real and carried on.", "method": "result", "json": { "rows": 0 } }
         ] },
         { "title": "Send", "desc": "It emails a summary anyway: zero sales.", "msgs": [
-          { "from": "report", "to": "you", "kind": "err", "info": "Sales: $0", "method": "email", "json": { "total": 0 } }
+          { "from": "report", "to": "you", "kind": "err", "info": "Sales: $0", "what": "Emails the sales team a summary showing a total of $0.", "why": "This is the symptom people saw. The report treated zero rows as a real total, so it sent a wrong summary.", "method": "email", "json": { "total": 0 } }
         ] }
       ]
     },
@@ -57,11 +57,11 @@
       "actors": [{ "id": "export", "x": 170, "y": 300 }, { "id": "wh", "x": 500, "y": 300 }, { "id": "report", "x": 830, "y": 300 }],
       "steps": [
         { "title": "Load", "desc": "The export writes the day's sales.", "msgs": [
-          { "from": "export", "to": "wh", "kind": "http", "info": "4,812 rows", "method": "write", "json": { "rows": 4812, "ends": "01:40 UTC" } }
+          { "from": "export", "to": "wh", "kind": "http", "info": "4,812 rows", "what": "Loads the day's 4,812 sales rows into the warehouse, finishing about 01:40 UTC.", "why": "The report can only total what is already there. Finishing first leaves a 20-minute margin before 02:00 UTC.", "method": "write", "json": { "rows": 4812, "ends": "01:40 UTC" } }
         ] },
         { "title": "Read", "desc": "Twenty minutes later the report reads them.", "msgs": [
-          { "from": "report", "to": "wh", "kind": "req", "info": "sales for the day", "method": "SELECT", "json": { "at": "02:00 UTC" } },
-          { "from": "wh", "to": "report", "kind": "res", "info": "4,812 rows", "method": "result", "json": { "rows": 4812 } }
+          { "from": "report", "to": "wh", "kind": "req", "info": "sales for the day", "what": "Asks the warehouse for the day's sales at 02:00 UTC.", "why": "The export is done by now, so the data is ready. This read is the healthy path.", "method": "SELECT", "json": { "at": "02:00 UTC" } },
+          { "from": "wh", "to": "report", "kind": "res", "info": "4,812 rows", "what": "Returns all 4,812 rows the export loaded.", "why": "The report gets a full day of data to summarise, so the email is correct.", "method": "result", "json": { "rows": 4812 } }
         ] }
       ]
     },
@@ -72,11 +72,11 @@
       "actors": [{ "id": "export", "x": 170, "y": 300 }, { "id": "wh", "x": 500, "y": 300 }, { "id": "report", "x": 830, "y": 300 }],
       "steps": [
         { "title": "Early", "desc": "The report reads first and finds nothing.", "msgs": [
-          { "from": "report", "to": "wh", "kind": "req", "info": "sales for the day", "method": "SELECT", "json": { "at": "02:00 UTC" } },
-          { "from": "wh", "to": "report", "kind": "res", "info": "0 rows", "method": "result", "risk": "guess", "json": { "rows": 0 } }
+          { "from": "report", "to": "wh", "kind": "req", "info": "sales for the day", "what": "Asks for the day's sales at 02:00 UTC, the same query as on a normal night.", "why": "The schedule did not move with the clocks, so this runs before the export has loaded anything.", "method": "SELECT", "json": { "at": "02:00 UTC" } },
+          { "from": "wh", "to": "report", "kind": "res", "info": "0 rows", "what": "Returns zero rows because the export has not written yet.", "why": "The report needs the day's rows to build its email. With none there yet, the email went out empty. Best explanation, not observed.", "method": "result", "risk": "guess", "json": { "rows": 0 } }
         ] },
         { "title": "Late", "desc": "The export lands 40 minutes later, too late for the email.", "msgs": [
-          { "from": "export", "to": "wh", "kind": "http", "info": "4,790 rows at 02:40", "method": "write", "json": { "rows": 4790, "ends": "02:40 UTC" } }
+          { "from": "export", "to": "wh", "kind": "http", "info": "4,790 rows at 02:40", "what": "Writes 4,790 rows at 02:40 UTC, 40 minutes after the report had already read.", "why": "Daylight saving pushed the local-time export an hour later in UTC. The data is fine but too late for the email.", "method": "write", "json": { "rows": 4790, "ends": "02:40 UTC" } }
         ] }
       ]
     },
@@ -88,16 +88,16 @@
       "variants": [
         { "id": "before", "label": "Before", "hint": "fixed time",
           "steps": [{ "title": "Guess", "desc": "The report starts at 02:00 UTC whether or not the data is there.", "msgs": [
-            { "from": "report", "to": "wh", "kind": "req", "info": "read at 02:00 UTC", "method": "SELECT", "json": { "waits_for": "clock" } }
+            { "from": "report", "to": "wh", "kind": "req", "info": "read at 02:00 UTC", "what": "Reads the warehouse at a fixed 02:00 UTC with no check that the data exists.", "why": "A clock time is a guess about when the export finishes. When the export moves, the guess is wrong.", "method": "SELECT", "json": { "waits_for": "clock" } }
           ] }] },
         { "id": "after", "label": "After", "hint": "done flag",
           "steps": [
             { "title": "Flag", "desc": "The export writes a done row when it finishes.", "msgs": [
-              { "from": "export", "to": "wh", "kind": "note", "info": "done: Mar 9", "method": "write", "json": { "done": "2025-03-09" } }
+              { "from": "export", "to": "wh", "kind": "note", "info": "done: Mar 9", "what": "Writes a done row for Mar 9 once the export finishes.", "why": "It gives the report a signal that the data is complete, so the report does not rely on the time.", "method": "write", "json": { "done": "2025-03-09" } }
             ] },
             { "title": "Read", "desc": "The report checks for the flag, then reads.", "msgs": [
-              { "from": "report", "to": "wh", "kind": "req", "info": "done flag?", "method": "SELECT", "json": { "waits_for": "done flag" } },
-              { "from": "wh", "to": "report", "kind": "res", "info": "yes · 4,790 rows", "method": "result", "json": { "done": true, "rows": 4790 } }
+              { "from": "report", "to": "wh", "kind": "req", "info": "done flag?", "what": "Asks whether the done flag for the day exists.", "why": "The report waits for the flag, so it never reads before the data is there.", "method": "SELECT", "json": { "waits_for": "done flag" } },
+              { "from": "wh", "to": "report", "kind": "res", "info": "yes · 4,790 rows", "what": "Confirms the flag is set and returns 4,790 rows.", "why": "With the flag set, the report reads the full data. The Mar 9 rerun produced 4,790 rows.", "method": "result", "json": { "done": true, "rows": 4790 } }
             ] }
           ] }
       ]
@@ -109,7 +109,7 @@
       "actors": [{ "id": "sched", "x": 220, "y": 300 }, { "id": "report", "x": 780, "y": 300 }],
       "steps": [
         { "title": "Next", "desc": "Check the first report after the clocks move back.", "msgs": [
-          { "from": "sched", "to": "report", "kind": "req", "info": "first run after change", "method": "start", "json": { "verified": false } }
+          { "from": "sched", "to": "report", "kind": "req", "info": "first run after change", "what": "Starts the first report after the clocks move back, to see whether the fix holds.", "why": "The fix is untested for the autumn change. This run is the real test, so it is marked not verified.", "method": "start", "json": { "verified": false } }
         ] }
       ]
     }

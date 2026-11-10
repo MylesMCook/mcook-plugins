@@ -6,7 +6,7 @@ An Explainer topic teaches how a system works by **playing back the messages its
 - a **lesson list** (left), grouped, each lesson split into numbered **steps**;
 - a **diagram** (centre) of the parts ("actors") as small isometric illustrations inside labelled **zones**, with each message flying from sender to receiver; it can switch to a **sequence** view;
 - a **message log** (bottom) with Play / Step / Reset;
-- an **overview and inspector** (right): the lesson summary, key facts, links, and the full body of the selected message with field notes.
+- a **message inspector** (right): for the selected message, what it does, why it's sent, its body with field notes, and a link to the message that answers it (or that it answers). The lesson summary, facts and links sit above it under "About this lesson", collapsed.
 
 One topic is one JSON file. `node build.mjs topic.json` turns it into one self-contained page (`topic.html`) that works opened from disk. For a site, put files in `topics/` and run `node build.mjs`: the topic with `"home": true` becomes `dist/index.html`, every other topic `dist/<id>/index.html`.
 
@@ -30,10 +30,21 @@ Direct text, no blobs. The reader should get each point in one glance.
 - **Plain words.** Define a term the first time it appears, or put it in `facts`. "Use", not "utilize".
 - **Say it once.** Cut any sentence that restates another. No filler ("in order to", "it is important to note") or hype ("seamless", "robust").
 - **Messages are concrete things that travel** between two actors. `info` is a short label. `json` is a small, realistic body. `notes` explain the one or two fields that matter.
+- **Every message explains itself.** The inspector is where readers learn, so each message needs `what` and `why` (see below).
+
+### Writing `what`, `why` and `notes`
+
+The reader clicks a message and asks two things: what is this, and why is it here? Answer both in plain words, as the writer skill would.
+
+- **`what`: the action, one sentence, verb first.** Name who it acts on and the concrete thing it carries. "Asks the server to open /outbound so its files can be listed." Not "This message is the OPENDIR request." Don't repeat `info` or the method name.
+- **`why`: the reason, one or two short sentences.** Say what job it does in the flow, or what would break without it. "SFTP can't list a folder in one call. The client opens it, reads entries in batches, then closes it." Don't restate `what`.
+- **`notes`: only the fields a newcomer wouldn't guess.** Each note says what the value means here, not what the field is called. `["id", "Request number. The reply carries the same id so the client can match it."]`. Skip fields whose name says it all.
+- **Say what you know.** If the reason is inferred, say so ("Likely…") or attach a `guess` risk. Example values stay illustrative; say so in `footer`.
+- **Answers link themselves.** The inspector links a request to its answer (matching `json.id` when both have one), so `what` doesn't need "the server replies with…".
 - **Lay actors out like the real system.** The canvas is 1000 × 560; keep x within 60 to 940 and y within 60 to 520. Put things that run together in one zone. Leave about 300 px between actors in a row and 260 px between rows. Phones rotate the layout automatically.
 - Use your own words. Don't copy long passages from other sites.
 
-**Editing pass, before building:** reread every lead, summary, step, aside and callout as a busy reader. Cut words that don't change the meaning; turn any paragraph with two or more ideas into bullets. If a `writer` skill is available, use it for this pass. Never change facts, numbers or names while editing.
+**Editing pass, before building:** reread every lead, summary, step, aside, callout and message `what`/`why` as a busy reader. Cut words that don't change the meaning; turn any paragraph with two or more ideas into bullets. If a `writer` skill is available, use it for this pass. Never change facts, numbers or names while editing.
 
 The checker enforces the limits that keep pages readable:
 
@@ -48,6 +59,9 @@ The checker enforces the limits that keep pages readable:
 | step `desc` | 120 characters |
 | `aside` text, risk text | 140 characters |
 | message `info` | 40 characters |
+| message `what` | required; 120 characters; not the same as `info` |
+| message `why` | required; 160 characters; not the same as `what` |
+| message `notes` | each value 100 characters |
 | actors in one lesson | at least 150 px apart |
 
 It also rejects common filler and hype words in all of these.
@@ -180,6 +194,8 @@ Nothing the reader clicks moves, and nothing moves because something else change
       "steps": [
         { "title": "Ask", "desc": "The browser asks the resolver for an address.", "msgs": [
           { "from": "browser", "to": "resolver", "kind": "req", "info": "example.com?",
+            "what": "Asks the resolver for the IPv4 address of example.com.",   // required: the action, verb first
+            "why": "The browser can't connect to a name, only to an address.",  // required: the reason it's sent
             "method": "A query",                    // optional; otherwise taken from json.method etc.
             "json": { "question": { "name": "example.com", "type": "A" } },
             "notes": [["type A", "Asks for an IPv4 address."]],

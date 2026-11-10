@@ -252,12 +252,36 @@ function highlight(json) {
   return esc(JSON.stringify(json, null, 2)).replace(/(&quot;(?:[^&]|&(?!quot;))*?&quot;)(\s*:)?|\b(true|false|null)\b|(-?\b\d+(?:\.\d+)?(?:e[+-]?\d+)?\b)/gi,
     (m, str, colon, lit, num) => str ? (colon ? `<span class="k">${str}</span>${colon}` : `<span class="s">${str}</span>`) : lit ? `<span class="l">${lit}</span>` : `<span class="n">${num}</span>`);
 }
+// Links each response to the request it answers, once per lesson: the request with the same json.id,
+// else the latest unanswered request going the other way, else the latest one (one request, several
+// answers). A request links to its first answer; one nobody answers gets no link.
+function pairUp(M) {
+  const idOf = (x) => x.json && typeof x.json === "object" ? x.json.id : undefined, first = M.map(() => -1), back = M.map(() => -1);
+  M.forEach((a, j) => {
+    if (a.kind !== "res" && a.kind !== "err") return;
+    const fits = (q) => q.kind === "req" && q.from === a.to && q.to === a.from && (idOf(q) === undefined || idOf(a) === undefined || idOf(q) === idOf(a));
+    const latest = (ok) => { for (let k = j - 1; k >= 0; k--) if (fits(M[k]) && ok(k)) return k; return -1; };
+    let i = idOf(a) === undefined ? -1 : latest((k) => idOf(M[k]) === idOf(a));
+    if (i < 0) i = latest((k) => first[k] < 0);
+    if (i < 0) i = latest(() => true);
+    if (i < 0) return;
+    back[j] = i; if (first[i] < 0) first[i] = j;
+  });
+  return M.map((m, i) => (m.kind === "req" ? first[i] : back[i]));
+}
+let PAIRS = [];
+// What an older version changes is lesson-level news, so open the lesson overview; its toggle stays put.
+const showVersionNews = () => { if (st.version !== VERS.current) $("#ovw").open = true; };
 function renderInspector() {
   const i = st.sel != null ? st.sel : st.idx, m = MSGS[i], box = $("#insp");
+  $("#insp-n").textContent = MSGS.length ? `${m ? i + 1 : 0} of ${MSGS.length}` : "";
   if (!m) { box.innerHTML = `<p class="empty">Press <b>Play</b> or <b>Step</b> to send the first message.</p>`; return; }
-  const r = m.risk && RISKS[m.risk];
+  const r = m.risk && RISKS[m.risk], p = PAIRS[i] ?? -1;
+  const pair = p < 0 ? "" : `<button type="button" class="ipair" data-i="${p}"><span>${m.kind === "req" ? "Answered by" : "Answers"}</span> <b>#${p + 1} ${esc(methodOf(MSGS[p]))}</b><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></button>`;
   box.innerHTML = `<div class="ih"><span class="dot k-${esc(m.kind)}"></span><span class="im">${esc(methodOf(m))}</span><span class="isz">${size(m)}</span></div>` +
-    `<div class="ir">${esc(actor(m.from).label)} → ${esc(actor(m.to).label)} · ${esc(KIND[m.kind] || m.kind)} · #${i + 1}</div>` +
+    `<div class="ir">${esc(actor(m.from).label)} → ${esc(actor(m.to).label)} · ${esc(KIND[m.kind] || m.kind)}</div>` + pair +
+    (m.what ? `<h3 class="ilbl">What it does</h3><p class="iwhat">${esc(m.what)}</p>` : "") +
+    (m.why ? `<h3 class="ilbl">Why it's sent</h3><p class="iwhy">${esc(m.why)}</p>` : "") +
     (m.json !== undefined ? `<pre class="json">${highlight(m.json)}</pre>` : "") +
     (m.notes ? `<dl class="notes">${m.notes.map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join("")}</dl>` : "") +
     (r ? `<div class="riskline">${riskBtn(m.risk)}<p><b>${esc(T.riskLabel || "Watch out")}: ${esc(r.title)}.</b> ${esc(r.text)}${r.lesson ? ` <a href="#${esc(r.lesson)}">See it →</a>` : ""}</p></div>` : "");
@@ -483,6 +507,7 @@ function setLesson(id, vid) {
   if (vid) variantOf[base.id] = vid;
   st.lesson = portrait(withActors(resolve(base)));
   MSGS = flat(st.lesson);
+  PAIRS = pairUp(MSGS);
   if (anim) { cancelAnimationFrame(anim.raf); anim = null; }
   capKey = "";
   $("#seqwrap").scrollTop = 0;
@@ -550,7 +575,7 @@ document.addEventListener("click", (e) => {
     go(MSGS.findIndex((m) => m.step === +d.step)); return;
   }
   if (d.l) { closeMenus(); setLesson(d.l); writeHash(); return; }
-  if (d.ver) { closeMenus(); st.version = d.ver; setLesson(st.lesson.id); writeHash(); return; }
+  if (d.ver) { closeMenus(); st.version = d.ver; showVersionNews(); setLesson(st.lesson.id); writeHash(); return; }
   if (d.variant) { setLesson(st.lesson.id, d.variant); writeHash(); return; }
   if (d.view) { st.view = d.view; renderAll(false); return; }
   if (d.i != null) { stop(); const i = +d.i; if (i <= st.idx) { st.sel = i; renderAll(false); } else go(i); return; }
@@ -571,7 +596,7 @@ document.addEventListener("click", (e) => {
 document.addEventListener("keydown", (e) => {
   if (e.target.closest("input, textarea, select")) return;
   if (e.key === "Escape") { if (!$("#riskpop").hidden) return hideRisk(); if (document.body.classList.contains("log-open")) { document.body.classList.remove("log-open"); $("#mb-log").setAttribute("aria-expanded", "false"); } return; }
-  if (e.key === " " && !e.target.closest("button, a")) { e.preventDefault(); play(); }
+  if (e.key === " " && !e.target.closest("button, a, summary")) { e.preventDefault(); play(); }
   else if (e.key === "ArrowRight") { stop(); go(st.idx + 1); }
   else if (e.key === "ArrowLeft") { stop(); go(st.idx - 1, false); }
   else if (e.key === "Enter" && e.target.matches("tr[data-i]")) e.target.click();
@@ -603,6 +628,6 @@ $("#intro-jump").innerHTML = I.jump && I.jump.length ? "or jump to " + I.jump.ma
 $("#foot").innerHTML = esc(T.footer || "") + (T.footerLinks ? " " + T.footerLinks.map(([t, u]) => link(t, u)).join(" · ") : "");
 syncTheme();
 const H0 = readHash();
-if (VERS) st.version = H0.ver;
+if (VERS) { st.version = H0.ver; showVersionNews(); }
 if (LESSONS.some((l) => l.id === H0.id) && H0.id !== INTRO_ID) { document.body.classList.remove("intro"); setLesson(H0.id, H0.v); } else enterIntro();
 })();

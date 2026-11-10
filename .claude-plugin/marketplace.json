@@ -534,8 +534,8 @@
     {
       "name": "explainer",
       "source": "./explainer",
-      "description": "Turn \"how does X work?\" into an interactive, step-by-step explainer page with an animated diagram, lessons and a message inspector.",
-      "version": "1.5.3",
+      "description": "Turn \"how does X work?\" into an interactive, step-by-step explainer page with an animated diagram, lessons and a message inspector that says what each message does and why.",
+      "version": "1.6.0",
       "author": {
         "name": "Myles Cook",
         "url": "https://github.com/MylesMCook"

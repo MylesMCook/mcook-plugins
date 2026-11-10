@@ -35,7 +35,7 @@ export function applyPreset(t) {
 }
 
 // Words that add length without meaning. Plain-language rule from TOPIC-GUIDE.md "Writing".
-const FILLER = /\b(seamless(ly)?|robust|leverag(e|es|ing)|utiliz(e|es|ing)|cutting-edge|state-of-the-art|delve|in order to|it is important to note|it's worth noting|essentially|basically)\b/i;
+const FILLER = /\b(seamless(ly)?|robust|leverag(e|es|ing)|utiliz(e|es|ing)|facilitat(e|es|ing)|cutting-edge|state-of-the-art|best-in-class|delve|in order to|it is important to note|it's worth noting|at this point in time|in conclusion|successfully|essentially|basically)\b/i;
 
 export function validate(topic, file) {
   const errs = [], at = (p, m) => errs.push(`${file} → ${p}: ${m}`);
@@ -111,6 +111,14 @@ export function validate(topic, file) {
         if (!isStr(m.info)) at(mp, "needs a short info line");
         else if (m.info.length > 40) at(mp, `info is ${m.info.length} characters and gets cut off; keep it under 40 and put detail in json or notes`);
         if (m.risk && !(t.risks || {})[m.risk]) at(mp, `risk "${m.risk}" is not in risks`);
+        // every message explains itself in the inspector: what it does, then why it is sent
+        if (!isStr(m.what)) at(`${mp}.what`, "missing; say what this message does in one plain sentence that starts with a verb (\"Asks the server to…\")");
+        else if (isStr(m.info) && m.what.trim().toLowerCase() === m.info.trim().toLowerCase()) at(`${mp}.what`, "repeats info; say what the message does, not its label");
+        if (!isStr(m.why)) at(`${mp}.why`, "missing; say why it is sent: the job it does in the flow, or what breaks without it");
+        else if (isStr(m.what) && m.why.trim().toLowerCase() === m.what.trim().toLowerCase()) at(`${mp}.why`, "repeats what; give the reason, not the action again");
+        prose(`${mp}.what`, m.what, 120);
+        prose(`${mp}.why`, m.why, 160);
+        (Array.isArray(m.notes) ? m.notes : []).forEach((n, ni) => prose(`${mp}.notes[${ni}]`, n && n[1], 100));
       });
     });
     if (!l.steps.some((s) => (s.msgs || []).length)) at(`${p}.steps`, "no step has any messages");

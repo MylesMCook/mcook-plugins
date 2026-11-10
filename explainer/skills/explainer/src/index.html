@@ -52,15 +52,18 @@
     </div>
   </section>
   <aside id="right" class="panel" aria-label="Overview">
-    <div class="ovw">
-      <div class="ovh"><h3 id="ov-title"></h3></div>
-      <div id="ov-name"></div>
-      <div id="ov-ns" class="nsbox" hidden><span class="nstag" id="ov-ns-tag"></span><p id="ov-ns-text"></p></div>
-      <div id="ov-sum"></div>
-      <table id="ov-facts"><tbody></tbody></table>
-      <div id="ov-more"></div>
-    </div>
-    <div class="insp-h"><h2 id="lbl-message">Message</h2></div>
+    <details class="ovw" id="ovw">
+      <summary><span id="lbl-about">About this lesson</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="ovb">
+        <div class="ovh"><h3 id="ov-title"></h3></div>
+        <div id="ov-name"></div>
+        <div id="ov-ns" class="nsbox" hidden><span class="nstag" id="ov-ns-tag"></span><p id="ov-ns-text"></p></div>
+        <div id="ov-sum"></div>
+        <table id="ov-facts"><tbody></tbody></table>
+        <div id="ov-more"></div>
+      </div>
+    </details>
+    <div class="insp-h"><h2 id="lbl-message">Message</h2><span id="insp-n"></span></div>
     <div id="insp"></div>
     <div class="foot" id="foot"></div>
   </aside>

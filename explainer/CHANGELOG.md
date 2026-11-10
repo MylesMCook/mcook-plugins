@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.6.0 - 2026-11-10
+
+- The right panel explains each message: what it does and why it's sent, above its body and field notes.
+- A request links to the message that answers it, and a response links back to its request.
+- The lesson summary, facts and links move into a collapsed "About this lesson" section above the message.
+- Every message now needs `what` and `why`; the checker reports any that are missing. Older topics must add them before they rebuild.
+- The writing guide covers how to write `what`, `why` and field notes, and the checker catches more filler words.
+
 ## 1.5.3 - 2026-11-08
 
 - Add an explicit Claude manifest for claude.ai marketplace synchronization.

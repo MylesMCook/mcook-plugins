@@ -220,8 +220,14 @@ tbody tr.cur td,tbody tr.sel td{background:var(--f08);color:var(--fg)}
 
 /* right: overview + message inspector */
 #right{border-left:1px solid var(--f15);overflow:auto;position:relative;z-index:1;min-width:0;transition:opacity .3s}
-.ovw{padding:22px 20px 18px;border-bottom:1px solid var(--f15)}
-#ov-title{margin:0;font-weight:400;font-size:40px;letter-spacing:-.02em;line-height:.95}
+.ovw{border-bottom:1px solid var(--f15)}
+.ovw summary{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 20px;font-size:13px;color:var(--f70);cursor:pointer;list-style:none}
+.ovw summary::-webkit-details-marker{display:none}
+.ovw summary:hover{color:var(--fg)}
+.ovw summary svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;transition:transform .2s}
+.ovw[open] summary svg{transform:rotate(180deg)}
+.ovb{padding:2px 20px 18px}
+#ov-title{margin:0;font-weight:400;font-size:22px;letter-spacing:-.01em;line-height:1.1}
 #ov-name{font-size:14px;color:var(--f70);margin:8px 0 12px}
 #ov-sum{margin:0 0 14px;font-size:13px;line-height:1.55;color:var(--f70);text-wrap:pretty}
 #ov-sum p{margin:0}
@@ -242,8 +248,16 @@ tbody tr.cur td,tbody tr.sel td{background:var(--f08);color:var(--fg)}
 .nexttag{display:block;font:500 13px var(--sans)}
 .nextbox ul{margin:8px 0 6px;padding-left:16px;font-size:12px;line-height:1.5;color:var(--f70)}
 .srcs a,.nextbox a,.intro-jump a,.foot a,#riskpop a,.riskline a{color:var(--fg);text-underline-offset:2px;text-decoration-color:var(--f30)}
-.insp-h{padding:16px 20px 8px}
+.insp-h{padding:16px 20px 8px;display:flex;align-items:baseline;justify-content:space-between;gap:10px}
 .insp-h h2{margin:0;font-weight:400;font-size:16px}
+#insp-n{font:11px var(--mono);color:var(--f55);font-variant-numeric:tabular-nums}
+.ipair{display:flex;align-items:center;gap:6px;width:100%;margin:0 0 4px;padding:7px 10px;border:1px solid var(--f08);border-radius:var(--r-sm);font-size:12px;color:var(--f55);text-align:left}
+.ipair b{font:500 11.5px var(--mono);color:var(--fg);min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ipair svg{width:14px;height:14px;margin-left:auto;flex:none;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.ipair:hover,.ipair:focus-visible{border-color:var(--f30);color:var(--fg)}
+.ilbl{margin:14px 0 4px;font:500 11px var(--sans);color:var(--f55)}
+.iwhat{margin:0;font-size:14.5px;line-height:1.5;color:var(--fg);text-wrap:pretty}
+.iwhy{margin:0 0 14px;font-size:13px;line-height:1.55;color:var(--f70);text-wrap:pretty}
 #insp{padding:0 20px 24px}
 .empty{color:var(--f55);font-size:13px}
 .ih{display:flex;align-items:center;gap:10px}
@@ -251,6 +265,7 @@ tbody tr.cur td,tbody tr.sel td{background:var(--f08);color:var(--fg)}
 .im{font:14px var(--mono);flex:1;word-break:break-all}
 .isz{font:11px var(--mono);color:var(--f55)}
 .ir{font-size:12px;color:var(--f55);margin:3px 0 10px}
+.ir + .ilbl{margin-top:4px}
 .json{margin:0;font:11.5px/1.55 var(--mono);background:var(--f04);border:1px solid var(--f08);border-radius:var(--r-sm);padding:12px;overflow:auto;max-height:340px;white-space:pre-wrap;word-break:break-word;color:var(--f70)}
 .json .k{color:var(--fg)} .json .n,.json .l{color:var(--green)}
 .notes{margin:14px 0 0;display:grid;grid-template-columns:auto 1fr;gap:6px 12px;font-size:12px}
@@ -351,9 +366,11 @@ body.intro .flow,body.intro .sbr{display:none}
   .fh .ctrl{display:none}
   #flowt{min-width:620px}
   #flowt thead th:first-child,#flowt tbody td:first-child{padding-left:16px}
-  .ovw{padding:18px 16px 16px}
-  #ov-title{font-size:32px}
+  .ovw summary{padding:14px 16px;min-height:44px}
+  .ovb{padding:2px 16px 16px}
+  .insp-h{padding-left:16px;padding-right:16px}
   #insp{padding-left:16px;padding-right:16px}
+  .ipair{min-height:44px}
   .foot{padding:14px 16px 20px}
   .risk{width:28px;height:28px}
 

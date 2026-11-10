@@ -208,6 +208,8 @@
               "to": "agent",
               "kind": "host",
               "info": "\"How does OAuth sign-in work?\"",
+              "what": "Hands your question to the agent in plain words.",
+              "why": "The agent can only plan from what you typed. Every later step builds on this question.",
               "method": "question",
               "json": {
                 "text": "How does OAuth sign-in work? Show me."
@@ -218,6 +220,8 @@
               "to": "llm",
               "kind": "host",
               "info": "plan an explainer",
+              "what": "Sends the question and a pointer to TOPIC-GUIDE.md to the model.",
+              "why": "The model plans the explainer. It needs the guide so its plan follows the format the checker accepts.",
               "method": "plan",
               "json": {
                 "task": "Explain OAuth sign-in in the Explainer format",
@@ -235,6 +239,8 @@
               "to": "agent",
               "kind": "host",
               "info": "4 actors · 5 lessons",
+              "what": "Returns the list of parts and lessons the model chose for the topic.",
+              "why": "This outline fixes the cast and the lesson order before any file is written. Changing it later is cheaper than rewriting steps.",
               "method": "outline",
               "json": {
                 "actors": [
@@ -269,6 +275,8 @@
               "to": "kit",
               "kind": "req",
               "info": "check oauth.json",
+              "what": "Asks the kit to check the topic file for mistakes.",
+              "why": "The agent should not build a page it has not checked. The checker catches errors a reader would otherwise hit.",
               "method": "check",
               "json": {
                 "run": "node build.mjs --check oauth.json"
@@ -279,6 +287,8 @@
               "to": "agent",
               "kind": "err",
               "info": "1 problem",
+              "what": "Reports one problem and the exact place in the file where it sits.",
+              "why": "A located error lets the agent fix one spot. Without a path it would have to guess where to look.",
               "method": "problem",
               "json": {
                 "problems": [
@@ -297,6 +307,8 @@
               "to": "llm",
               "kind": "host",
               "info": "fix the flagged spot",
+              "what": "Tells the model which field to change and what to change it to.",
+              "why": "The checker named the broken spot. A targeted fix keeps the rest of the file as it was.",
               "method": "fix",
               "json": {
                 "fix": "lessons.token.steps[1].msgs[0].to",
@@ -308,6 +320,8 @@
               "to": "kit",
               "kind": "req",
               "info": "check again",
+              "what": "Runs the same check again after the fix.",
+              "why": "A fix can add new mistakes. Only a clean second run shows the file is ready to build.",
               "method": "check",
               "json": {
                 "run": "node build.mjs --check oauth.json"
@@ -324,6 +338,8 @@
               "to": "agent",
               "kind": "res",
               "info": "ok · 5 lessons",
+              "what": "Reports that the file passed, with the lesson and message counts.",
+              "why": "This is the signal that building is safe. The counts let the agent confirm the page has the size it planned.",
               "method": "ok",
               "json": {
                 "ok": "oauth.json",
@@ -336,6 +352,8 @@
               "to": "kit",
               "kind": "req",
               "info": "build",
+              "what": "Asks the kit to turn the checked file into one HTML page.",
+              "why": "Checking only reads the file. Building produces the page you can open and share.",
               "method": "build",
               "json": {
                 "run": "node build.mjs oauth.json"
@@ -346,6 +364,8 @@
               "to": "agent",
               "kind": "res",
               "info": "oauth.html",
+              "what": "Returns the finished HTML file, its size and what it depends on.",
+              "why": "The agent needs the file name to hand over. Having no outside dependencies is why the page opens anywhere.",
               "method": "page",
               "json": {
                 "built": "oauth.html",
@@ -364,6 +384,8 @@
               "to": "user",
               "kind": "host",
               "info": "\"Here is your explainer\"",
+              "what": "Gives you the finished page and a short note about it.",
+              "why": "The work is only useful once you can open the page. From here you play it or ask for changes.",
               "method": "answer",
               "json": {
                 "text": "Here is an interactive explainer of OAuth sign-in.",
@@ -452,6 +474,8 @@
               "to": "llm",
               "kind": "host",
               "info": "who talks to whom?",
+              "what": "Asks the model which parts exchange messages in the topic.",
+              "why": "Actors come first. Messages need a sender and a receiver, so the cast must exist before anything else.",
               "method": "ask",
               "json": {
                 "question": "Which parts exchange messages during OAuth sign-in?"
@@ -462,6 +486,8 @@
               "to": "agent",
               "kind": "host",
               "info": "4 actors, 2 zones",
+              "what": "Returns each part with the picture that will stand for it.",
+              "why": "Each actor needs an icon so the diagram is readable at a glance. The zones group parts that run together.",
               "method": "actors",
               "json": {
                 "app": {
@@ -489,6 +515,8 @@
               "to": "llm",
               "kind": "host",
               "info": "what order?",
+              "what": "Asks the model which lessons a newcomer needs, in what order.",
+              "why": "A good order builds understanding one question at a time. Putting it first stops the steps from rambling.",
               "method": "ask",
               "json": {
                 "question": "Which lessons, in what order?"
@@ -499,6 +527,8 @@
               "to": "agent",
               "kind": "host",
               "info": "5 lessons",
+              "what": "Returns the lesson titles in teaching order.",
+              "why": "These titles become the lesson list. The first one is the overview that the home page links to.",
               "method": "lessons",
               "json": {
                 "lessons": [
@@ -521,6 +551,8 @@
               "to": "file",
               "kind": "http",
               "info": "write oauth.json",
+              "what": "Writes the whole topic, with its actors and lessons, into one JSON file.",
+              "why": "One file is the single source of truth. The checker and builder both read it, and you can edit it by hand.",
               "method": "write",
               "json": {
                 "id": "oauth",
@@ -597,6 +629,8 @@
               "to": "kit",
               "kind": "req",
               "info": "check",
+              "what": "Runs the checker on the topic file.",
+              "why": "Checking is a separate command, so you or the agent can run it on any topic file at any time.",
               "method": "check",
               "json": {
                 "run": "node build.mjs --check oauth.json"
@@ -607,6 +641,8 @@
               "to": "file",
               "kind": "http",
               "info": "read",
+              "what": "Reads the topic file from disk.",
+              "why": "The checker only knows what the file says. It reads it fresh each run so no stale copy is checked.",
               "method": "read",
               "json": {
                 "read": "oauth.json"
@@ -617,6 +653,8 @@
               "to": "agent",
               "kind": "err",
               "info": "x 990 is off the edge",
+              "what": "Reports an actor placed too close to the edge of the canvas.",
+              "why": "Actors off the canvas would be clipped or hidden. The message names the field and the allowed range.",
               "method": "problem",
               "json": {
                 "problems": [
@@ -635,6 +673,8 @@
               "to": "file",
               "kind": "http",
               "info": "x 990 → 830",
+              "what": "Changes one number in the topic file to move the actor inward.",
+              "why": "The checker named the exact field. A small targeted edit fixes it without touching the rest.",
               "method": "edit",
               "json": {
                 "lessons.redirect.actors.browser.x": 830
@@ -645,6 +685,8 @@
               "to": "kit",
               "kind": "req",
               "info": "check",
+              "what": "Runs the checker again on the edited file.",
+              "why": "Re-checking proves the edit worked and caused no new problems.",
               "method": "check",
               "json": {
                 "run": "node build.mjs --check oauth.json"
@@ -655,6 +697,8 @@
               "to": "agent",
               "kind": "res",
               "info": "ok",
+              "what": "Reports that the file now passes with no problems.",
+              "why": "A clean result means the page can be built. Nothing else is left to fix.",
               "method": "ok",
               "json": {
                 "ok": "oauth.json"
@@ -721,6 +765,8 @@
               "to": "browser",
               "kind": "http",
               "info": "open oauth.html",
+              "what": "Points the browser at the built page.",
+              "why": "The page is a plain file, so opening it needs no server. This is the first time you see the result.",
               "method": "open",
               "json": {
                 "open": "oauth.html"
@@ -737,6 +783,8 @@
               "to": "browser",
               "kind": "host",
               "info": "Play",
+              "what": "Starts the playback of the steps in order.",
+              "why": "Play sends the messages one by one so you see the order. Step and the arrow keys do the same one message at a time.",
               "method": "play",
               "json": {
                 "control": "Play"
@@ -747,6 +795,8 @@
               "to": "user",
               "kind": "host",
               "info": "step 1 of 4",
+              "what": "Shows the current step and message in the page.",
+              "why": "The page keeps the diagram and the inspector in sync, so you always see which message is active.",
               "method": "show",
               "json": {
                 "step": "Redirect",
@@ -764,6 +814,8 @@
               "to": "agent",
               "kind": "host",
               "info": "\"Add refresh tokens\"",
+              "what": "Asks the agent to add another lesson to the same topic.",
+              "why": "The explainer is one file. A new lesson means a small edit, then check and build again.",
               "method": "question",
               "json": {
                 "text": "Add a lesson on refresh tokens."

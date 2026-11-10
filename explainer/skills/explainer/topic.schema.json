@@ -402,10 +402,22 @@
         "from",
         "to",
         "kind",
-        "info"
+        "info",
+        "what",
+        "why"
       ],
       "additionalProperties": false,
       "properties": {
+        "what": {
+          "type": "string",
+          "maxLength": 120,
+          "description": "What this message does, in one plain sentence that starts with a verb. Shown first in the inspector."
+        },
+        "why": {
+          "type": "string",
+          "maxLength": 160,
+          "description": "Why it is sent: the job it does in the flow, or what would break without it."
+        },
         "from": {
           "type": "string"
         },
@@ -426,7 +438,8 @@
           "description": "A small, realistic example body."
         },
         "notes": {
-          "$ref": "#/$defs/pairs"
+          "$ref": "#/$defs/pairs",
+          "description": "Field notes: [field, what it means here] for the one to three json fields a newcomer would not guess."
         },
         "risk": {
           "type": "string"
