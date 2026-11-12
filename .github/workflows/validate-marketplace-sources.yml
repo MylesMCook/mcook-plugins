@@ -4,8 +4,12 @@ on:
     paths:
       - '.agents/plugins/marketplace.json'
       - '.claude-plugin/marketplace.json'
+      - '.factory-plugin/marketplace.json'
+      - '**/.mcp.json'
+      - '**/droids/**'
       - '**/.claude-plugin/plugin.json'
       - 'scripts/tests/test_claude_marketplace.py'
+      - 'scripts/tests/test_factory_marketplace.py'
       - 'mcook-plugin-builder/**'
       - 'linear-project-manager/**'
       - 'cici/**'
@@ -14,8 +18,12 @@ on:
     paths:
       - '.agents/plugins/marketplace.json'
       - '.claude-plugin/marketplace.json'
+      - '.factory-plugin/marketplace.json'
+      - '**/.mcp.json'
+      - '**/droids/**'
       - '**/.claude-plugin/plugin.json'
       - 'scripts/tests/test_claude_marketplace.py'
+      - 'scripts/tests/test_factory_marketplace.py'
       - 'mcook-plugin-builder/**'
       - 'linear-project-manager/**'
       - 'cici/**'
@@ -40,6 +48,8 @@ jobs:
         run: uv run --with jsonschema==4.26.0 python -m unittest discover -s mcook-plugin-builder/tests -v
       - name: Claude cloud packaging rules and client compatibility (no provider calls)
         run: uv run --with pyyaml==6.0.3 python -m unittest discover -s scripts/tests -p test_claude_marketplace.py -v
+      - name: Factory catalog and Droid component parity (no provider calls)
+        run: uv run python -m unittest discover -s scripts/tests -p test_factory_marketplace.py -v
       - name: Validate builder package
         run: uv run mcook-plugin-builder/skills/build-mcook-plugin/scripts/validate_agent_plugin.py mcook-plugin-builder --marketplace .agents/plugins/marketplace.json --marketplace-root . --require-openai-overlay
       - name: Verify Linear portable and native metadata parity (no provider calls)
