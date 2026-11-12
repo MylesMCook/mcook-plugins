@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.5 - 2026-11-12
+
+- Document Cursor, Claude, and Factory Droid catalog wiring, including root `.mcp.json` and `droids/` copies that Droid needs.
+
 ## 0.2.4 - 2026-11-08
 
 - Add an explicit Claude manifest for claude.ai marketplace synchronization.

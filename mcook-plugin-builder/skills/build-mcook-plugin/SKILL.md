@@ -81,6 +81,14 @@ The canonical catalog is `.agents/plugins/marketplace.json`. Append one entry wi
 
 The local source path is relative to the marketplace root, not the JSON file, and must remain inside that root. Preserve the catalog name and display name. For reviewed external packages, use the documented `git-subdir` or repository-root `url` source with a credential-free HTTPS GitHub repository URL and exactly one full 40-character commit `ref` or `sha`. Do not copy an external native package merely to make it portable. Validate catalog metadata with `uv run <builder-skill-root>/scripts/validate_agent_plugin.py --marketplace-entry <name> --marketplace .agents/plugins/marketplace.json --marketplace-root .`; this mode never fetches or executes the package and does not validate its contents. Separately inspect the pinned source and verify a fresh isolated installation, manifest/discovery, licenses and installed-byte identity before migrating a live installation. Keep Codex-to-Claude advisor packages out of the Claude catalog.
 
+### Cursor, Claude, and Factory catalogs
+
+Append `{"name": "plugin-name", "source": "./plugin-name"}` to `.cursor-plugin/marketplace.json` for each local package meant for Cursor, including every package in the Claude catalog.
+
+To also ship a package to Claude and Factory Droid, add `.claude-plugin/plugin.json` (same `name`, `version`, `description` as the portable manifest) and append matching entries to `.claude-plugin/marketplace.json` and `.factory-plugin/marketplace.json`. The Factory entry repeats the Claude entry's `name`, `description`, `source`, and `category`; Droid translates the `.claude-plugin/` layout at install time.
+
+Droid ignores components declared inside `plugin.json`. When the Claude manifest declares inline `mcpServers`, add an identical root `.mcp.json` (types `stdio`, `http`, or `sse`; `${CLAUDE_PLUGIN_ROOT}` for bundled files). For each manifest `agents` path, add `droids/<name>.md` with the same body and Droid frontmatter: `model: inherit`, and `tools` listing only Droid tool IDs (`Read`, `LS`, `Grep`, `Glob`, `Create`, `Edit`, `Execute`, `WebSearch`, `FetchUrl`) or omitted. Exclude packages with top-level `bin/` or Codex-only hooks from both catalogs. Validate with `claude plugin validate <plugin-name>` and `uv run --with pyyaml==6.0.3 python -m unittest discover -s scripts/tests -p 'test_*_marketplace.py'`.
+
 ## Validate before handoff
 
 Resolve `<builder-skill-root>`, `<skill-creator-root>`, and `<plugin-creator-root>` from the active skill catalog. Run only the checks applicable to the chosen targets:

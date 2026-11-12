@@ -110,6 +110,14 @@
     {
       "name": "act",
       "source": "./act"
+    },
+    {
+      "name": "explainer",
+      "source": "./explainer"
+    },
+    {
+      "name": "tufte",
+      "source": "./tufte"
     }
   ]
 }

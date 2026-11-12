@@ -40,6 +40,12 @@ class FactoryMarketplaceTests(unittest.TestCase):
                 self.assertTrue(package.is_relative_to(ROOT))
                 self.assertTrue((package / ".claude-plugin/plugin.json").is_file())
 
+    def test_cursor_catalog_covers_the_claude_catalog(self):
+        cursor = read_json(ROOT / ".cursor-plugin/marketplace.json")["plugins"]
+        cursor = {entry["name"]: entry["source"] for entry in cursor}
+        for entry in self.claude["plugins"]:
+            self.assertEqual(cursor.get(entry["name"]), entry["source"], entry["name"])
+
     def test_manifest_components_are_also_on_disk_for_droid(self):
         for entry in self.factory["plugins"]:
             package = ROOT / entry["source"]
