@@ -1,6 +1,6 @@
 # Myles agent plugins
 
-Plugin marketplace for Codex, Claude, Claude Code, and Cursor.
+Plugin marketplace for Codex, Claude, Claude Code, Factory, and Cursor.
 
 Licenses and attribution vary by package. See each package's license and
 [publication licensing review](docs/publication-licensing.md); this repository
@@ -57,6 +57,18 @@ claude plugin marketplace update mcook-plugins
 claude plugin update thermos@mcook-plugins
 ```
 
+## Factory
+
+Factory's Droid installs the same plugins as the Claude catalog:
+
+```sh
+droid plugin marketplace add MylesMCook/mcook-plugins
+droid plugin install thermos@mcook-plugins --scope user
+```
+
+Or run `/plugins` in Droid and use the Marketplaces tab. To update, run
+`droid plugin marketplace update mcook-plugins`.
+
 ## Cursor
 
 In **Dashboard → Plugins → Team Marketplaces**, choose **Add Marketplace →
@@ -66,4 +78,5 @@ Import from Repo**. Enter `https://github.com/MylesMCook/mcook-plugins`, select
 See each plugin's README for setup and usage. Available plugins vary by client:
 [Codex](.agents/plugins/marketplace.json),
 [Claude Code](.claude-plugin/marketplace.json),
+[Factory](.factory-plugin/marketplace.json),
 [Cursor](.cursor-plugin/marketplace.json).

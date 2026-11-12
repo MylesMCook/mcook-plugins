@@ -1,0 +1,165 @@
+{
+  "name": "mcook-plugins",
+  "description": "Myles Cook's portable Agent Skills and MCP connections for developer work",
+  "owner": {
+    "name": "Myles Cook",
+    "url": "https://github.com/MylesMCook"
+  },
+  "plugins": [
+    {
+      "name": "thermos",
+      "description": "Independent paired or adversarial reviews with shared scope and evidence verification.",
+      "source": "./thermos",
+      "category": "Developer Tools"
+    },
+    {
+      "name": "cli-for-agent",
+      "description": "Patterns for designing command-line tools that coding agents can run reliably.",
+      "source": "./cli-for-agent",
+      "category": "Developer Tools"
+    },
+    {
+      "name": "trmnl-plugin-builder",
+      "description": "A Myles-specific TRMNL operations companion for the official TRMNL skill and MCP.",
+      "source": "./trmnl-plugin-builder",
+      "category": "Developer Tools"
+    },
+    {
+      "name": "mcook-plugin-builder",
+      "description": "Build portable Agent Plugins and OpenAI-compatible plugins for Myles Codex Plugins.",
+      "source": "./mcook-plugin-builder",
+      "category": "Developer Tools"
+    },
+    {
+      "name": "grist-data-logs",
+      "description": "Operate self-hosted Grist as a retry-safe application event log and private analysis store.",
+      "source": "./grist-data-logs",
+      "category": "Developer Tools"
+    },
+    {
+      "name": "orchestrate",
+      "description": "Coordinate explicitly requested native Codex subagent work with deliberate routing and verified synthesis.",
+      "source": "./orchestrate",
+      "category": "Developer Tools"
+    },
+    {
+      "name": "task-naming",
+      "description": "Manually rename Codex tasks at chat, project, or machine scope.",
+      "source": "./task-naming",
+      "category": "Productivity"
+    },
+    {
+      "name": "american-inkblot-illustrations",
+      "description": "Create sparse Inkblot-first illustrations and evidence-grounded system portraits.",
+      "source": "./american-inkblot-illustrations",
+      "category": "Developer Tools"
+    },
+    {
+      "name": "writer",
+      "description": "Draft, edit, and clean up prose through one focused writing workflow.",
+      "source": "./writer",
+      "category": "Productivity"
+    },
+    {
+      "name": "hono-web-apps",
+      "description": "Evaluate, build, modify, test, and verify Hono web applications without forcing framework adoption.",
+      "source": "./hono-web-apps",
+      "category": "Developer Tools"
+    },
+    {
+      "name": "bug-reporter",
+      "description": "Create evidence-based, fix-ready bug reports for software and systems.",
+      "source": "./bug-reporter",
+      "category": "Developer Tools"
+    },
+    {
+      "name": "frontend-react",
+      "description": "Build, style, optimize, and test React apps with Base UI + StyleX and focused UI quality skills.",
+      "source": "./frontend-react",
+      "category": "Developer Tools"
+    },
+    {
+      "name": "git-it-out",
+      "description": "Complete verified repository closeout through the real final landing surface.",
+      "source": "./git-it-out",
+      "category": "Developer Tools"
+    },
+    {
+      "name": "lawful",
+      "description": "Apply software, visual, and UX laws to technical decisions and product critiques.",
+      "source": "./lawful",
+      "category": "Developer Tools"
+    },
+    {
+      "name": "personal-firecrawl",
+      "description": "Research the web with your self-hosted Firecrawl search and fetch tools, plus on-host CLI bulk work.",
+      "source": "./personal-firecrawl",
+      "category": "Developer Tools"
+    },
+    {
+      "name": "mcp-server-dev",
+      "description": "Design, build, validate, and release portable MCP servers and MCP Apps with a Go-first backend default and TypeScript UI when needed.",
+      "source": "./mcp-server-dev"
+    },
+    {
+      "name": "buzz-xyz",
+      "description": "Operate Buzz.xyz relays through the Buzz CLI.",
+      "source": "./buzz-xyz",
+      "category": "Productivity"
+    },
+    {
+      "name": "product-wrangler",
+      "description": "Turn an existing runnable web app into an evidence-backed, complete product without expanding authority.",
+      "source": "./product-wrangler",
+      "category": "Developer Tools"
+    },
+    {
+      "name": "redwood-web-apps",
+      "description": "Build and verify RedwoodSDK React applications on Cloudflare using current official documentation.",
+      "source": "./redwood-web-apps",
+      "category": "Developer Tools"
+    },
+    {
+      "name": "code-comments",
+      "description": "Help humans understand and review LLM-written code through accurate, useful source comments.",
+      "source": "./code-comments",
+      "category": "Developer Tools"
+    },
+    {
+      "name": "assistant-ui",
+      "description": "Build and troubleshoot assistant-ui using official documentation, version-matched source, and its hosted documentation MCP.",
+      "source": "./assistant-ui",
+      "category": "Developer Tools"
+    },
+    {
+      "name": "tailscale",
+      "description": "Explain, configure, and troubleshoot Tailscale using its upstream skill, focused references, and current official documentation.",
+      "source": "./tailscale",
+      "category": "Developer Tools"
+    },
+    {
+      "name": "wails",
+      "description": "Build Wails apps, set up native feedback, and watch and fix comments as they arrive.",
+      "source": "./wails",
+      "category": "Developer Tools"
+    },
+    {
+      "name": "act",
+      "description": "Discover and use the current machine's act installation for local GitHub Actions validation and debugging.",
+      "source": "./act",
+      "category": "Developer Tools"
+    },
+    {
+      "name": "explainer",
+      "description": "Turn \"how does X work?\" into an interactive, step-by-step explainer page with an animated diagram, lessons and a message inspector that says what each message does and why.",
+      "source": "./explainer",
+      "category": "Productivity"
+    },
+    {
+      "name": "tufte",
+      "description": "Build and review charts and dashboards to a cited, Tufte-led design standard.",
+      "source": "./tufte",
+      "category": "Productivity"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "explainer": {
+      "type": "stdio",
+      "command": "node",
+      "args": [
+        "${CLAUDE_PLUGIN_ROOT}/skills/explainer/mcp.mjs"
+      ]
+    }
+  }
+}
