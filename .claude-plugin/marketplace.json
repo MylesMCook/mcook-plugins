@@ -79,7 +79,7 @@
       "name": "mcook-plugin-builder",
       "source": "./mcook-plugin-builder",
       "description": "Build portable Agent Plugins and OpenAI-compatible plugins for Myles Codex Plugins.",
-      "version": "0.2.4",
+      "version": "0.2.5",
       "author": {
         "name": "Myles Cook",
         "url": "https://github.com/MylesMCook"
