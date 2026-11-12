@@ -81,7 +81,9 @@ The canonical catalog is `.agents/plugins/marketplace.json`. Append one entry wi
 
 The local source path is relative to the marketplace root, not the JSON file, and must remain inside that root. Preserve the catalog name and display name. For reviewed external packages, use the documented `git-subdir` or repository-root `url` source with a credential-free HTTPS GitHub repository URL and exactly one full 40-character commit `ref` or `sha`. Do not copy an external native package merely to make it portable. Validate catalog metadata with `uv run <builder-skill-root>/scripts/validate_agent_plugin.py --marketplace-entry <name> --marketplace .agents/plugins/marketplace.json --marketplace-root .`; this mode never fetches or executes the package and does not validate its contents. Separately inspect the pinned source and verify a fresh isolated installation, manifest/discovery, licenses and installed-byte identity before migrating a live installation. Keep Codex-to-Claude advisor packages out of the Claude catalog.
 
-### Claude and Factory catalogs
+### Cursor, Claude, and Factory catalogs
+
+Append `{"name": "plugin-name", "source": "./plugin-name"}` to `.cursor-plugin/marketplace.json` for each local package meant for Cursor, including every package in the Claude catalog.
 
 To also ship a package to Claude and Factory Droid, add `.claude-plugin/plugin.json` (same `name`, `version`, `description` as the portable manifest) and append matching entries to `.claude-plugin/marketplace.json` and `.factory-plugin/marketplace.json`. The Factory entry repeats the Claude entry's `name`, `description`, `source`, and `category`; Droid translates the `.claude-plugin/` layout at install time.
 
