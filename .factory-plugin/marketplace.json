@@ -160,6 +160,12 @@
       "description": "Build and review charts and dashboards to a cited, Tufte-led design standard.",
       "source": "./tufte",
       "category": "Productivity"
+    },
+    {
+      "name": "simple-code",
+      "description": "Reduce incidental complexity in code and design with a bias toward concrete, local, reversible solutions.",
+      "source": "./simple-code",
+      "category": "Developer Tools"
     }
   ]
 }

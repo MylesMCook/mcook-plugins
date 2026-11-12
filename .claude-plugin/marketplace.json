@@ -573,6 +573,28 @@
         "design-review"
       ],
       "category": "Productivity"
+    },
+    {
+      "name": "simple-code",
+      "version": "0.1.0",
+      "description": "Reduce incidental complexity in code and design with a bias toward concrete, local, reversible solutions.",
+      "author": {
+        "name": "Myles Cook",
+        "url": "https://github.com/MylesMCook"
+      },
+      "homepage": "https://github.com/MylesMCook/mcook-plugins/tree/main/simple-code",
+      "repository": "https://github.com/MylesMCook/mcook-plugins",
+      "license": "MIT",
+      "keywords": [
+        "simplicity",
+        "refactoring",
+        "api-design",
+        "architecture",
+        "code-quality",
+        "agent-skills"
+      ],
+      "source": "./simple-code",
+      "category": "Developer Tools"
     }
   ]
 }

@@ -118,6 +118,10 @@
     {
       "name": "tufte",
       "source": "./tufte"
+    },
+    {
+      "name": "simple-code",
+      "source": "./simple-code"
     }
   ]
 }

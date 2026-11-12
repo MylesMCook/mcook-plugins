@@ -1,0 +1,38 @@
+{
+  "name": "simple-code",
+  "version": "0.1.0",
+  "description": "Reduce incidental complexity in code and design with a bias toward concrete, local, reversible solutions.",
+  "author": {
+    "name": "Myles Cook",
+    "url": "https://github.com/MylesMCook"
+  },
+  "homepage": "https://github.com/MylesMCook/mcook-plugins/tree/main/simple-code",
+  "repository": "https://github.com/MylesMCook/mcook-plugins",
+  "license": "MIT",
+  "keywords": [
+    "simplicity",
+    "refactoring",
+    "api-design",
+    "architecture",
+    "code-quality",
+    "agent-skills"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Simple Code",
+    "shortDescription": "Keep code and designs simple, local, and reversible.",
+    "longDescription": "Shape APIs, module boundaries, refactors, tests, naming, and architecture tradeoffs toward the simplest design that meets the real requirement, drawing on Grug, Worse Is Better, A Philosophy of Software Design, and The Laws of Simplicity.",
+    "developerName": "Myles Cook",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/MylesMCook/mcook-plugins/tree/main/simple-code",
+    "defaultPrompt": [
+      "Simplify this module without changing behavior.",
+      "Review this API design for unnecessary abstraction.",
+      "What is the simplest architecture that meets these requirements?"
+    ]
+  }
+}

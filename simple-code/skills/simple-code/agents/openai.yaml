@@ -1,0 +1,4 @@
+interface:
+  display_name: "Simple Code"
+  short_description: "Keep code and designs simple, local, and reversible"
+  default_prompt: "Use $simple-code to find the simplest design that meets this requirement."
