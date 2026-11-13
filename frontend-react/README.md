@@ -1,6 +1,6 @@
 # Frontend / React
 
-Build, refactor, style, type, optimize, and test React applications in Codex with eight pinned
+Build, refactor, style, type, optimize, and test React applications in any coding agent (Codex, Claude Code, Factory Droid, Cursor) with eight pinned
 third-party Agent Skills and two plugin-owned skills: Base UI + StyleX and StyleX.
 
 ## Included skills
@@ -17,11 +17,11 @@ third-party Agent Skills and two plugin-owned skills: Base UI + StyleX and Style
 - `fixing-metadata` — page titles, canonical URLs, social previews, and structured metadata.
 
 The package has no MCP server, hooks, app, custom agent, background process, or runtime updater. It
-uses the tools already available to Codex and the target repository. The testing skill uses the
+uses the tools already available to the agent and the target repository. The testing skill uses the
 installed official Playwright skill for live browser work and the project's existing test runner
 for durable regressions. Other browser tools require an explicit request or a missing capability.
 
-## Codex-native boundary
+## Host-neutral boundary
 
 The upstream skills remain recognizable and traceable, but the package removes non-portable command
 embedding and host-specific tool allowlists. The shadcn workflow inspects the real repository first, prefers an
@@ -29,8 +29,8 @@ installed project-local CLI, and asks before downloading a CLI or running a muta
 testing workflow uses Playwright CLI for live observation and the repository's committed Playwright
 setup for durable regressions. It does not install browsers or Python dependencies without
 authorization. It also separates application verification from Codex annotation-mode verification
-and provides a strict-CSP diagnostic for annotation-only failures. The authored StyleX skill is
-Codex-native and reads StyleX's current
+and provides a strict-CSP diagnostic for annotation-only failures, used only in Codex. The authored StyleX skill is
+host-neutral and reads StyleX's current
 official LLM installation or authoring guide when version-sensitive details matter.
 
 For new work using Base UI + StyleX, Base UI supplies component behavior and accessibility mechanics; StyleX supplies styling. Preserve existing project choices unless migration is explicitly requested.
@@ -41,7 +41,7 @@ For new work using Base UI + StyleX, Base UI supplies component behavior and acc
 
 `upstreams.lock.json` pins the eight third-party skills to exact source commits. The repo-side
 `scripts/sync_frontend_react.py` command refreshes the selected directories, reapplies the narrow
-Codex compatibility transform, updates the lock, and bumps this plugin's patch version when an
+agent compatibility transform, updates the lock, and bumps this plugin's patch version when an
 upstream commit changes.
 
 Maintain `base-ui-stylex` directly in `frontend-react/skills/base-ui-stylex` in this repository, just like `stylex`. The upstream sync never replaces either plugin-owned skill. The standalone copy in [mcook-skills](https://github.com/MylesMCook/mcook-skills/tree/main/skills/base-ui-stylex) is an optional export from this plugin, not an incoming source. Edit and release the plugin first; refresh the standalone copy only when needed. See [maintenance](skills/base-ui-stylex/references/maintenance.md).
@@ -55,11 +55,11 @@ StyleX's live official [LLM resources](https://stylexjs.com/docs/llm-resources),
 updates are available without waiting for a plugin release.
 
 The scheduled `sync-frontend-react.yml` workflow runs weekly and opens or refreshes a pull request
-when upstream content changes. It does not write directly to `main`, and installed Codex plugin
+when upstream content changes. It does not write directly to `main`, and installed plugin
 caches never modify themselves. The repository must allow GitHub Actions to create pull requests;
 keep that one-time repository setting disabled until this workflow is published and approved.
 
-After an update is merged and published to `mcook-plugins-local`, refresh this machine with:
+After an update is merged, refresh Codex with the commands below (other hosts: see the root README):
 
 ```text
 codex plugin marketplace upgrade mcook-plugins-local

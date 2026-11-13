@@ -1,6 +1,6 @@
 {
   "name": "wails",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "description": "Build Wails apps, set up native feedback, and watch and fix comments as they arrive.",
   "author": {
     "name": "Myles Cook",

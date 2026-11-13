@@ -1,6 +1,6 @@
 # Orchestrate evals
 
-Run these manual scenarios in fresh Codex tasks after installing the marketplace
+Run these manual scenarios in fresh agent sessions (Codex, Claude Code, or Factory Droid) after installing the marketplace
 plugin. There is no fake local subagent runner. Judge each case from the parent
 output, visible child activity, and parent-visible rollout or spawn metadata
 when the host exposes it.
@@ -13,7 +13,7 @@ For positive cases, verify that the parent:
    ownership before spawning.
 2. Uses no more than three concurrent children and avoids recursive delegation
    by default.
-3. Uses only native Codex subagent tools and current host-available roles and
+3. Uses only the host's native subagent tools and current host-available roles and
    models, with configuration precedence made explicit when it matters.
 4. Captures requested routing and labels effective routing as runtime-verified,
    configuration-derived, or unverified.

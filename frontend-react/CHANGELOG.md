@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.3 - 2026-11-13
+
+- Restore upstream's Claude Code row in the shadcn MCP table, rename the Codex compatibility notes to agent compatibility, and scope the annotation-mode check to Codex.
+
 ## 0.3.2 - 2026-11-08
 
 - Add an explicit Claude manifest for claude.ai marketplace synchronization.

@@ -8,7 +8,7 @@ description: >
 
 # Buzz CLI Skill
 
-Adapted from Block's Buzz managed-agent skill. This package changes the runtime boundary and adds explicit authorization and retry limits for Codex.
+Adapted from Block's Buzz managed-agent skill. This package changes the runtime boundary and adds explicit authorization and retry limits for coding agents.
 
 ## Environment
 

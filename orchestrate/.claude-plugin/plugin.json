@@ -1,7 +1,7 @@
 {
   "name": "orchestrate",
-  "version": "0.1.4",
-  "description": "Coordinate explicitly requested native Codex subagent work with deliberate routing and verified synthesis.",
+  "version": "0.2.0",
+  "description": "Coordinate explicitly requested native subagent work with deliberate routing and verified synthesis.",
   "author": {
     "name": "Myles Cook",
     "url": "https://github.com/MylesMCook"

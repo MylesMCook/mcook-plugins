@@ -1,7 +1,7 @@
 {
   "name": "task-naming",
-  "version": "0.5.3",
-  "description": "Manually rename Codex tasks at chat, project, or machine scope.",
+  "version": "0.5.4",
+  "description": "Manually rename agent tasks at chat, project, or machine scope.",
   "author": {
     "name": "Myles Cook",
     "url": "https://github.com/MylesMCook"
@@ -20,7 +20,7 @@
   "interface": {
     "displayName": "Task Naming",
     "shortDescription": "Rename one task, a project, or a machine.",
-    "longDescription": "Explicitly rename or standardize Codex task titles at current-task, project-folder, or machine-wide scope using concise action-first titles with optional context.",
+    "longDescription": "Explicitly rename or standardize agent task titles at current-task, project-folder, or machine-wide scope using concise action-first titles with optional context.",
     "developerName": "Myles Cook",
     "category": "Productivity",
     "capabilities": [

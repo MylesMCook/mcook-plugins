@@ -14,7 +14,7 @@ class TaskNamingContractTests(unittest.TestCase):
         )
 
         self.assertEqual(manifest["name"], "task-naming")
-        self.assertEqual(manifest["version"], "0.5.2")
+        self.assertEqual(manifest["version"], "0.5.4")
         self.assertEqual(manifest["skills"], "./skills/")
         self.assertNotIn("hooks", manifest)
         self.assertNotIn("mcpServers", manifest)
@@ -32,6 +32,7 @@ class TaskNamingContractTests(unittest.TestCase):
         self.assertEqual(
             files,
             {
+                ".claude-plugin/plugin.json",
                 ".codex-plugin/plugin.json",
                 "CHANGELOG.md",
                 "LICENSE",

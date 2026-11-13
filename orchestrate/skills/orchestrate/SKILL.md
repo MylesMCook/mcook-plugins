@@ -1,11 +1,11 @@
 ---
 name: orchestrate
 description: >-
-  Coordinate explicitly requested, decomposable work through native Codex
+  Coordinate explicitly requested, decomposable work through the host's native
   subagents with deliberate model and reasoning selection, bounded parallelism,
   structured handoffs, verification, and parent-owned synthesis. Use only when
-  the user invokes $orchestrate, names Orchestrate, or directly asks to use this
-  plugin. Do not trigger merely because a task is large or parallelizable. Do
+  the user invokes the skill by name (for example $orchestrate or /orchestrate),
+  names Orchestrate, or directly asks to use this plugin. Do not trigger merely because a task is large or parallelizable. Do
   not use for small sequential tasks, deployed agent applications, persistent
   pipelines, OpenAI Agents SDK services, or Responses API multi-agent
   implementations.
@@ -17,8 +17,8 @@ Keep the main agent responsible for the objective, decisions, integration, and
 final answer. Delegate bounded supporting work only when it improves speed,
 specialization, evidence quality, or context hygiene.
 
-Use only on OpenAI Codex hosts exposing native subagent spawn and supervision
-tools. If those tools are unavailable, stay single-agent instead of falling
+Use only on hosts exposing native subagent spawn and supervision
+tools, such as Codex, Claude Code, or Factory Droid. If those tools are unavailable, stay single-agent instead of falling
 back to a thread-management workaround, custom runtime, or API multi-agent
 system. Treat effective-route metadata as a separate host capability: record
 the requested route for every child, and call the effective route verified only
@@ -70,9 +70,7 @@ choosing models, reasoning effort, custom agents, or concurrency.
 4. Prefer direct children. Do not ask children to spawn descendants unless the
    user explicitly requests recursive delegation and the host supports it.
 5. Start at most three direct children in one wave as a conservative local
-   policy, then obey any tighter host cap and actual parent capacity. Current
-   Codex configuration may expose
-   `agents.max_concurrent_threads_per_session` for child threads, but use the
+   policy, then obey any tighter host cap and actual parent capacity. Use the
    current host's own accounting and limit.
 
 Parallelize read-heavy research, exploration, testing, and review freely when
@@ -92,13 +90,11 @@ before choosing a route. Prefer, in order:
 3. A built-in agent with host-selected defaults when exact routing is not
    material.
 
-Use only models exposed by the current host. Follow current official model
-guidance and the routing policy rather than treating model names as permanent.
-For custom-agent files, the documented `model` and
-`model_reasoning_effort` settings take precedence. When they are absent,
-documented resolution is explicit spawn settings, then `[agents]` defaults,
-then the parent settings. A direct spawn surface can use a different field name
-for reasoning; use only the field it actually exposes.
+Use only models exposed by the current host. Choose a capability tier from the
+routing policy, then map it to the host's current model names; never treat a
+model name as permanent. A custom agent's documented model and reasoning
+settings take precedence over spawn-time choices where the host supports them.
+Use only the model and reasoning fields the spawn surface actually exposes.
 
 When the user requests an exact role or model, always record the requested
 route. Record the observed route only from parent-visible host metadata. If the
@@ -106,10 +102,10 @@ host cannot prove it, label the result configuration-derived or unverified; do
 not pretend the route succeeded. Stop the slice only when exact verification is
 a required done criterion. Otherwise continue with reduced coverage disclosed.
 
-When `fork_turns` is available, prefer `"none"` for bounded model-specific
-children and pass an explicit task packet. The current public Codex docs do not
-define `fork_turns`, so treat it as a host capability rather than a portable
-contract. Include only the history the child genuinely needs.
+When the spawn surface can control inherited history, prefer a fresh context
+for bounded children and pass an explicit task packet. Treat such options as
+host capabilities rather than a portable contract. Include only the history the
+child genuinely needs.
 
 ## Spawn and supervise
 

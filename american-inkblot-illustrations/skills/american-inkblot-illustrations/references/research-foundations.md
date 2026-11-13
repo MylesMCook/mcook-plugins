@@ -3,7 +3,7 @@
 This method combines several established ideas without copying their default
 visual notation.
 
-## Codex packaging and image generation
+## Plugin packaging and image generation
 
 - [Build plugins](https://learn.chatgpt.com/docs/build-plugins) defines plugins
   as installable packages that can distribute stable skills and optional apps.

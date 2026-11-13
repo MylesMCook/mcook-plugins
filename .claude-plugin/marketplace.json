@@ -13,7 +13,7 @@
       "name": "thermos",
       "source": "./thermos",
       "description": "Independent paired or adversarial reviews with shared scope and evidence verification.",
-      "version": "0.3.1",
+      "version": "0.3.2",
       "author": {
         "name": "Myles Cook",
         "url": "https://github.com/MylesMCook"
@@ -79,7 +79,7 @@
       "name": "mcook-plugin-builder",
       "source": "./mcook-plugin-builder",
       "description": "Build portable Agent Plugins and OpenAI-compatible plugins for Myles Codex Plugins.",
-      "version": "0.2.5",
+      "version": "0.2.6",
       "author": {
         "name": "Myles Cook",
         "url": "https://github.com/MylesMCook"
@@ -120,8 +120,8 @@
     {
       "name": "orchestrate",
       "source": "./orchestrate",
-      "description": "Coordinate explicitly requested native Codex subagent work with deliberate routing and verified synthesis.",
-      "version": "0.1.4",
+      "description": "Coordinate explicitly requested native subagent work with deliberate routing and verified synthesis.",
+      "version": "0.2.0",
       "author": {
         "name": "Myles Cook",
         "url": "https://github.com/MylesMCook"
@@ -141,8 +141,8 @@
     {
       "name": "task-naming",
       "source": "./task-naming",
-      "description": "Manually rename Codex tasks at chat, project, or machine scope.",
-      "version": "0.5.3",
+      "description": "Manually rename agent tasks at chat, project, or machine scope.",
+      "version": "0.5.4",
       "author": {
         "name": "Myles Cook",
         "url": "https://github.com/MylesMCook"
@@ -163,7 +163,7 @@
       "name": "american-inkblot-illustrations",
       "source": "./american-inkblot-illustrations",
       "description": "Create sparse Inkblot-first illustrations and evidence-grounded system portraits.",
-      "version": "0.2.3",
+      "version": "0.2.4",
       "author": {
         "name": "Myles Cook",
         "url": "https://github.com/MylesMCook"
@@ -246,7 +246,7 @@
       "name": "frontend-react",
       "source": "./frontend-react",
       "description": "Build, style, optimize, and test React apps with Base UI + StyleX and focused UI quality skills.",
-      "version": "0.3.2",
+      "version": "0.3.3",
       "author": {
         "name": "Myles Cook",
         "url": "https://github.com/MylesMCook"
@@ -315,7 +315,7 @@
       "name": "personal-firecrawl",
       "source": "./personal-firecrawl",
       "description": "Research the web with your self-hosted Firecrawl search and fetch tools, plus on-host CLI bulk work.",
-      "version": "2.0.1",
+      "version": "2.0.2",
       "author": {
         "name": "Myles Cook",
         "url": "https://github.com/MylesMCook"
@@ -360,7 +360,7 @@
       "name": "buzz-xyz",
       "source": "./buzz-xyz",
       "description": "Operate Buzz.xyz relays through the Buzz CLI.",
-      "version": "0.2.2",
+      "version": "0.2.3",
       "author": {
         "name": "Myles Cook",
         "url": "https://github.com/MylesMCook"
@@ -490,7 +490,7 @@
     },
     {
       "name": "wails",
-      "version": "0.2.5",
+      "version": "0.2.6",
       "description": "Build Wails apps, set up native feedback, and watch and fix comments as they arrive.",
       "author": {
         "name": "Myles Cook",
@@ -535,7 +535,7 @@
       "name": "explainer",
       "source": "./explainer",
       "description": "Turn \"how does X work?\" into an interactive, step-by-step explainer page with an animated diagram, lessons and a message inspector that says what each message does and why.",
-      "version": "1.6.0",
+      "version": "1.6.1",
       "author": {
         "name": "Myles Cook",
         "url": "https://github.com/MylesMCook"

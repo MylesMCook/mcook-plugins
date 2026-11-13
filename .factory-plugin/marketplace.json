@@ -38,13 +38,13 @@
     },
     {
       "name": "orchestrate",
-      "description": "Coordinate explicitly requested native Codex subagent work with deliberate routing and verified synthesis.",
+      "description": "Coordinate explicitly requested native subagent work with deliberate routing and verified synthesis.",
       "source": "./orchestrate",
       "category": "Developer Tools"
     },
     {
       "name": "task-naming",
-      "description": "Manually rename Codex tasks at chat, project, or machine scope.",
+      "description": "Manually rename agent tasks at chat, project, or machine scope.",
       "source": "./task-naming",
       "category": "Productivity"
     },

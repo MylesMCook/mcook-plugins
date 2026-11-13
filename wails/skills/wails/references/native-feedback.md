@@ -57,16 +57,17 @@ Undo preserves private annotations and profiles, retaining their `state/` Git
 ignore rule. Reinstallation recognizes that exact protective rule. Private
 data cleanup remains explicit, so undo never discards feedback history.
 
-## Connect Codex once
+## Connect the agent once
 
-From the detected frontend folder, run the package manager's `feedback:connect`
-script once. For Burf's normal split layout, use:
+The feedback tools are a stdio MCP server at `wails-feedback/mcp.mjs`, usable
+from any MCP client. For Codex, run the package manager's `feedback:connect`
+script once from the detected frontend folder. For Burf's normal split layout, use:
 
 ```sh
 pnpm --dir app feedback:connect
 ```
 
-Start a new Codex task once after registration. Later runs need only
+Start a new agent session once after registration. Later runs need only
 `pnpm --dir app dev:feedback`. One stdio connection reads the current private
 session per request, including after app restarts and new ports. Its nine existing
 Agentation tools load even when the app is closed. Offline calls explain how to
@@ -75,8 +76,10 @@ start feedback. Interrupted writes are never automatically replayed.
 Use `feedback:disconnect` before setup `--undo`. Rerunning either connection
 command is safe. A differently configured server with the same app-derived name
 is preserved and reported as a conflict. Private comments are never deleted.
-The registration helper is Codex-specific client integration. Other MCP clients
-can configure the same generated `node wails-feedback/mcp.mjs` stdio launcher.
+The registration helper is Codex-specific client integration. For Claude Code,
+Factory Droid, Cursor, or another MCP client, register the same generated
+`node wails-feedback/mcp.mjs` stdio launcher in that client's MCP configuration,
+with the frontend folder as its working directory.
 This does not register a global plugin server or start a persistent service.
 
 ## Trust and release boundaries

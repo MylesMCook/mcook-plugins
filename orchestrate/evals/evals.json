@@ -10,7 +10,7 @@
     {
       "name": "explicit-parallel-support-routes-deliberately",
       "prompt": "Use $orchestrate to break this broad audit into independent subagent work. Use smaller models for supporting research and keep the hard decisions here.",
-      "expected_output": "Uses native Codex subagent tools, chooses models from current documented and host-available options, and reports a truthful routing verification status.",
+      "expected_output": "Uses the host's native subagent tools, chooses models from current documented and host-available options, and reports a truthful routing verification status.",
       "files": []
     },
     {
@@ -46,7 +46,7 @@
     {
       "name": "responses-api-multi-agent-near-miss",
       "prompt": "Build a Responses API application that coordinates multiple GPT-5.6 subagents in parallel.",
-      "expected_output": "Routes to current API or Agents SDK guidance instead of treating the native-Codex Orchestrate skill as an API multi-agent runtime.",
+      "expected_output": "Routes to current API or Agents SDK guidance instead of treating the native-subagent Orchestrate skill as an API multi-agent runtime.",
       "files": []
     },
     {
