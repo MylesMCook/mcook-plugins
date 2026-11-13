@@ -1,6 +1,6 @@
 # Third-party notices
 
-The bundled Windows executable is Fabric MCP Server 1.10.0. Its own source uses
+The bundled Windows executable is Fabric MCP Server 1.11.0. Its own source uses
 the [ISC license](LICENSE); that license does not replace the terms of linked
 third-party components.
 
@@ -10,13 +10,30 @@ conservative: it includes build, development, and other-platform dependencies in
 addition to the Windows runtime dependencies. Inclusion is not a claim that every
 listed component is linked into the executable.
 
-- Source release: [v1.10.0](https://github.com/MylesMCook/fabric-mcp/tree/c06920cae9defc7731448ab4419d6819d218eb94), commit `c06920cae9defc7731448ab4419d6819d218eb94`.
-- Executable SHA-256: `ef5351f2c8621d8e4e2e7abffa292a1dead0b6c1dcf1ebfe24f0dc98e04cadbd`.
+- Source release: [v1.11.0](https://github.com/MylesMCook/fabric-mcp/tree/3aab1b566986eed4e36fbcca67eab0150863a269), commit `3aab1b566986eed4e36fbcca67eab0150863a269`.
+- Executable SHA-256: `a6c8d0c111a9601911b14138439503fc096f3a656f511edb2f89e3c92dc11eab`.
+- The v1.11.0 Cargo.lock lists the same 231 registry packages at the same versions and checksums as v1.10.0; only this crate's own version changed. The crate notices below were verified for v1.10.0 and carry forward unchanged. The Rust 1.95.0 toolchain is unchanged.
 - [Preserved Cargo.lock](third-party-licenses/Cargo.lock).
 - [Machine-readable provenance, crate archive checksums, file hashes, and coverage](third-party-licenses/manifest.json).
 - Every one of the 231 registry archives was verified against its release-lockfile SHA-256 before any notice was copied. No crate build scripts or code were executed.
 - Nested license directories and notices are retained, including vendored source notices in AWS-LC and ring.
 - [Rust 1.95.0 toolchain notices](third-party-licenses/rust-1.95.0/source.json) preserve the standard library's MIT/Apache notices and upstream copyright inventory.
+
+## Embedded Fabric API documentation
+
+The executable embeds Microsoft Fabric REST API documentation, unmodified apart from
+LF line endings, for its offline `fabric_list_api_docs` and `fabric_get_api_doc` tools:
+
+- REST API specifications and examples from
+  [microsoft/fabric-rest-api-specs](https://github.com/microsoft/fabric-rest-api-specs/tree/3f8600f9cbe3105b91015db31a6cd96915eeebd4)
+  at commit `3f8600f9cbe3105b91015db31a6cd96915eeebd4`, MIT, Copyright (c) Microsoft Corporation:
+  [license](third-party-licenses/fabric-docs/fabric-rest-api-specs-LICENSE.txt).
+- Item definition and best-practice guides from
+  [microsoft/mcp](https://github.com/microsoft/mcp/tree/260418ed0f739295c2d8adda0f243b2974e54d81/tools/Fabric.Mcp.Tools.Docs/src/Resources)
+  at commit `260418ed0f739295c2d8adda0f243b2974e54d81`, MIT, Copyright 2025 (c) Microsoft Corporation:
+  [license](third-party-licenses/fabric-docs/microsoft-mcp-LICENSE).
+- [Recorded sources and file counts](third-party-licenses/fabric-docs/SOURCES.json).
+  The `fabric_list_api_docs` tool also returns both license texts.
 
 ## Supplemental notice sources
 

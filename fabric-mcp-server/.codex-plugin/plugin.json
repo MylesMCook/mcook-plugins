@@ -1,6 +1,6 @@
 {
   "name": "fabric-mcp-server",
-  "version": "1.10.1",
+  "version": "1.11.0",
   "description": "Operate Microsoft Fabric, Power BI, and Power Automate through a native portable MCP server.",
   "author": {
     "name": "Myles Cook",

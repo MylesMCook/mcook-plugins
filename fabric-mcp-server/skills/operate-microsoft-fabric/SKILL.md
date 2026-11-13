@@ -32,7 +32,16 @@ or copied server when the bundled server is unavailable.
 ## Choose the narrowest workflow
 
 - Fabric: inspect the workspace, then the item, pipeline, job, lakehouse, or
-  semantic model involved.
+  semantic model involved. When you know an item's name but not its workspace,
+  use `fabric_search_catalog`. Use `fabric_list_item_schedules` for when an item
+  runs automatically and `fabric_list_job_instances` for past runs.
+- Before writing a Fabric request body or editing a definition, check the exact
+  shape offline with `fabric_get_api_doc` (operation, examples, or
+  `definition_schema`). Topic names come from `fabric_list_api_docs`.
+- Read any item's definition with `fabric_get_item_definition`. If it returns
+  `status: Running`, check `fabric_get_operation_state`, then call it again with
+  the `operation_id`. Its `definition_sha256` is not accepted by the notebook or
+  pipeline guarded edit tools; use their own read tools for those.
 - Power BI: resolve the dataset, report, or gateway before reading refreshes,
   data sources, status, or executing DAX.
 - Power Automate: resolve the environment and flow before inspecting the

@@ -1,5 +1,24 @@
 # Changelog
 
+## 1.11.0 - 2026-11-13
+
+- Add offline Fabric REST API docs (`fabric_docs` domain): `fabric_list_api_docs` and
+  `fabric_get_api_doc` return operation indexes, single operations with resolved schemas
+  and examples, item definition guides and best-practice guides, capped by `max_bytes`.
+  Sources are pinned `microsoft/fabric-rest-api-specs` and `microsoft/mcp` content (MIT),
+  embedded in the executable; no Azure sign-in or Fabric call.
+- Add read-only discovery: `fabric_get_item_definition` (any item type, stable hash,
+  resumable exports, semantic model parts withheld unless raw TMDL is enabled),
+  `fabric_search_catalog` (Fabric preview), `fabric_list_folders`,
+  `fabric_list_capacities`, `fabric_get_operation_state`, `fabric_list_item_schedules`
+  and `fabric_get_item_schedule`. Schedule owners and configuration are projected.
+- The generic definition hash is separate from the notebook and pipeline edit hashes.
+- Declare each tool once next to its typed handler, with its wire contract in
+  `rust-server/contract/tools`. A golden snapshot pins every profile's tool list; new
+  tools must pass a contract lint. Every 1.10.0 tool contract is unchanged.
+- Expose 83 canonical / 65 read-only tools. The operator guide and
+  `describe_capabilities` describe the new capabilities.
+
 ## 1.10.1 - 2026-11-08
 
 - Include third-party dependency license and notice files with the bundled

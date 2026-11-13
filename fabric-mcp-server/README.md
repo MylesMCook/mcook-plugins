@@ -8,10 +8,10 @@ The installed Agent Plugin launches one bundled Windows executable over stdio.
 It restores no interpreter, package manager, virtual environment, or dependency
 set at startup. Azure CLI remains the explicit local authentication provider.
 
-Package 1.10.1 retains the official v1.10.0 executable and includes its
-[third-party license notices](THIRD-PARTY-NOTICES.md). Preserve those notices
-when redistributing the executable. Compiler source-path strings identify the
-Windows build profile and dependency caches; the artifact has not been rebuilt.
+Package 1.11.0 bundles the official v1.11.0 executable and includes its
+[third-party license notices](THIRD-PARTY-NOTICES.md), covering Rust dependencies
+and the embedded Microsoft Fabric API documentation. Preserve those notices when
+redistributing the executable.
 
 ## Agent Plugin
 
@@ -26,7 +26,7 @@ presentation overlay:
 - `skills/trace-power-automate-submission/`: read-only, exact-key workflow
   tracing with fail-closed results.
 
-The default package exposes all 74 canonical tools. Compatibility aliases, raw
+The default package exposes all 83 canonical tools. Compatibility aliases, raw
 TMDL, the alternate Power Platform inventory API, and Dataverse metadata remain
 explicit opt-ins.
 
@@ -167,7 +167,12 @@ changes.
 ## Domains
 
 - Fabric workspaces, items, pipelines, job/activity runs, lakehouses, tables,
-  semantic models, and TMDL summaries.
+  semantic models, and TMDL summaries; catalog search, folders, capacities,
+  item schedules, long-running operation state, and any item's definition.
+- Offline Fabric REST API docs (`fabric_docs` domain): pinned
+  `microsoft/fabric-rest-api-specs` specs and examples plus Microsoft's item
+  definition and best-practice guides from `microsoft/mcp`, both MIT, embedded
+  in the executable. Refresh deliberately with `node scripts/update-fabric-docs.cjs`.
 - Power BI datasets, refresh metadata, data sources, reports, gateways, status,
   and bounded read-only DAX.
 - Power Automate environments, searchable bounded connector and exact operation metadata, flows, definitions, summaries, runs, sanitized
@@ -190,7 +195,7 @@ Microsoft 365 SharePoint URLs.
 - `FABRIC_MCP_ENABLE_POWER_PLATFORM_API=true` enables three optional inventory
   tools and requires `PowerAutomate.Flows.Read`.
 - `FABRIC_MCP_TOOL_DOMAINS=all` keeps the full default surface. A comma-separated
-  subset of `fabric,powerbi,power_automate,graph,power_platform,dataverse`
+  subset of `fabric,fabric_docs,powerbi,power_automate,graph,power_platform,dataverse`
   reduces discovery size and skips unrelated authentication checks; setup tools
   remain available.
 - `FABRIC_MCP_DATAVERSE_WEB_API_URL=https://<org>.api.crm.dynamics.com/api/data/v9.2`
@@ -235,9 +240,15 @@ mode and does not create a task, service, listener, or singleton.
 ## Repository layout
 
 - `rust-server/`: native source and tests.
-- `rust-server/contract/public_mcp_contract.json`: canonical base schemas.
-- `rust-server/src/tool_registry.rs`: typed handler, safety, surface, and list
-  policy registry for canonical and opt-in tools.
+- `rust-server/contract/tools/<tool>.json`: each tool's exact wire contract.
+- `rust-server/contract/inventory.snapshot.json`: golden snapshot of every
+  profile's tool list and contract hashes; refresh deliberately with
+  `npm run snapshot:update`.
+- `rust-server/contract/public_mcp_contract.json`: MCP resources.
+- `rust-server/src/operations/*.rs`: each module declares its tools (`TOOLS`)
+  next to the typed handler that implements them.
+- `rust-server/src/tool_registry.rs`: shared declaration types, safety, surface,
+  domain and list policy.
 - `scenarios/`: executable tool-selection and safety fixtures.
 - `bin/`: packaged executable.
 - `inspector/`: MCP Inspector 2.0 profiles.
