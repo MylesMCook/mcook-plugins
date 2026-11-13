@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.3 - 2026-11-13
+
+- Describe the adaptation as targeting coding agents generally, not Codex only.
+
 ## 0.2.2 - 2026-11-08
 
 - Add an explicit Claude manifest for claude.ai marketplace synchronization.

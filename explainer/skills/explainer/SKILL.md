@@ -9,7 +9,7 @@ You write one topic file (JSON). The kit checks it and builds one HTML page that
 
 If the `explainer_*` tools are available, use them instead of the commands below: `explainer_guide`, then `explainer_check` until ok, then `explainer_build`. Pass `topicPath` instead of `topic` when the topic is already a file, to avoid resending it.
 
-**Showing a page:** `explainer_build` and `explainer_open` return `viewUrl`, a link served by a shared local viewer that is already running. Open it for the user right away (in Claude Code desktop: the browser pane). Never start your own server for explainers; the viewer starts on demand, is shared by every page and session, and stops by itself after 30 idle minutes or when the session ends. Without the tools, open the `.html` file directly.
+**Showing a page:** `explainer_build` and `explainer_open` return `viewUrl`, a link served by a shared local viewer that is already running. Open it for the user right away (in the host's built-in browser when it has one, such as the Claude Code desktop browser pane; otherwise the default browser). Never start your own server for explainers; the viewer starts on demand, is shared by every page and session, and stops by itself after 30 idle minutes or when the session ends. Without the tools, open the `.html` file directly.
 
 ## Changing an existing explainer
 

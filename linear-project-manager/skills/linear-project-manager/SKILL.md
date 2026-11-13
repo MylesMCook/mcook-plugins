@@ -94,7 +94,7 @@ retaining human-authored requirements and newer work from other sessions.
 A concise note contains changed behavior, verification actually performed, a
 relevant commit/PR link when available, and remaining work or blocker. No logs,
 secrets, raw prompts, transcript dumps, or claims that mocks prove live integration.
-Keep partial work unfinished even if Codex stops, crashes, or ends its turn.
+Keep partial work unfinished even if the agent stops, crashes, or ends its turn.
 If interrupted, reconcile from fresh issue/repo evidence on the next invocation;
 there is no guaranteed end-of-session write.
 

@@ -1,6 +1,6 @@
 {
   "name": "explainer",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "description": "Turn \"how does X work?\" into an interactive, step-by-step explainer page with an animated diagram, lessons and a message inspector that says what each message does and why.",
   "author": {
     "name": "Myles Cook",

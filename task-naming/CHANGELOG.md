@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.5.4 - 2026-11-13
+
+- Make the skill host-neutral: works with any agent host's native task, thread, or session rename operations.
+
 ## 0.5.3 - 2026-11-08
 
 - Add an explicit Claude manifest for claude.ai marketplace synchronization.

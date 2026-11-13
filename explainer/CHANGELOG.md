@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.6.1 - 2026-11-13
+
+- Open the viewer in whatever built-in or default browser the host has, not only the Claude Code desktop pane.
+
 ## 1.6.0 - 2026-11-10
 
 - The right panel explains each message: what it does and why it's sent, above its body and field notes.

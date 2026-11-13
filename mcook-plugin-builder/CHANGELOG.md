@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.6 - 2026-11-13
+
+- Require host- and model-neutral skill bodies, with host-specific steps in labeled notes.
+
 ## 0.2.5 - 2026-11-12
 
 - Document Cursor, Claude, and Factory Droid catalog wiring, including root `.mcp.json` and `droids/` copies that Droid needs.

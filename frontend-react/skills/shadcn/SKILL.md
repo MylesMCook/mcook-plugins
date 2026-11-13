@@ -7,7 +7,7 @@ description: Manages shadcn components and projects — adding, searching, fixin
 
 A framework for building ui, components and design systems. Components are added as source code to the user's project via the CLI.
 
-> **Codex compatibility:** Inspect the nearest `AGENTS.md`, `package.json`, lockfile, and `components.json` first. Prefer an already-installed project-local shadcn CLI through the repository's package manager. Treat the `@latest` commands in this upstream guide as examples, not permission to download packages. Ask before an ephemeral install, and run mutating commands only when the user requested the change.
+> **Agent compatibility:** Inspect the nearest agent instructions (`AGENTS.md`, `CLAUDE.md`, or the host's equivalent), `package.json`, lockfile, and `components.json` first. Prefer an already-installed project-local shadcn CLI through the repository's package manager. Treat the `@latest` commands in this upstream guide as examples, not permission to download packages. Ask before an ephemeral install, and run mutating commands only when the user requested the change.
 
 Read [stack routing](references/stack-routing.md) in mixed projects before applying the conventions below.
 

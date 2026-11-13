@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.3 - 2026-11-13
+
+- Use host-neutral wording for interrupted sessions.
+
 ## 0.1.2 - 2026-10-10
 
 - Add an Agent Plugins 1.0.0 portable core with the official Linear Streamable HTTP MCP declaration.

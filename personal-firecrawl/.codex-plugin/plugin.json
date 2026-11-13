@@ -1,6 +1,6 @@
 {
   "name": "personal-firecrawl",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Research the web with your self-hosted Firecrawl search and fetch tools, plus on-host CLI bulk work.",
   "author": {
     "name": "Myles Cook",

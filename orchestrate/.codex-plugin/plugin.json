@@ -1,7 +1,7 @@
 {
   "name": "orchestrate",
-  "version": "0.1.4",
-  "description": "Coordinate explicitly requested native Codex subagent work with deliberate routing and verified synthesis.",
+  "version": "0.2.0",
+  "description": "Coordinate explicitly requested native subagent work with deliberate routing and verified synthesis.",
   "author": {
     "name": "Myles Cook",
     "url": "https://github.com/MylesMCook"
@@ -19,8 +19,8 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "Orchestrate",
-    "shortDescription": "Coordinate explicitly requested Codex subagents.",
-    "longDescription": "Orchestrate keeps the main Codex agent in control while it uses native subagent tools to decompose explicitly requested work, route bounded slices to appropriate models or custom agents, verify handoffs, and integrate one final result.",
+    "shortDescription": "Coordinate explicitly requested native subagents.",
+    "longDescription": "Orchestrate keeps the main agent in control while it uses native subagent tools to decompose explicitly requested work, route bounded slices to appropriate models or custom agents, verify handoffs, and integrate one final result.",
     "developerName": "Myles Cook",
     "category": "Developer Tools",
     "capabilities": [
@@ -29,7 +29,7 @@
     ],
     "websiteURL": "https://github.com/MylesMCook/mcook-plugins/tree/main/orchestrate",
     "defaultPrompt": [
-      "Use $orchestrate to coordinate this large task through native Codex subagents.",
+      "Use $orchestrate to coordinate this large task through native subagents.",
       "Delegate the independent research and implementation slices.",
       "Use smaller models for bounded support work and keep final synthesis here."
     ],

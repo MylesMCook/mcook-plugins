@@ -4,7 +4,7 @@ description: >-
   Run Thermos when the user asks for Thermos, both thermo-nuclear review lenses,
   a paired or double review, parallel correctness and maintainability review,
   or a review-fix-review loop until Thermos is happy. Resolve one change scope,
-  run two independent ChatGPT or Codex review subagents in parallel, verify
+  run two independent native review subagents in parallel, verify
   their findings, and return one prioritized review.
 ---
 

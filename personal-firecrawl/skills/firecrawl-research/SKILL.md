@@ -71,8 +71,8 @@ When the client supports subagents and the work splits into independent
 pieces (separate distinctive clues, or several candidates to check), start one
 subagent per piece. Keep dependent steps in the main thread.
 
-- **Claude Code:** start the `personal-firecrawl:web-researcher` agent. Its
-  tools are limited to Firecrawl `search` and `fetch`. Its prompt gives the
+- **Claude Code or Factory Droid:** start the plugin's `web-researcher` agent
+  (`personal-firecrawl:web-researcher` in Claude Code). Its tools are limited to Firecrawl `search` and `fetch`. Its prompt gives the
   full question, its piece, and what is already known. If it fails to launch
   because its tools do not resolve, Firecrawl is not connected: apply the
   missing-tools rule above.
@@ -82,7 +82,7 @@ against every clue yourself; do not average confidence.
 
 For a hard question whose answer is still unverified or below about 70%
 confidence, run 2-3 **independent attempts**: subagents that each get the whole
-question and the puzzle method, with no hint of your candidate. The Claude Code
+question and the puzzle method, with no hint of your candidate. The plugin's
 agent cannot read files, so paste the
 [puzzle method](references/puzzle-method.md) into its prompt. Separate
 attempts often land on different answers. Prefer the answer whose clues are

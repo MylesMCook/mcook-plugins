@@ -1,6 +1,6 @@
 # Orchestrate
 
-Explicitly requested Codex subagent coordination for tasks that benefit from
+Explicitly requested native subagent coordination for tasks that benefit from
 deliberate delegation, model routing, bounded parallelism, and verified
 synthesis.
 
@@ -14,14 +14,16 @@ synthesis.
   configuration-derived, or unverified.
 - Treats delegation as coordination, never as sandbox or permission isolation.
 
-This is a skills-only plugin. It uses only native Codex subagent tools; if they
-are unavailable, it stays single-agent. Native Codex owns the child threads,
+This is a skills-only plugin. It uses only the host's native subagent tools
+(Codex, Claude Code, Factory Droid, or any host with an equivalent); if they
+are unavailable, it stays single-agent. The host owns the child threads,
 permissions, and orchestration tools. No Agents SDK app, Responses API
 multi-agent runtime, MCP server, daemon, hook, or API key is required.
 
 ## Use
 
-Invoke `$orchestrate` or name Orchestrate when you want Codex to evaluate a task
+Invoke the skill (`$orchestrate` in Codex, `/orchestrate:orchestrate` in Claude Code) or name
+Orchestrate when you want the agent to evaluate a task
 for delegation. The skill is explicit-only and will not activate merely because
 a task is large or parallelizable. Small or sequential tasks still stay with
 the main agent.
@@ -30,7 +32,8 @@ the main agent.
 
 - https://learn.chatgpt.com/docs/agent-configuration/subagents
 - https://developers.openai.com/api/docs/guides/latest-model
-- https://developers.openai.com/codex/use-cases
+- https://code.claude.com/docs/en/sub-agents
+- https://docs.factory.ai/cli/configuration/custom-droids
 - https://agentskills.io/specification
 
 See `ATTRIBUTION.md` for upstream inspiration.

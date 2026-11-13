@@ -276,7 +276,7 @@ def adapt_shadcn(skill_dir: Path) -> None:
     text = replace_once(
         text,
         "> **IMPORTANT:** Run all CLI commands using the project's package runner: `npx shadcn@latest`, `pnpm dlx shadcn@latest`, or `bunx --bun shadcn@latest` — based on the project's `packageManager`. Examples below use `npx shadcn@latest` but substitute the correct runner for the project.\n",
-        "> **Codex compatibility:** Inspect the nearest `AGENTS.md`, `package.json`, lockfile, and `components.json` first. Prefer an already-installed project-local shadcn CLI through the repository's package manager. Treat the `@latest` commands in this upstream guide as examples, not permission to download packages. Ask before an ephemeral install, and run mutating commands only when the user requested the change.\n",
+        "> **Agent compatibility:** Inspect the nearest agent instructions (`AGENTS.md`, `CLAUDE.md`, or the host's equivalent), `package.json`, lockfile, and `components.json` first. Prefer an already-installed project-local shadcn CLI through the repository's package manager. Treat the `@latest` commands in this upstream guide as examples, not permission to download packages. Ask before an ephemeral install, and run mutating commands only when the user requested the change.\n",
         "shadcn package-runner",
     )
     text = replace_once(
@@ -286,11 +286,6 @@ def adapt_shadcn(skill_dir: Path) -> None:
         "shadcn inline-command",
     )
     skill_file.write_text(text, encoding="utf-8")
-
-    mcp_file = skill_dir / "mcp.md"
-    mcp_text = mcp_file.read_text(encoding="utf-8")
-    mcp_text = re.sub(r"(?m)^\| Claude Code \|.*\n", "", mcp_text)
-    mcp_file.write_text(mcp_text, encoding="utf-8")
 
     legacy_metadata = skill_dir / "agents" / "openai.yml"
     legacy_metadata.unlink(missing_ok=True)
@@ -321,7 +316,7 @@ def adapt_webapp_testing(skill_dir: Path) -> None:
     )
     compatibility = (
         "# Web Application Testing\n\n"
-        "## Codex compatibility\n\n"
+        "## Agent compatibility\n\n"
         "Honor the target repository's instructions and existing test stack. For live browser work, use the installed official Playwright skill and its `playwright-cli` workflow. Do not install browser tooling or dependencies without authorization. Use another browser tool only when the user requests it or Playwright CLI lacks a required capability.\n\n"
         "### Choose the browser path\n\n"
         "Use the smallest path that produces the evidence the user needs:\n\n"
@@ -330,8 +325,8 @@ def adapt_webapp_testing(skill_dir: Path) -> None:
         "- **React runtime diagnosis:** reproduce the affected flow in Playwright CLI, then use the project's existing profiling or diagnostic tools for render counts and Web Vitals. Report measurements only when observed; a screenshot does not establish runtime performance.\n"
         "- **Formal QA handoff:** use Playwright CLI to collect reproducible steps, targeted screenshots or traces, and a concise issue report. Verify each issue in the running app before reporting it.\n\n"
         "Keep exploration and committed regression tests distinct: a successful browser click does not replace an assertion in the project's test suite.\n\n"
-        "### Annotation-mode check\n\n"
-        "Playwright can verify the application, but it does not prove that Codex annotation mode works in the in-app browser. If annotation mode hides the pointer, shows a small black box, or cannot select an element while ordinary interaction still works, check for a collision between the page's style CSP and Codex's injected annotation stylesheet before clearing browser state or changing application CSS. Read [Diagnose Codex annotation CSP failures](references/codex-annotation-csp.md). When annotation mode works normally, do not change the application's CSP.\n"
+        "### Codex annotation-mode check\n\n"
+        "Skip this check outside Codex. Playwright can verify the application, but it does not prove that Codex annotation mode works in the in-app browser. If annotation mode hides the pointer, shows a small black box, or cannot select an element while ordinary interaction still works, check for a collision between the page's style CSP and Codex's injected annotation stylesheet before clearing browser state or changing application CSS. Read [Diagnose Codex annotation CSP failures](references/codex-annotation-csp.md). When annotation mode works normally, do not change the application's CSP.\n"
     )
     text = replace_once(
         text,

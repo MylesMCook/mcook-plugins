@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.0.2 - 2026-11-13
+
+- Point Factory Droid at the bundled web-researcher droid alongside Claude Code.
+
 ## 2.0.1 - 2026-11-08
 
 - Add an explicit Claude manifest for claude.ai marketplace synchronization.

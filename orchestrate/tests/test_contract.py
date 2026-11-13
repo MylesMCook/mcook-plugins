@@ -17,7 +17,8 @@ class OrchestrateContractTests(unittest.TestCase):
         ).read_text()
 
         self.assertNotRegex(frontmatter, re.compile(r"\b(?:Sol|Terra|Luna|Spark)\b"))
-        self.assertIn("the user invokes $orchestrate", frontmatter)
+        self.assertIn("the user invokes the skill by name", frontmatter)
+        self.assertIn("$orchestrate", frontmatter)
         self.assertIn("Do not trigger merely because", frontmatter)
         self.assertIn("OpenAI Agents SDK services", frontmatter)
         self.assertIn("small sequential tasks", frontmatter)
@@ -45,11 +46,14 @@ class OrchestrateContractTests(unittest.TestCase):
         ):
             self.assertIn(f"{field}:", contract)
 
-    def test_model_policy_tracks_current_routes_and_keeps_spark_conditional(self):
+    def test_model_policy_routes_by_tier_with_host_examples(self):
         policy = (
             PLUGIN_ROOT / "skills/orchestrate/references/routing-policy.md"
         ).read_text()
 
+        for tier in ("Frontier:", "Standard:", "Fast:"):
+            self.assertIn(tier, policy)
+        self.assertIn("Claude Code: frontier `opus`", policy)
         self.assertIn("`gpt-5.6`", policy)
         self.assertIn("`gpt-5.6-terra`", policy)
         self.assertIn("`gpt-5.6-luna`", policy)

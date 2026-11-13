@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "american-inkblot-illustrations",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Create sparse Inkblot-first illustrations and evidence-grounded system portraits.",
   "author": {
     "name": "Myles Cook",

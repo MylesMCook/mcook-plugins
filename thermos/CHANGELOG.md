@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.2 - 2026-11-13
+
+- Describe the paired reviewers as native subagents on any host instead of ChatGPT or Codex only.
+
 ## 0.3.1 - 2026-11-08
 
 - Add an explicit Claude manifest for claude.ai marketplace synchronization.

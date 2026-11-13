@@ -1,8 +1,9 @@
 ---
 name: task-naming
 description: >-
-  Manually name, rename, audit, or standardize Codex task titles when the user
-  explicitly invokes $task-naming. Support one current task, all user-facing
+  Manually name, rename, audit, or standardize agent task, thread, or session
+  titles when the user explicitly invokes this skill (for example $task-naming
+  or /task-naming). Support one current task, all user-facing
   root tasks under a project folder, or all user-facing root tasks on one
   machine. Do not invoke implicitly or use for filenames, variables, branches,
   commits, tickets, or ordinary conversation.
@@ -10,7 +11,8 @@ description: >-
 
 # Task Naming
 
-Rename Codex tasks only when explicitly invoked. Use native task operations;
+Rename agent tasks (also called threads, chats, or sessions) only when
+explicitly invoked. Use native task operations;
 do not run background maintenance.
 
 ## Select the scope
@@ -20,7 +22,7 @@ Choose exactly one scope from the user's request:
 - **Current task:** target only the calling root task.
 - **Project folder:** target user-facing root tasks whose recorded working
   directory is the requested folder or a descendant of it.
-- **Machine:** target user-facing root tasks on the requested Codex host. Use
+- **Machine:** target user-facing root tasks on the requested agent host. Use
   the current host when the user does not name another one.
 
 Exclude subagents, guardians, maintenance workers, ephemeral side
@@ -40,8 +42,8 @@ as partial instead of claiming all tasks were covered.
 4. Preserve the recorded host, project path, root-task status, and archive
    state while filtering.
 
-Do not inspect or edit Codex databases, session files, rollout logs, plugin
-state, or App Server sockets. Do not start scripts, hooks, subprocesses, MCP
+Do not inspect or edit the host's databases, session files, transcripts or
+rollout logs, plugin state, or internal sockets. Do not start scripts, hooks, subprocesses, MCP
 servers, or model evaluators for title maintenance.
 
 ## Build each title
@@ -57,7 +59,7 @@ Verb object — Context
   `Standardize`, `Clean up`, `Repair`, and `Remove`.
 - Append ` — Context` only when a stable product, workstream, or domain label
   makes the title easier to distinguish outside its project. Omit context that
-  the Codex project or host already shows.
+  the host's project view already shows.
 - When using context, use one em dash with one space on both sides.
 - Use sentence case and preserve exact capitalization for proper names,
   product names, versions, and technical identifiers.
@@ -90,7 +92,8 @@ without changing anything.
 
 When no native rename operation is callable:
 
-- For current-task scope, return the title and `/rename <title>`.
+- For current-task scope, return the title and the host's rename command when
+  it has one (for example `/rename <title>`).
 - For project or machine scope, return the mapping and say that no titles were
   changed.
 

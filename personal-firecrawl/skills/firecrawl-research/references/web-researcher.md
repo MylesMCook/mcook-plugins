@@ -1,6 +1,6 @@
 # Web-researcher subagent brief
 
-On Claude Code, use the `personal-firecrawl:web-researcher` agent instead; it
+On Claude Code or Factory Droid, use the plugin's `web-researcher` agent instead; it
 carries this method and enforces the tool limit. Agent Plugins treats agents as
 client-specific, so other clients get this brief. Start a general subagent with
 it, fill in the bracketed parts, and give each subagent one independent piece:

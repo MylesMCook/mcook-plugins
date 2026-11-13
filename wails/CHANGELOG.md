@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.6 - 2026-11-13
+
+- Document connecting native feedback from any MCP client; the registration helper stays Codex-specific.
+
 ## 0.2.5 - 2026-11-08
 
 - Add an explicit Claude manifest for claude.ai marketplace synchronization.

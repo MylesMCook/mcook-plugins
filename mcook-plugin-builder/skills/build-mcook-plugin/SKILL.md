@@ -9,7 +9,7 @@ description: >-
   compatibility, or preparing a plugin for validation and private release.
 ---
 
-# Build a Myles Codex plugin
+# Build a Myles plugin
 
 Build the smallest installable package that makes a reusable workflow easier to discover and apply. Keep one-off constraints in the task or `AGENTS.md`; use a skill for reusable procedure; package it when it belongs in this marketplace.
 
@@ -29,7 +29,7 @@ Require Agent Plugins conformance for releases in this marketplace. Use a portab
 
 1. Use skills only when existing tools suffice; add MCP only for controlled tools, authentication, state, or external services; add UI only when people must inspect, compare, edit, confirm, or navigate structured information. Keep MCP workflows usable without UI.
 2. Treat Agent Plugins v1 skills and MCP servers as the only portable components. Put hooks, apps, interface behavior, commands, agents, and rules in an honest client-specific layer.
-3. Use `$plugin-creator` for the current OpenAI manifest and ingestion contract. Use `$openai-docs` for current Codex behavior, OpenAI packaging, or publication. Resolve those skill roots from the active catalog; never hard-code a home directory.
+3. When those skills are installed, use `$plugin-creator` for the current OpenAI manifest and ingestion contract and `$openai-docs` for current Codex behavior, OpenAI packaging, or publication. Resolve those skill roots from the active catalog; never hard-code a home directory.
 4. If a plugin needs a ChatGPT Apps SDK MCP server or widget, invoke `$build-chatgpt-app` with `$openai-docs`. For public submission, use `$chatgpt-app-submission` after implementation. Those workflows do not replace portable or marketplace validation.
 5. When adapting upstream work, verify its current source and license. Preserve required attribution and rewrite host-specific behavior rather than copying blindly.
 
@@ -57,6 +57,7 @@ plugin-name/
 - For portable stdio MCP, use one `command` token and separate `args`. Prefer `uv` for Python packages, `${PLUGIN_ROOT}` for bundled read-only files, and `${PLUGIN_DATA}` for virtual environments, caches, generated content, and other writable state. Do not embed credentials in `env` or headers.
 - Add `.mcp.json` only for explicit pre-portable OpenAI compatibility. Add `.app.json` or hooks only for real OpenAI-specific behavior.
 - Give each `SKILL.md` concise frontmatter with precise triggers. State inputs, workflow, result shape, and facts the agent must not infer. Keep the body procedural and under 500 lines.
+- Keep skill bodies host- and model-neutral so they work in Codex, Claude Code, Factory Droid, Cursor, and other Agent Skills hosts. Name capabilities, not tools ("the host's subagent tool", "web fetch", "ask the user"); avoid hard-coded model names, home-directory paths, and one host's invocation syntax (write "invoke the skill by name, for example `$name` or `/name`"). When a step truly differs by host, put it in a short labeled per-host note and give the generic path first. Keep host-specific wiring in the host's manifest layer.
 - Generate `agents/openai.yaml` from the completed skill with skill-creator. Declare only real MCP dependencies.
 - Write a user-facing README and changelog at the plugin root. Add `ATTRIBUTION.md` only when external material requires it.
 

@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.0 - 2026-11-13
+
+- Make the skill host-neutral: works with any host's native subagent tools (Codex, Claude Code, Factory Droid) and routes by capability tier with per-host model examples.
+
 ## 0.1.4 - 2026-11-08
 
 - Add an explicit Claude manifest for claude.ai marketplace synchronization.
