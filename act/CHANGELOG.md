@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.2 - 2026-11-15
+
+- Align with act v0.2.97: untrusted project `.actrc`, `--container-options-policy`,
+  `--validate`, and the current unsupported-feature list.
+- Flag installs older than v0.2.92 as missing upstream security fixes.
+- Make the README host-neutral with Codex, Claude Code, Factory Droid, and Cursor
+  install steps.
+
 ## 0.1.1 - 2026-11-08
 
 - Add an explicit Claude manifest for claude.ai marketplace synchronization.

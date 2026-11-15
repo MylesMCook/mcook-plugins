@@ -13,6 +13,11 @@ other candidates with `type -a act` if there is ambiguity. Prefer an installed
 executable over an unexplained alias or wrapper. Record the resolved path, then
 use it for `--version` and `--help`.
 
+Releases before v0.2.92 lack upstream hardening for project `.actrc` trust,
+workflow container options, host volumes, and the artifact server; v0.2.93 to
+v0.2.97 fix further path-containment and secret-masking advisories. Report an
+older version as a risk and propose an upgrade for approval; do not upgrade it.
+
 On Windows PowerShell, use `[Environment]::MachineName`,
 `[System.Runtime.InteropServices.RuntimeInformation]::OSDescription`,
 `[System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture`,
@@ -35,13 +40,22 @@ diagnosis, without updating it.
 
 Change to the intended repository before invoking act. Its configuration in the
 invocation directory is not necessarily the same as the directory passed via
-`--directory`. Read applicable AGENTS.md and repository act guidance first.
+`--directory`. Read the repository's agent guidance (such as AGENTS.md or
+CLAUDE.md) and any act guidance first.
 
 Act appends arguments from platform configuration, home `.actrc`, invocation
 `.actrc`, then CLI arguments. The platform file is `act/actrc` under the installed
 version's config-home rules, not always `~/.config`.
 
-For the verified act v0.2.89 / adrg/xdg v0.5.3 implementation:
+Since v0.2.92, act filters the invocation-directory `.actrc` unless
+`--trust-project-actrc` is set: it drops flags outside an allowlist and does not
+expand `$VAR` references. The allowlist still permits `--bind`, `--reuse`,
+`--platform`, `--container-architecture`, and project-local secret/env/var/input
+files, so inspect the project file as before. Until v0.2.95 a line could smuggle
+extra flags past the filter. Report project flags that act ignores; do not add
+`--trust-project-actrc` without explicit approval.
+
+For act v0.2.89 through v0.2.97, which use adrg/xdg v0.5.3:
 
 | Environment | Platform config candidate before `act/actrc` |
 | --- | --- |
@@ -143,8 +157,9 @@ require approval and a recovery plan.
 - [GitHub CLI extension](https://nektosact.com/installation/gh.html)
 - [Docker context limitation](https://nektosact.com/missing_functionality/docker_context.html)
 - [Custom container engine](https://nektosact.com/usage/custom_engine.html)
-- [Act v0.2.89 configuration/parser source](https://github.com/nektos/act/blob/v0.2.89/cmd/root.go)
-- [Its dependency versions](https://github.com/nektos/act/blob/v0.2.89/go.mod)
+- [Act v0.2.97 configuration/parser source](https://github.com/nektos/act/blob/v0.2.97/cmd/root.go)
+- [Its dependency versions](https://github.com/nektos/act/blob/v0.2.97/go.mod)
+- [Release notes, including v0.2.92 to v0.2.97 security fixes](https://github.com/nektos/act/releases)
 - [macOS config paths](https://github.com/adrg/xdg/blob/v0.5.3/paths_darwin.go)
 - [Windows config paths](https://github.com/adrg/xdg/blob/v0.5.3/paths_windows.go)
 

@@ -23,6 +23,8 @@ discovery, not automatic model selection or successful workflow execution.
 | macOS/Windows label mapped to host execution | Require explicit host-execution authority and matching prerequisites. |
 | Host has ample RAM; engine allocation lacks headroom | Assess actual engine allocation and limits; propose a bounded remedy. |
 | Empty runner mappings or configured listener during dry-run | Prevent unapproved survey writes/listeners before preview. |
+| Project `.actrc` sets ignored and allowlisted flags such as `--bind` | Report ignored flags, treat allowlisted ones like `--bind` as still needing approval, and do not add `--trust-project-actrc`. |
+| Installed act predates v0.2.92 | Flag the missing upstream hardening and propose an upgrade; do not upgrade. |
 | Missing platform config parent during help/version | Use a child-process scratch config home only when the original config is absent; preserve existing sources. |
 | Matrix selection excludes all jobs; successful exit | Report zero executed jobs, not passing assertions. |
 | Runtime is undergoing another task's restart | Wait for readiness before executing or attributing before/after changes. |
