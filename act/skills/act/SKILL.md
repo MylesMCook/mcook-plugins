@@ -55,12 +55,13 @@ preview. Do not change shared defaults to make a job pass.
 
 Normal test authorization does not authorize publication, deployment, host runner
 execution, Docker socket mounts, privileged containers, sensitive host mounts,
-credential forwarding, or access to an unapproved remote runtime. Ask only for the
+credential forwarding, trusting a project `.actrc`, or access to an unapproved
+remote runtime. Ask only for the
 specific unresolved behavior or protected action; continue independent checks.
 
 ## Preview, run, and verify
 
-1. List the selected workflow/event. Preview the selected job with `--dryrun`,
+1. Validate and list the selected workflow/event. Preview the selected job with `--dryrun`,
    using the same reviewed arguments planned for execution. Prevent first-run
    setup prompts and unapproved listeners or credential loading.
 2. Run only the inspected, authorized selection with bounded concurrency,

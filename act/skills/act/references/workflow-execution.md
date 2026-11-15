@@ -33,8 +33,9 @@ to get a local pass.
 
 Consult the installed release and [unsupported functionality](https://nektosact.com/not_supported.html)
 when a result depends on GitHub semantics. The current guide lists ignored
-workflow concurrency, job permissions, job timeouts, and environment protections,
-plus incomplete GitHub context and missing OIDC. Keep an independent process
+workflow concurrency, `run-name`, job permissions, job timeouts, job
+`continue-on-error`, environment protections, step summaries, annotations, and
+problem matchers, plus incomplete GitHub context and missing OIDC. Keep an independent process
 deadline; arrange run-specific cleanup after cancellation. A tool's output-yield
 timeout is not necessarily a process deadline.
 
@@ -44,6 +45,7 @@ Start in the repository so invocation-directory configuration is predictable.
 The following is an example shape, not a universal runner configuration:
 
 ```sh
+act -W .github/workflows/ci.yml --validate
 act workflow_dispatch -W .github/workflows/ci.yml -j test --matrix node:22 --list
 act workflow_dispatch -W .github/workflows/ci.yml -j test --matrix node:22 --dryrun
 act workflow_dispatch -W .github/workflows/ci.yml -j test --matrix node:22
@@ -61,8 +63,11 @@ preview, and execution. Confirm each flag with installed `--help`. Where needed
 for an ordinary credential-free container test, supported per-run safeguards are
 `--secret GITHUB_TOKEN=`, `--container-daemon-socket=-`, `--no-cache-server`, and
 explicit approved empty files for default secret/env/var/input loading. Preserve
-compatible existing settings. These flags do not override every workflow
-container option or make an uninspected workflow safe.
+compatible existing settings. Since v0.2.92, `--container-options-policy` defaults
+to `auto`, which restricts workflow container options and host-path volumes when
+the socket is disabled; `restrict` applies that always, and `allow` needs
+approval. Older releases lack this control. None of these flags make an
+uninspected workflow safe.
 
 Review `--env` settings such as cache URLs and artifact-server options from every
 config source. A configured artifact server needs explicit handling; disabling
@@ -101,4 +106,4 @@ integrations, native runners, and reboot persistence remain separate evidence.
 - [Selection, events, inputs, and matrices](https://nektosact.com/usage/index.html)
 - [Runner mappings and host execution](https://nektosact.com/usage/runners.html)
 - [Unsupported functionality](https://nektosact.com/not_supported.html)
-- [Act v0.2.89 initialization and dry-run ordering](https://github.com/nektos/act/blob/v0.2.89/cmd/root.go)
+- [Act v0.2.97 initialization and dry-run ordering](https://github.com/nektos/act/blob/v0.2.97/cmd/root.go)
