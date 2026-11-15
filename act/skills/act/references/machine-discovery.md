@@ -47,10 +47,12 @@ Act appends arguments from platform configuration, home `.actrc`, invocation
 `.actrc`, then CLI arguments. The platform file is `act/actrc` under the installed
 version's config-home rules, not always `~/.config`.
 
-Since v0.2.92, act treats the invocation-directory `.actrc` as untrusted: without
-`--trust-project-actrc` it may only set flags that do not reach host resources,
-and `$VAR` references in it are not expanded. Since v0.2.95 each project line
-holds one flag. Report project flags that act ignores; do not add
+Since v0.2.92, act filters the invocation-directory `.actrc` unless
+`--trust-project-actrc` is set: it drops flags outside an allowlist and does not
+expand `$VAR` references. The allowlist still permits `--bind`, `--reuse`,
+`--platform`, `--container-architecture`, and project-local secret/env/var/input
+files, so inspect the project file as before. Until v0.2.95 a line could smuggle
+extra flags past the filter. Report project flags that act ignores; do not add
 `--trust-project-actrc` without explicit approval.
 
 For act v0.2.89 through v0.2.97, which use adrg/xdg v0.5.3:
