@@ -1,6 +1,6 @@
 # Tailscale API
 
-The Tailscale REST API automates device management, DNS, access control, logging, and user lifecycle. The full endpoint reference lives at one canonical doc page (linked below) — **WebFetch it for the current shape of any endpoint** before scripting against it.
+The Tailscale REST API automates device management, DNS, access control, logging, and user lifecycle. The full endpoint reference lives at one canonical doc page (linked below) — **Fetch it for the current shape of any endpoint** before scripting against it.
 
 > The API surface is large and adds/changes endpoints over time. Treat the inline examples as orientation. For exact request/response shapes, query parameters, and field names, fetch the reference page.
 

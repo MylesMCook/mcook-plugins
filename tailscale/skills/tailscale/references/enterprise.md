@@ -2,7 +2,7 @@
 
 This reference covers the patterns Tailscale is used for at organizational scale: VPN replacement, ephemeral CI/CD access, site-to-site networking, app connectors, auth-key automation, and Terraform-as-code.
 
-> Several of these topics have their own dedicated docs trees and change independently. The shapes below are stable; **WebFetch the matching page** for current OAuth scope names, flag defaults, Terraform resource fields, and platform-specific architecture guidance before applying configuration.
+> Several of these topics have their own dedicated docs trees and change independently. The shapes below are stable; **Fetch the matching page** for current OAuth scope names, flag defaults, Terraform resource fields, and platform-specific architecture guidance before applying configuration.
 
 ## Mental model
 

@@ -2,11 +2,13 @@
 name: tailscale
 description: >-
   Explain, configure, and troubleshoot Tailscale and its product family using
-  official documentation. Covers tailnet connectivity, exit nodes, subnet
-  routers, grants and ACLs, SSH, MagicDNS, Serve and Funnel, Docker and the
-  Kubernetes operator, device management, session recording, Aperture, Border0,
-  and Go applications built with tsnet. Use for explicit Tailscale questions
-  or requests clearly involving an existing tailnet or Tailscale product.
+  current official documentation. Covers tailnet connectivity, exit nodes,
+  subnet routers, grants and ACLs, SSH, MagicDNS, Serve, Funnel, and Tailscale
+  Services, route selection, Docker and the Kubernetes operator, device
+  management, credentials and tsidp, session recording, Aperture, Tailscale PAM
+  (formerly Border0), and Go applications built with tsnet. Use for explicit
+  Tailscale questions or requests clearly involving an existing tailnet or
+  Tailscale product.
 ---
 
 # Tailscale
@@ -25,21 +27,38 @@ public exposure, policy or credential changes, and destructive operations unless
 that exact action is already authorized. Preserve a rollback and remote-access
 fallback before applying an approved change. Keep secrets out of chat and logs.
 
-Verify concrete commands with local help and current official documentation;
-bundled examples are an upstream alpha snapshot, not a guarantee of current syntax.
-`WebFetch` below means the environment's available documentation retrieval tool,
-not a required tool name. If live documentation is unavailable, label advice as
-unverified and do not apply uncertain configuration.
+## Get current facts first
+
+Tailscale ships changes every few weeks, renames products, and moves pages. The
+bundled references are a map and a mental model, reviewed on the date at the top of
+`references/docs-map.md`. They are not proof of current syntax, prices, plan
+availability, or release stage.
+
+For any concrete command, policy key, CRD field, API scope, or UI path:
+
+1. On the user's device, check `tailscale version` and local
+   `tailscale help <subcommand>` before suggesting flags.
+2. Read the live official page as Markdown by appending `.md` to its
+   `tailscale.com/docs/...` URL, using the environment's web fetch capability.
+   Note its "Last validated" date and any alpha or beta label.
+3. If no reference names the page, find it in `https://tailscale.com/docs/llms.txt`,
+   or use Tailscale's documentation search MCP server if the user has added it.
+4. When a page is deprecated, redirected, or contradicts a reference, follow the
+   live page and say what changed.
+
+`references/docs-map.md` lists the retrieval order, section roots, and every
+feature page. If live documentation is unavailable, answer from the references,
+label the advice as unverified against current docs, name the page to check,
+and do not apply uncertain configuration.
 
 ## How references work
 
-References fall into two shapes depending on what the skill needs to do for the user.
-
-**Descriptive references** (most files — `aperture.md`, `containers.md`, `enterprise.md`, `device-management.md`, `session-recording.md`, `api.md`, `tsnet.md`) help you *describe* a topic to a user: explain it, draft configuration, recommend an approach. These use a hybrid layout — stable mental model and load-bearing configuration shapes inline, plus a curated list of canonical `tailscale.com/docs/...` URLs to **WebFetch for current detail**. Follow the in-file instructions about when to fetch. When WebFetch is available, prefer the live page over the inline summary for specifics (configuration keys, environment variables, supported models, pricing). When WebFetch is unavailable, answer from inline content and tell the user which doc page to consult.
-
-**Operational references** (currently `cli.md`) help you *operate* a tool on the user's machine — the agent may invoke commands within the authorized scope. These keep concrete command/flag content inline because wrong flags break real systems. The fallback is *local*, not network: run `tailscale help <subcommand>` to verify a flag before suggesting it. The canonical docs URL is the second fallback, for when the tool isn't installed.
-
-The remaining references (`access-control.md`, `common-tasks.md`, `connectivity.md`, `exit-nodes.md`, `installation.md`, `subnet-routers.md`) are smaller and self-contained — read the file, answer the question.
+Most references give a stable mental model, load-bearing configuration shapes,
+and a table of canonical pages to fetch for detail. `cli.md` is operational:
+it keeps commands inline, and local `tailscale help` is its first check.
+The smaller files (`access-control.md`, `common-tasks.md`, `exit-nodes.md`,
+`installation.md`, `subnet-routers.md`) are self-contained; still verify
+version-specific details live.
 
 ## Core concepts
 
@@ -101,7 +120,7 @@ Need to lock down access?
 ├─ Access only when it's needed, not standing admin rights → references/access-control.md
 ├─ A break-glass path for emergencies → references/access-control.md
 ├─ Record SSH or kubectl sessions → references/session-recording.md
-├─ Govern privileged access to servers, databases, and clusters (PAM) → references/border0.md
+├─ Govern privileged access to servers, databases, and clusters (PAM) → references/pam.md
 └─ Reach the Kubernetes API server → references/containers.md
 ```
 
@@ -124,6 +143,7 @@ Need to share or open something up?
 ├─ Send a file to someone's device → references/sharing-and-publishing.md (Taildrop)
 ├─ Keep a folder synced across my devices → references/sharing-and-publishing.md (Taildrive)
 ├─ Let a teammate reach an app on my laptop → references/sharing-and-publishing.md (Serve)
+├─ Give an internal app one stable name across several hosts → references/services-and-routing.md
 └─ Put an app on the public internet → references/sharing-and-publishing.md (Funnel)
 ```
 
@@ -193,7 +213,8 @@ Need everyone connected through SSO?
 ├─ Provision users from our identity provider (SSO, SCIM) → references/device-management.md
 ├─ Push Tailscale to managed devices (Jamf, Intune) → references/device-management.md
 ├─ Require posture or approval before connecting → references/device-management.md
-└─ Automate nodes (auth keys, ephemeral nodes, Terraform) → references/enterprise.md
+├─ Automate nodes (auth keys, ephemeral nodes, Terraform) → references/enterprise.md
+└─ Pick an API credential or add "Log in with Tailscale" (tsidp) → references/identity-and-credentials.md
 ```
 
 ### "I'm building an app that needs to reach private resources securely"
@@ -220,6 +241,8 @@ Read the reference file that matches the user's question. Each file is self-cont
 | Access control | `references/access-control.md` | Grants, ACLs, tags, groups, policy file structure |
 | Connectivity | `references/connectivity.md` | Peer relay, DERP servers, NAT traversal, tailnet lock, connection types |
 | Common tasks | `references/common-tasks.md` | Tailscale SSH, MagicDNS, auth keys, key expiry |
+| Services and route selection | `references/services-and-routing.md` | Tailscale Services (stable names across hosts), MagicRoute, regional routing, failover among subnet routers, app connectors, and Service hosts |
+| Identity and credentials | `references/identity-and-credentials.md` | Auth keys vs. trust credentials (OAuth clients, workload identity federation), OAuth apps, API tokens, tsidp |
 
 ### Sharing & publishing
 
@@ -240,7 +263,7 @@ Read the reference file that matches the user's question. Each file is self-cont
 | Enterprise patterns | `references/enterprise.md` | VPN replacement, infrastructure access, ephemeral nodes, CI/CD integration (GitHub Actions), site-to-site networking, app connectors, auth keys for automation, Terraform provider |
 | Device management | `references/device-management.md` | Device approval, device posture, MDM deployment, SCIM user/group provisioning, bulk device operations, enterprise rollout |
 | Session recording | `references/session-recording.md` | tsrecorder setup, SSH session recording, S3 storage, Kubernetes kubectl recording, API request recording, failover, audit compliance |
-| Border0 (PAM) | `references/border0.md` | Privileged access management, application-aware access, just-in-time access, session recording for SSH/Kubernetes/RDP/VNC/databases, connectors and sockets, credential elimination |
+| Tailscale PAM (formerly Border0) | `references/pam.md` | Privileged access management, application-aware access, just-in-time access, session recording for SSH/Kubernetes/RDP/VNC/databases, PAM connectors and services, credential elimination |
 
 ### Building on Tailscale
 
@@ -260,6 +283,7 @@ Read the reference file that matches the user's question. Each file is self-cont
 |-------|---------------|--------------|
 | CLI | `references/cli.md` | Tailscale CLI commands, flags, serve/funnel, file transfer, diagnostics, tailnet lock |
 | API | `references/api.md` | Tailscale REST API, authentication, device management, DNS, policy file, webhooks |
+| Documentation map | `references/docs-map.md` | Finding the current official page, retrieval order, section roots, all feature pages |
 | Error & status messages | `references/error-messages.md` | Looking up a specific client or admin-console error/status message (DERP relay, DNS, SSH/SELinux, Docker, Windows, SSO, billing) and its fix |
 
 ## CLI quick reference

@@ -2,7 +2,7 @@
 
 This reference covers device approval, **device posture** (compliance-based access), **MDM** deployment, and **SCIM** user/group provisioning. These are the controls used at organizational scale to decide who and what is allowed on the tailnet.
 
-> Several of these areas have their own doc trees with per-vendor integration pages (MDM vendors, EDR/posture integrations, identity providers). The shapes below are stable; **WebFetch the matching page** for current attribute names, vendor configuration steps, and plan availability before applying configuration.
+> Several of these areas have their own doc trees with per-vendor integration pages (MDM vendors, EDR/posture integrations, identity providers). The shapes below are stable; **Fetch the matching page** for current attribute names, vendor configuration steps, and plan availability before applying configuration.
 
 ## Mental model
 

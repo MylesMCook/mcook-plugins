@@ -1,0 +1,26 @@
+name: Tailscale docs freshness
+
+on:
+  schedule:
+    - cron: "41 13 * * 1"
+  workflow_dispatch:
+  push:
+    paths:
+      - 'tailscale/**'
+      - 'scripts/tests/test_tailscale_freshness.py'
+      - '.github/workflows/tailscale-freshness.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  freshness:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - name: Offline checker and skill invariants
+        run: python3 -m unittest scripts/tests/test_tailscale_freshness.py -v
+      - name: Compare skill against live Tailscale docs and upstream skill
+        run: python3 tailscale/scripts/check_freshness.py

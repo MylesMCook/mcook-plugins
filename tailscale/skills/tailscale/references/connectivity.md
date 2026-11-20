@@ -2,7 +2,7 @@
 
 This reference covers how Tailscale connections are established (direct vs relayed), the DERP network, peer relays (user-operated relays), and Tailnet Lock (cryptographic node signing).
 
-> The Tailscale connection model is stable, but the specifics — peer-relay flags, DERP regions list, Tailnet Lock CLI subcommands — evolve. The shapes below are oriented toward the **why** and the **what to configure**; **WebFetch the matching page** for current flag names, region IDs, and step-by-step Tailnet Lock setup.
+> The Tailscale connection model is stable, but the specifics — peer-relay flags, DERP regions list, Tailnet Lock CLI subcommands — evolve. The shapes below are oriented toward the **why** and the **what to configure**; **Fetch the matching page** for current flag names, region IDs, and step-by-step Tailnet Lock setup.
 
 ## Mental model
 
@@ -160,7 +160,7 @@ Restrict who can reach these with tailnet policy. For example, allow only specif
 
 ### Connectivity troubleshooting
 
-The troubleshooting docs are organized as a hub with per-platform and per-topic sections. Start at the section that matches the user's symptom, or the hub if unsure, then WebFetch the specific page.
+The troubleshooting docs are organized as a hub with per-platform and per-topic sections. Start at the section that matches the user's symptom, or the hub if unsure, then fetch the specific page.
 
 | If the user is troubleshooting… | Fetch |
 |---|---|

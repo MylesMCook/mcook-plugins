@@ -1,6 +1,6 @@
 # Error and status messages
 
-Tailscale publishes a documentation page for many of the specific error and status messages a user can hit, in the client (the app or daemon on a device) and in the admin console. When a user quotes a message or a health-check warning, match it to the row below and WebFetch that page for the cause and fix. This is usually faster than diagnosing from scratch.
+Tailscale publishes a documentation page for many of the specific error and status messages a user can hit, in the client (the app or daemon on a device) and in the admin console. When a user quotes a message or a health-check warning, match it to the row below and fetch that page for the cause and fix. This is usually faster than diagnosing from scratch.
 
 Two groups: **client messages** (surfaced by the Tailscale app, `tailscale` CLI, or `tailscaled` on a device) and **console messages** (surfaced in the admin console during sign-in or administration).
 
@@ -47,6 +47,6 @@ Hub (fetch when no row matches, or to browse the current set): https://tailscale
 ## Answering pattern
 
 1. Match the user's quoted message or health warning to a row. If they paraphrase, match on the symptom (for example "it says something about a relay server" maps to the DERP rows).
-2. WebFetch the matching page and give the cause and fix from that page.
-3. If nothing matches, WebFetch the hub to check the current set, since Tailscale adds message pages over time.
+2. Fetch the matching page and give the cause and fix from that page.
+3. If nothing matches, fetch the hub to check the current set, since Tailscale adds message pages over time.
 4. For broader connectivity or platform problems that are not a specific named message, use `references/connectivity.md` (troubleshooting hub and sections) instead.

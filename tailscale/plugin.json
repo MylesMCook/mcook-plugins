@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "tailscale",
-  "version": "0.1.1",
-  "description": "Explain, configure, and troubleshoot Tailscale using its upstream skill, focused references, and current official documentation.",
+  "version": "0.2.0",
+  "description": "Explain, configure, and troubleshoot Tailscale from current official docs, with a weekly check for doc and product drift.",
   "author": {
     "name": "Myles Cook",
     "url": "https://github.com/MylesMCook"
@@ -23,7 +23,7 @@
       "interface": {
         "displayName": "Tailscale",
         "shortDescription": "Configure and troubleshoot Tailscale.",
-        "longDescription": "One adapted Tailscale upstream skill with 17 focused references covering tailnet networking, access controls, containers, device management, Aperture, and tsnet. Uses current documentation and local CLI help before applying authorized changes.",
+        "longDescription": "Explain, configure, and troubleshoot Tailscale with a docs-first skill: local CLI help and live official pages before bundled examples, plus references for networking, access control, Services and routing, credentials, containers, Aperture, Tailscale PAM, and tsnet.",
         "developerName": "Myles Cook",
         "category": "Developer Tools",
         "capabilities": [

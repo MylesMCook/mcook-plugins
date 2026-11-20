@@ -1,15 +1,15 @@
 # Aperture by Tailscale
 
-Aperture is a centralized AI gateway that sits between LLM clients (coding agents, apps, scripts) and upstream providers (OpenAI, Anthropic, Google, Bedrock, Vertex, OpenRouter, and others.). It gives an organization one control point for API keys, access control, spending limits, telemetry, and audit.
+Aperture is a centralized AI gateway that sits between LLM clients (coding agents, apps, scripts) and upstream providers (OpenAI, Anthropic, Google, Bedrock, Vertex, OpenRouter, and others). It gives an organization one control point for API keys, access control, spending limits, telemetry, and audit. Tailscale now also presents Aperture as an AI agent and chat interface that works with machines in the tailnet, with connectors, a code sandbox, shared skills, and token purchasing on top of the gateway. Check the overview page for the current product shape before describing it.
 
-> **Aperture is in beta and its docs change frequently.** Treat the snippets below as orientation only. For any concrete answer — provider settings, environment variables, configuration keys, supported features, model names — **WebFetch the matching docs page** from the table below before responding. Do not rely on memory for specifics.
+> **Aperture is in beta and its docs change frequently.** Treat the snippets below as orientation only. For any concrete answer — provider settings, environment variables, configuration keys, supported features, model names — **Fetch the matching docs page** from the table below before responding. Do not rely on memory for specifics.
 
 ## Mental model (stable)
 
 Four mechanisms, useful for reasoning about behavior even when specifics change:
 
 1. **Identity** — every connection is identified by its Tailscale identity (user email or device tag). No separate API keys for end-users.
-2. **Routing** — clients name a model (`claude-sonnet-4-6`); Aperture looks up which provider serves it, injects upstream credentials, and forwards.
+2. **Routing** — clients name a model (or a model alias); Aperture looks up which provider serves it, injects upstream credentials, and forwards.
 3. **Telemetry** — full request/response, token counts, duration, tool use, and session captured asynchronously after the response.
 4. **Session tracking** — related requests grouped into sessions; client session IDs (Claude Code, Codex) auto-detected.
 
@@ -17,7 +17,7 @@ Aperture is **deny-by-default**: without a matching grant, nothing is allowed.
 
 ## Canonical shapes (verify exact fields against live docs)
 
-These configuration skeletons drift in field names and values but not in shape. Use them as a sketch; **WebFetch the relevant page below for the current keys** before committing configuration changes.
+These configuration skeletons drift in field names and values but not in shape. Use them as a sketch; **Fetch the relevant page below for the current keys** before committing configuration changes.
 
 **A grant.** Grants live in *either* the Aperture configuration *or* the tailnet policy file — the two forms use the same `tailscale.com/cap/aperture` capability but are **not interchangeable as written**. The only difference is the `dst` field: Aperture configuration grants **omit** `dst` (the destination is implicitly the Aperture instance); tailnet policy file grants **require** `dst` targeting the Aperture device (for example `["tag:aperture"]`).
 
@@ -90,7 +90,7 @@ The hostname `ai` resolves via MagicDNS — if it doesn't, MagicDNS is off. Use 
 
 ## Where to find current information — fetch these
 
-Always WebFetch the page that matches the user's question. The Aperture index is the fallback when a topic isn't listed here.
+Always fetch the page that matches the user's question. The Aperture index is the fallback when a topic isn't listed here.
 
 | User is asking about… | Fetch |
 |---|---|
@@ -150,6 +150,13 @@ Always WebFetch the page that matches the user's question. The Aperture index is
 | Chat sandbox — overview (isolated code execution) | https://tailscale.com/docs/aperture/chat-sandbox |
 | Chat sandbox — enable | https://tailscale.com/docs/aperture/how-to/enable-sandbox |
 | Chat sandbox — manage | https://tailscale.com/docs/aperture/how-to/manage-sandbox |
+| Model aliases | https://tailscale.com/docs/aperture/model-aliases |
+| Chat (web interface, connected tools, own usage) | https://tailscale.com/docs/aperture/chat |
+| Skills shared through Aperture (Chat and MCP clients) | https://tailscale.com/docs/aperture/skills |
+| Buying tokens through Aperture | https://tailscale.com/docs/aperture/buy-tokens-through-aperture |
+| Privacy, retention, decommissioning | https://tailscale.com/docs/aperture/privacy-and-data-retention |
+| How Aperture grants resolve | https://tailscale.com/docs/aperture/how-grants-work |
+| Reduce token spend (tsheadroom) | https://tailscale.com/docs/solutions/reduce-aperture-token-costs-with-tsheadroom |
 | Dashboard UI | https://tailscale.com/docs/aperture/reference/dashboard |
 | Admin dashboard | https://tailscale.com/docs/aperture/reference/dashboard-admin |
 | Reference index | https://tailscale.com/docs/aperture/reference |
@@ -167,7 +174,7 @@ Always WebFetch the page that matches the user's question. The Aperture index is
 ## Answering pattern
 
 1. Read the user's question and match it to a row above (or to the Aperture index).
-2. WebFetch that page.
+2. Fetch that page.
 3. Answer from the fetched content. Quote configuration keys, environment variables, model names, and prices verbatim from the page — these are exactly the values that drift.
 4. If the fetched page references a related topic the user might need, mention it and fetch on a follow-up.
 

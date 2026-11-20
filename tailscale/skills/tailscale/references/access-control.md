@@ -8,7 +8,7 @@ Tailscale uses a deny-by-default model — all connections between devices are b
 
 The grant-vs-ACL choice only applies to **access rules**. Several other policy-file sections have their own dedicated syntax and aren't expressed as grants: `"ssh"` (SSH access rules), `"autoApprovers"` (auto-approving advertised routes and exit nodes), `"nodeAttrs"` (node-level attributes like Funnel), `"postures"` (device posture definitions, referenced from grants via `srcPosture`), and the `"groups"`/`"tagOwners"` definitions.
 
-**Canonical reference:** https://tailscale.com/docs/reference/grants-vs-acls — WebFetch this when you need the current side-by-side comparison, migration guidance, or the most up-to-date list of capability schemas. The summary here is enough to write a basic grant; reach for the live doc when the user needs the full conversion table or a capability you haven't seen before.
+**Canonical reference:** https://tailscale.com/docs/reference/grants-vs-acls — fetch this when you need the current side-by-side comparison, migration guidance, or the most up-to-date list of capability schemas. The summary here is enough to write a basic grant; reach for the live doc when the user needs the full conversion table or a capability you haven't seen before.
 
 ### ACL → grant conversion
 
@@ -101,7 +101,7 @@ Each grant specifies source, destination, and allowed capabilities:
 
 Note: SSH access is **not** controlled via grants capabilities. SSH rules are defined in the separate top-level `"ssh"` section of the policy file.
 
-When a grant doesn't behave as expected (access denied that should be allowed, or the reverse), WebFetch the grants troubleshooting page: https://tailscale.com/docs/reference/troubleshooting/grants
+When a grant doesn't behave as expected (access denied that should be allowed, or the reverse), fetch the grants troubleshooting page: https://tailscale.com/docs/reference/troubleshooting/grants
 
 ### ACLs (legacy — read-only)
 

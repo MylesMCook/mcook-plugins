@@ -2,7 +2,7 @@
 
 Tailscale runs inside containers via the `tailscale/tailscale` image, and inside Kubernetes via the Tailscale Operator. Both let containers/pods join your tailnet for secure access without exposing public ports.
 
-> The **Kubernetes operator** docs live in their own sub-trees under `/docs/kubernetes-operator/`. The shapes below are stable; **WebFetch the matching page** for current CRD fields, annotations, OAuth scope names, and supported versions before committing configuration.
+> The **Kubernetes operator** docs live in their own sub-trees under `/docs/kubernetes-operator/`. The shapes below are stable; **Fetch the matching page** for current CRD fields, annotations, OAuth scope names, and supported versions before committing configuration.
 
 ## Docker
 
@@ -242,4 +242,4 @@ spec:
 
 For Docker: the inline patterns are usually enough. Fetch the docs only when the user needs a specific environment variable, image variant, or platform-specific quirk.
 
-For Kubernetes: the operator surface is large and reorganized recently. Match the user's question to a row above, WebFetch that page, and quote CRD fields, annotation names, and Helm values verbatim from the fetched content. Don't invent CRD fields from memory — they change.
+For Kubernetes: the operator surface is large and reorganized recently. Match the user's question to a row above, fetch that page, and quote CRD fields, annotation names, and Helm values verbatim from the fetched content. Don't invent CRD fields from memory — they change.

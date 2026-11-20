@@ -133,7 +133,7 @@
     },
     {
       "name": "tailscale",
-      "description": "Explain, configure, and troubleshoot Tailscale using its upstream skill, focused references, and current official documentation.",
+      "description": "Explain, configure, and troubleshoot Tailscale from current official docs, with a weekly check for doc and product drift.",
       "source": "./tailscale",
       "category": "Developer Tools"
     },

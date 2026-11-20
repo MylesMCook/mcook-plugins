@@ -7,9 +7,9 @@ Tailscale records two kinds of sessions to a **`tsrecorder`** node in your tailn
 
 Both ride on the same recorder image. Output is written in `asciinema` format (`.cast`, newline-delimited JSON — grep-able and replayable).
 
-> **Recording more than SSH/`kubectl`?** `tsrecorder` covers Tailscale SSH and `kubectl` sessions. For RDP, VNC, or database session recording, or full privileged-access-management (JIT access, approvals, credential elimination), refer to [Border0 by Tailscale](border0.md). For SSH/`kubectl` recording today, `tsrecorder` is the established path.
+> **Recording more than SSH/`kubectl`?** `tsrecorder` covers Tailscale SSH and `kubectl` sessions. For RDP, VNC, or database session recording, or full privileged-access-management (JIT access, approvals, credential elimination), refer to [Tailscale PAM](pam.md) (formerly Border0). For SSH/`kubectl` recording today, `tsrecorder` is the established path.
 
-> The Kubernetes recorder docs live under `/docs/kubernetes-operator/recorder/` **WebFetch the matching page** for current CRD fields, flag names, and IAM/IRSA specifics before applying configuration.
+> The Kubernetes recorder docs live under `/docs/kubernetes-operator/recorder/` **Fetch the matching page** for current CRD fields, flag names, and IAM/IRSA specifics before applying configuration.
 
 ## Mental model
 
@@ -137,4 +137,4 @@ In the tailnet policy file, via a Kubernetes capability grant:
 
 ## Answering pattern
 
-The inline shapes above are usually enough to answer "how do I turn this on" questions. For specifics that drift — IAM policy JSON, full `tsrecorder` flag list, S3-compatible backend quirks (R2's `S3_SEND_CONTENT_MD5`, GCS `interop` keys), or the latest `Recorder` CRD fields (IRSA annotations, `statefulSet` overrides). WebFetch the matching page and quote field names and flags verbatim from the fetched content.
+The inline shapes above are usually enough to answer "how do I turn this on" questions. For specifics that drift — IAM policy JSON, full `tsrecorder` flag list, S3-compatible backend quirks (R2's `S3_SEND_CONTENT_MD5`, GCS `interop` keys), or the latest `Recorder` CRD fields (IRSA annotations, `statefulSet` overrides). Fetch the matching page and quote field names and flags verbatim from the fetched content.
