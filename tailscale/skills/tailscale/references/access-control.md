@@ -183,4 +183,4 @@ Combine these with grants and groups to keep standing privilege minimal and requ
 |---|---|
 | Stop handing out standing admin access and grant elevated access only when needed | https://tailscale.com/docs/features/access-control/just-in-time-access |
 | Add an approval step (for example in Slack) before someone gets elevated access | https://tailscale.com/docs/features/tailscale-accessbot-jit |
-| Lock down production access to least-privilege for a compliance audit | https://tailscale.com/docs/use-cases/infrastructure-access/manage-least-priviledged-and-jit-access |
+| Lock down production access to least-privilege for a compliance audit | https://tailscale.com/docs/use-cases/infrastructure-access/manage-least-privileged-and-jit-access |

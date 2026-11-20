@@ -10,7 +10,8 @@
   and a documentation map covering every docs section and feature page.
 - Add newer Aperture pages (chat, skills, model aliases, token purchasing).
 - Replace host-specific tool names with host-neutral wording.
-- Add `scripts/check_freshness.py` and a weekly freshness workflow.
+- Add `scripts/check_freshness.py` and a weekly freshness workflow; its first
+  run found five dead upstream links, now fixed.
 
 ## 0.1.1 - 2026-11-08
 

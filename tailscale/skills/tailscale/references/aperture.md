@@ -103,8 +103,8 @@ Always fetch the page that matches the user's question. The Aperture index is th
 | Specific provider — Anthropic | https://tailscale.com/docs/aperture/how-to/use-anthropic |
 | Specific provider — OpenAI | https://tailscale.com/docs/aperture/how-to/use-openai |
 | Specific provider — Bedrock | https://tailscale.com/docs/aperture/how-to/use-amazon-bedrock |
-| Specific provider — Vertex AI | https://tailscale.com/docs/aperture/how-to/use-vertex-ai |
-| Specific provider — Vertex AI Express | https://tailscale.com/docs/aperture/how-to/use-vertex-ai-express |
+| Specific provider — Gemini Enterprise Agent Platform (Google Cloud) | https://tailscale.com/docs/aperture/how-to/use-gemini-enterprise-agent-platform |
+| Passthrough mode (forward each client's own credential) | https://tailscale.com/docs/aperture/how-to/use-passthrough-mode |
 | Specific provider — Gemini | https://tailscale.com/docs/aperture/how-to/use-google-gemini |
 | Specific provider — Microsoft Foundry (Azure OpenAI + Anthropic) | https://tailscale.com/docs/aperture/how-to/use-microsoft-foundry |
 | Specific provider — OpenRouter | https://tailscale.com/docs/aperture/how-to/use-openrouter |
@@ -114,6 +114,7 @@ Always fetch the page that matches the user's question. The Aperture index is th
 | Coding agents — overview | https://tailscale.com/docs/aperture/use-your-tools |
 | Coding agents — Claude Code | https://tailscale.com/docs/aperture/how-to/use-claude-code |
 | Coding agents — Claude Code GitHub Action | https://tailscale.com/docs/aperture/how-to/use-claude-code-action |
+| Claude Desktop | https://tailscale.com/docs/aperture/how-to/use-claude-desktop |
 | Coding agents — Codex | https://tailscale.com/docs/aperture/how-to/use-codex |
 | Coding agents — OpenCode | https://tailscale.com/docs/aperture/how-to/use-opencode |
 | Aperture CLI (discover/configure/launch agents, bridges, additional agents like Gemini CLI, GitHub Copilot, Claude Cowork) | https://tailscale.com/docs/aperture/cli |
@@ -157,7 +158,6 @@ Always fetch the page that matches the user's question. The Aperture index is th
 | Privacy, retention, decommissioning | https://tailscale.com/docs/aperture/privacy-and-data-retention |
 | How Aperture grants resolve | https://tailscale.com/docs/aperture/how-grants-work |
 | Reduce token spend (tsheadroom) | https://tailscale.com/docs/solutions/reduce-aperture-token-costs-with-tsheadroom |
-| Dashboard UI | https://tailscale.com/docs/aperture/reference/dashboard |
 | Admin dashboard | https://tailscale.com/docs/aperture/reference/dashboard-admin |
 | Reference index | https://tailscale.com/docs/aperture/reference |
 | How-to index | https://tailscale.com/docs/aperture/how-to |

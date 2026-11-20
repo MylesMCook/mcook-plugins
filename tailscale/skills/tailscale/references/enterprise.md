@@ -107,7 +107,7 @@ OAuth clients are tag-scoped credentials that mint short-lived auth keys. Used b
 | GitHub Codespaces integration | https://tailscale.com/docs/integrations/github/github-codespaces |
 | GitOps with Tailscale | https://tailscale.com/docs/integrations/github/gitops |
 | GitHub as identity provider | https://tailscale.com/docs/integrations/identity/github |
-| CI/CD recipe — connect Actions to private infra | https://tailscale.com/docs/solutions/connect-github-CICD-workflows-to-private-infrastructure-without-public-exposure |
+| CI/CD recipe — connect Actions to private infra | https://tailscale.com/docs/solutions/connect-github-cicd-workflows-to-private-infrastructure-without-public-exposure |
 | Terraform provider | https://tailscale.com/docs/integrations/terraform-provider |
 | Site-to-site overview | https://tailscale.com/docs/features/site-to-site |
 | Site-to-site via subnet routers (reference doc) | https://tailscale.com/docs/reference/subnet-site-to-site |
