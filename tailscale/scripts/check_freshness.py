@@ -19,6 +19,7 @@ import concurrent.futures
 import re
 import subprocess
 import sys
+import time
 import urllib.error
 import urllib.request
 from pathlib import Path
@@ -79,18 +80,27 @@ def is_deprecated(body: str) -> bool:
     return any(marker in head for marker in DEPRECATION_MARKERS)
 
 
-def fetch(url: str, timeout: float = 30.0) -> tuple[int, str, str]:
+def fetch(url: str, timeout: float = 30.0, attempts: int = 3) -> tuple[int, str, str]:
+    """Return (status, final URL, body). Status 0 means the network failed."""
     request = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
-    try:
-        with urllib.request.urlopen(request, timeout=timeout) as response:
-            body = response.read().decode("utf-8", "replace")
-            return response.status, response.geturl(), body
-    except urllib.error.HTTPError as error:
-        return error.code, url, ""
+    for attempt in range(attempts):
+        try:
+            with urllib.request.urlopen(request, timeout=timeout) as response:
+                body = response.read().decode("utf-8", "replace")
+                return response.status, response.geturl(), body
+        except urllib.error.HTTPError as error:
+            if error.code < 500 and error.code != 429:
+                return error.code, url, ""
+        except (urllib.error.URLError, OSError):
+            pass
+        time.sleep(2 * (attempt + 1))
+    return 0, url, ""
 
 
 def check_url(url: str) -> str | None:
     status, final, body = fetch(url + ".md")
+    if status == 0:
+        return "unreachable after retries"
     if status != 200:
         return f"HTTP {status}"
     if normalize(final) != url:
@@ -116,7 +126,7 @@ def upstream_drift() -> str | None:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    parser.add_argument("--workers", type=int, default=8)
+    parser.add_argument("--workers", type=int, default=4)
     args = parser.parse_args()
 
     problems: list[str] = []
