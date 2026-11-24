@@ -1,6 +1,6 @@
 # Third-party notices
 
-The bundled Windows executable is Fabric MCP Server 1.11.0. Its own source uses
+The bundled Windows executable is Fabric MCP Server 1.12.0. Its own source uses
 the [ISC license](LICENSE); that license does not replace the terms of linked
 third-party components.
 
@@ -10,9 +10,9 @@ conservative: it includes build, development, and other-platform dependencies in
 addition to the Windows runtime dependencies. Inclusion is not a claim that every
 listed component is linked into the executable.
 
-- Source release: [v1.11.0](https://github.com/MylesMCook/fabric-mcp/tree/3aab1b566986eed4e36fbcca67eab0150863a269), commit `3aab1b566986eed4e36fbcca67eab0150863a269`.
+- Source release: [v1.12.0](https://github.com/MylesMCook/fabric-mcp/tree/1714fe5a3f3b61a23763a71bf27f9059552bd81b), commit `1714fe5a3f3b61a23763a71bf27f9059552bd81b`.
 - Executable SHA-256: `a6c8d0c111a9601911b14138439503fc096f3a656f511edb2f89e3c92dc11eab`.
-- The v1.11.0 Cargo.lock lists the same 231 registry packages at the same versions and checksums as v1.10.0; only this crate's own version changed. The crate notices below were verified for v1.10.0 and carry forward unchanged. The Rust 1.95.0 toolchain is unchanged.
+- The v1.12.0 Cargo.lock lists the same 231 registry packages at the same versions and checksums as v1.10.0 and v1.11.0; only this crate's own version changed. The crate notices below were verified for v1.10.0 and carry forward unchanged. The Rust 1.95.0 toolchain is unchanged.
 - [Preserved Cargo.lock](third-party-licenses/Cargo.lock).
 - [Machine-readable provenance, crate archive checksums, file hashes, and coverage](third-party-licenses/manifest.json).
 - Every one of the 231 registry archives was verified against its release-lockfile SHA-256 before any notice was copied. No crate build scripts or code were executed.

@@ -42,6 +42,14 @@ or copied server when the bundled server is unavailable.
   `status: Running`, check `fabric_get_operation_state`, then call it again with
   the `operation_id`. Its `definition_sha256` is not accepted by the notebook or
   pipeline guarded edit tools; use their own read tools for those.
+- To read table data in a Lakehouse or Warehouse, use
+  `fabric_query_sql_endpoint` with one bounded `SELECT` (`TOP`, a filter or an
+  aggregate). List tables with `INFORMATION_SCHEMA.TABLES`. Do not fetch a SQL
+  token and script SqlClient or sqlcmd yourself.
+- For a Fabric read no typed tool covers (environments, SQL databases, job
+  instances of any item), find the operation with `fabric_get_api_doc`, then
+  call `fabric_api_get`. Do not call the Fabric REST API through `az rest` or
+  `Invoke-RestMethod`.
 - Power BI: resolve the dataset, report, or gateway before reading refreshes,
   data sources, status, or executing DAX.
 - Power Automate: resolve the environment and flow before inspecting the

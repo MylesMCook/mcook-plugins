@@ -1,5 +1,20 @@
 # Changelog
 
+## 1.12.0 - 2026-11-24
+
+- Add `fabric_query_sql_endpoint`: one read-only T-SQL `SELECT` against a Lakehouse SQL
+  endpoint or Warehouse, through Fabric's hosted SQL endpoint MCP with the Azure CLI token.
+  A local guard rejects writes, `EXEC`, `SELECT INTO`, `OPENROWSET`, multiple
+  statements, nested comments and numbers glued to words before any network call. Rows and bytes are capped locally; results over
+  8 MiB are refused. Opt-in with `FABRIC_MCP_ENABLE_SQL=true`, which the plugin package sets.
+- Add `fabric_api_get`: one page of any non-admin Fabric REST GET, with the path and query
+  parameters checked offline against the bundled specs. Operations that return
+  credentials, keys, connector configuration or raw definition exports are refused, and
+  a test fails if a spec refresh adds an unreviewed secret-like response field.
+- Expose 84 canonical / 66 read-only tools, 85 / 67 with SQL enabled.
+- Add a Claude Code marketplace in this repository (`fabric-mcp`), with SQL enabled. Claude
+  Code can load the server again without touching the shared claude.ai catalog.
+
 ## 1.11.0 - 2026-11-13
 
 - Add offline Fabric REST API docs (`fabric_docs` domain): `fabric_list_api_docs` and

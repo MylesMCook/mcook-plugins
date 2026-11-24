@@ -10,6 +10,7 @@
         "FABRIC_MCP_ENABLE_ALIASES": "false",
         "FABRIC_MCP_ENABLE_RAW_TMDL": "false",
         "FABRIC_MCP_ENABLE_POWER_PLATFORM_API": "false",
+        "FABRIC_MCP_ENABLE_SQL": "true",
         "FABRIC_MCP_TOOL_DOMAINS": "all",
         "FABRIC_MCP_DATAVERSE_WEB_API_URL": ""
       }

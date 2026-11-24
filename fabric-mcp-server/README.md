@@ -8,7 +8,7 @@ The installed Agent Plugin launches one bundled Windows executable over stdio.
 It restores no interpreter, package manager, virtual environment, or dependency
 set at startup. Azure CLI remains the explicit local authentication provider.
 
-Package 1.11.0 bundles the official v1.11.0 executable and includes its
+Package 1.12.0 bundles the official v1.12.0 executable and includes its
 [third-party license notices](THIRD-PARTY-NOTICES.md), covering Rust dependencies
 and the embedded Microsoft Fabric API documentation. Preserve those notices when
 redistributing the executable.
@@ -26,9 +26,9 @@ presentation overlay:
 - `skills/trace-power-automate-submission/`: read-only, exact-key workflow
   tracing with fail-closed results.
 
-The default package exposes all 83 canonical tools. Compatibility aliases, raw
-TMDL, the alternate Power Platform inventory API, and Dataverse metadata remain
-explicit opt-ins.
+The default package exposes 85 tools: the 84 canonical tools plus read-only SQL,
+which the package turns on. Compatibility aliases, raw TMDL, the alternate Power
+Platform inventory API, and Dataverse metadata remain explicit opt-ins.
 
 Tool results keep the stable structured envelope. Text content now contains a
 short human summary (plus actionable error guidance when needed) instead of a
@@ -139,6 +139,18 @@ codex plugin add fabric-mcp-server@mcook-plugins-local
 codex plugin list --json
 ```
 
+Claude Code installs from this repository's own marketplace, because the shared
+`mcook-plugins` Claude catalog also syncs to claude.ai, which rejects the `bin/`
+executable:
+
+```powershell
+claude plugin marketplace add MylesMCook/fabric-mcp
+claude plugin install fabric-mcp-server@fabric-mcp
+```
+
+Update with `claude plugin marketplace update fabric-mcp`, then
+`claude plugin update fabric-mcp-server@fabric-mcp`.
+
 Rollback is the same controlled path: restore the marketplace entry to the
 v1.4.1 16-file package and hashes, validate and publish that marketplace change,
 then rerun the four commands above. The restored executable must report
@@ -191,6 +203,9 @@ Microsoft 365 SharePoint URLs.
 
 - `FABRIC_MCP_READ_ONLY=true` removes every mutating tool.
 - `FABRIC_MCP_ENABLE_ALIASES=true` enables 16 short compatibility aliases.
+- `FABRIC_MCP_ENABLE_SQL=true` enables `fabric_query_sql_endpoint`, a read-only
+  SELECT against a Lakehouse SQL endpoint or Warehouse. The plugin package turns
+  it on; the bare executable leaves it off.
 - `FABRIC_MCP_ENABLE_RAW_TMDL=true` enables four raw semantic-model tools.
 - `FABRIC_MCP_ENABLE_POWER_PLATFORM_API=true` enables three optional inventory
   tools and requires `PowerAutomate.Flows.Read`.

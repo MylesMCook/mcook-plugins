@@ -2,12 +2,12 @@
   "format_version": 1,
   "source": {
     "repository": "https://github.com/MylesMCook/fabric-mcp",
-    "tag": "v1.11.0",
-    "commit": "3aab1b566986eed4e36fbcca67eab0150863a269",
+    "tag": "v1.12.0",
+    "commit": "1714fe5a3f3b61a23763a71bf27f9059552bd81b",
     "cargo_lock_git_blob": "194e34bfb9cbe9e1125e8e212f4da6d29e10c6fa"
   },
   "cargo_lock_sha256": "3d93dc8cb3e045cc092e5f7e5e0972e9aee105487b75a5a3108320fd885e8fef",
-  "coverage": "Every registry package in the v1.11.0 Cargo.lock, including build, development, and platform-specific packages. The registry package set is identical to v1.10.0, whose archives were checksum-verified when these notices were collected.",
+  "coverage": "Every registry package in the v1.12.0 Cargo.lock, including build, development, and platform-specific packages. The registry package set is identical to v1.10.0 and v1.11.0, whose archives were checksum-verified when these notices were collected.",
   "packages": [
     {
       "name": "aho-corasick",

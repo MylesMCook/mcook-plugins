@@ -86,6 +86,7 @@ Fabric:
 - `fabric_get_operation_state`
 - `fabric_list_item_schedules`
 - `fabric_get_item_schedule`
+- `fabric_api_get`
 
 Fabric API docs (offline, `fabric_docs` domain):
 
@@ -135,6 +136,10 @@ Power Automate:
 - `power_automate_resubmit_flow_run`
 
 ## Optional tools
+
+Read-only SQL (`FABRIC_MCP_ENABLE_SQL=true`, on in the plugin package):
+
+- `fabric_query_sql_endpoint`
 
 Raw TMDL (`FABRIC_MCP_ENABLE_RAW_TMDL=true`):
 
